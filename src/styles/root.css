@@ -1,0 +1,4 @@
+/* The original markup lived directly inside <body>; React mounts into #root.
+   display:contents makes #root transparent to layout, so the body's flex
+   centering applies to .wrap exactly as it did in the single-file version. */
+#root { display: contents; }

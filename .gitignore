@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+
+# editor / OS
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Claude Code local overrides (keep launch.json shareable)
+.claude/settings.local.json
