@@ -41,10 +41,11 @@ body{
   container-type:size; background:#fff; border:2px solid #c4c4c4;
 }
 
-/* HUD — the official LinkedIn logo, top-right */
-.hud{ position:absolute; inset:0; z-index:6; pointer-events:none; padding:3.2cqmin 3.6cqmin; display:flex; justify-content:flex-end; align-items:flex-start; }
-.lilogo{ display:block; }
-.hud .lilogo{ width:8.5cqmin; height:auto; }
+/* HUD — LinkedIn logo top-left, TU Dresden logo top-right.
+   tud.svg renders at its natural height; linkedin.svg is scaled to match it. */
+.hud{ position:absolute; inset:0; z-index:6; pointer-events:none; padding:3.2cqmin 3.6cqmin; display:flex; justify-content:space-between; align-items:flex-start; }
+.hud-tud{ display:block; height:46.236px; width:auto; }   /* natural size */
+.hud-li{ display:block; height:46.236px; width:auto; }    /* same height as tud */
 
 /* ===== QUESTION SCENES — a single big, centered question fills the frame ===== */
 .scene.qscene{ justify-content:center; align-items:center; text-align:center; padding:9cqmin; }
@@ -114,7 +115,7 @@ img.dot{ object-fit:cover; padding:0; }
 .hubcore{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:13cqmin; height:13cqmin; display:grid; place-items:center; text-align:center; background:#f2f2f2; }
 .hubcore .hl{ font-family:var(--display); font-weight:800; font-size:2.4cqmin; color:var(--ink); }
 .hubcore .hl u{ color:var(--accent); text-decoration:none; }
-.hubcore .lilogo{ width:7cqmin; height:auto; margin-bottom:.4cqmin; }
+.hubcore .hublogo{ width:9cqmin; height:auto; margin-bottom:.6cqmin; }
 .hubcore .hs{ font-family:var(--mono); font-size:1.15cqmin; color:var(--muted); margin-top:.4cqmin; letter-spacing:.1em; }
 .netsvg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
 .flow{ stroke-dasharray:2 7; stroke-width:2; fill:none; opacity:.65; vector-effect:non-scaling-stroke; stroke-linecap:round; transition:opacity .5s ease; }
