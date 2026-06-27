@@ -10,6 +10,10 @@
 // Official LinkedIn logo, reused in the hub of the "many sides" scene.
 const LOGO = '<svg class="lilogo" viewBox="0 0 24 24" role="img" aria-label="LinkedIn"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
 
+// Base URL for runtime asset paths (so /images/… resolve under the GitHub Pages
+// "/dps/" base as well as "/" in dev). Vite inlines import.meta.env.BASE_URL.
+const B = import.meta.env.BASE_URL;
+
 export const scenes = [
 
   /* ============ ACT 1, THE SETUP ============ */
@@ -18,7 +22,7 @@ export const scenes = [
   { no:"00", kick:"Meet Lena",
     html:`
       <div class="lena-hero">
-        <img class="lenaface r" src="/images/lena.jpg" alt="Lena Vogel">
+        <img class="lenaface r" src="${B}images/lena.jpg" alt="Lena Vogel">
         <div class="lenaname r" style="--d:.12s">Lena Vogel</div>
         <div class="lenarole r" style="--d:.18s">Product Designer · Munich</div>
         <div class="lenawhy r" style="--d:.26s">On LinkedIn to <b>connect with people.</b></div>
@@ -61,10 +65,10 @@ export const scenes = [
         <svg class="netsvg">
         </svg>
         <div class="hubcore nr" style="--d:.3s">${LOGO}<div class="hs">PRICE-SETTER</div></div>
-        <div class="node nr" style="--d:.5s; left:16%; top:24%"><img class="dot" src="/images/lena.jpg" alt=""><div class="nl">Members</div><div class="ns">free · like Lena</div></div>
-        <div class="node money nr" style="--d:.62s; left:84%; top:24%"><img class="dot" src="/images/marco.jpg" alt=""><div class="nl">Recruiters</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · like Marco</div></div>
-        <div class="node money nr" style="--d:.74s; left:86%; top:74%"><img class="dot" src="/images/sara.jpg" alt=""><div class="nl">Advertisers</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · a brand</div></div>
-        <div class="node nr" data-stroke="#7ab83b" style="--d:.86s; left:14%; top:74%"><img class="dot" src="/images/tom.jpg" alt=""><div class="nl">Developers</div><div class="ns">build on top</div></div>
+        <div class="node nr" style="--d:.5s; left:16%; top:24%"><img class="dot" src="${B}images/lena.jpg" alt=""><div class="nl">Members</div><div class="ns">free · like Lena</div></div>
+        <div class="node money nr" style="--d:.62s; left:84%; top:24%"><img class="dot" src="${B}images/marco.jpg" alt=""><div class="nl">Recruiters</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · like Marco</div></div>
+        <div class="node money nr" style="--d:.74s; left:86%; top:74%"><img class="dot" src="${B}images/sara.jpg" alt=""><div class="nl">Advertisers</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · a brand</div></div>
+        <div class="node nr" data-stroke="#7ab83b" style="--d:.86s; left:14%; top:74%"><img class="dot" src="${B}images/tom.jpg" alt=""><div class="nl">Developers</div><div class="ns">build on top</div></div>
       </div>
       <div class="src">
         <span class="cite">Rochet &amp; Tirole (2003)</span>
@@ -138,12 +142,12 @@ export const scenes = [
         </div>
         <div>
           <div class="mock">
-            <div class="mhead"><img class="mava" src="/images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter viewed your profile</div><div class="msub">Senior Recruiter · Berlin · 600 km away</div></div></div>
+            <div class="mhead"><img class="mava" src="${B}images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter viewed your profile</div><div class="msub">Senior Recruiter · Berlin · 600 km away</div></div></div>
           </div>
           <div class="mock">
             <span class="mtag">People you may know</span>
-            <div class="mline" style="border-top:none"><img class="mava" src="/images/anna.jpg" alt="Anna Keller" style="width:5cqmin;height:5cqmin"><div class="msub" style="margin:0">Anna Keller · ex-colleague · 12 mutual</div></div>
-            <div class="mline"><img class="mava" src="/images/tom.jpg" alt="Tom Brandt" style="width:5cqmin;height:5cqmin"><div class="msub" style="margin:0">Tom Brandt · former teammate · 8 mutual</div></div>
+            <div class="mline" style="border-top:none"><img class="mava" src="${B}images/anna.jpg" alt="Anna Keller" style="width:5cqmin;height:5cqmin"><div class="msub" style="margin:0">Anna Keller · ex-colleague · 12 mutual</div></div>
+            <div class="mline"><img class="mava" src="${B}images/tom.jpg" alt="Tom Brandt" style="width:5cqmin;height:5cqmin"><div class="msub" style="margin:0">Tom Brandt · former teammate · 8 mutual</div></div>
           </div>
         </div>
       </div>`,
@@ -270,7 +274,7 @@ export const scenes = [
         </div>
         <div class="mock">
           <span class="mtag" style="color:var(--gold)">Sponsored · InMail</span>
-          <div class="mhead"><img class="mava" src="/images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter</div><div class="msub">Senior Recruiter · Studio Berlin</div></div></div>
+          <div class="mhead"><img class="mava" src="${B}images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter</div><div class="msub">Senior Recruiter · Studio Berlin</div></div></div>
           <div class="mbody">"Hi Lena — we're hiring a <b>Lead Product Designer</b>, and your design-systems work is exactly it. Open to a chat?"</div>
           <div class="mnote"><span class="mdot"></span> Paid: InMail credit + a Recruiter licence (~thousands / year)</div>
         </div>
@@ -390,7 +394,7 @@ export const scenes = [
         </div>
         <div class="mock">
           <span class="mtag" style="color:var(--cyan)">Offer accepted</span>
-          <div class="mhead"><img class="mava g" src="/images/lena.jpg" alt="Lena Vogel"><div><div class="mname">Lead Product Designer</div><div class="msub">Studio Berlin · starts in 6 weeks</div></div></div>
+          <div class="mhead"><img class="mava g" src="${B}images/lena.jpg" alt="Lena Vogel"><div><div class="mname">Lead Product Designer</div><div class="msub">Studio Berlin · starts in 6 weeks</div></div></div>
           <div class="mline"><span class="mpill on">Hired via LinkedIn</span><span class="mpill gold">Ranked by the algorithm</span></div>
           <div class="mnote"><span class="mdot"></span> Lena won. So did LinkedIn — it owned every step.</div>
         </div>
