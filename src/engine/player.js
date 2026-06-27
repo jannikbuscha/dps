@@ -189,6 +189,7 @@ export function mountPlayer() {
     sceneStart = performance.now(); curEst = estimate(curText());
   }
   function runSceneFX(node, i){
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // count-up stats
     node.querySelectorAll('[data-count]').forEach(el=>{
       const target = parseFloat(el.getAttribute('data-count'));
@@ -196,6 +197,8 @@ export function mountPlayer() {
       const pre = el.getAttribute('data-prefix')||'';
       const suf = el.getAttribute('data-suffix')||'';
       const plain = el.getAttribute('data-plain');
+      // reduced motion: show the final value immediately, no rAF tick
+      if(reduceMotion){ el.textContent = pre + (plain?Math.round(target):target.toFixed(dec)) + suf; return; }
       const dur = 1100; const t0 = performance.now();
       function tick(now){
         let p = Math.min(1,(now-t0)/dur); p = 1-Math.pow(1-p,3);
@@ -340,20 +343,30 @@ export function mountPlayer() {
   }
 
   // ---- toggles ----
+  // The Voice/Captions chips are role="switch" divs: clickable AND keyboard-
+  // operable (Enter/Space), with aria-checked kept in sync with the .on class.
   const voiceTog = document.getElementById('voiceTog');
   const capTog = document.getElementById('capTog');
   const voiceIco = document.getElementById('voiceIco');
-  voiceTog.addEventListener('click', ()=>{
-    voiceOn = !voiceOn; voiceTog.classList.toggle('on', voiceOn);
+  function setSwitch(el, on){ el.classList.toggle('on', on); el.setAttribute('aria-checked', on ? 'true' : 'false'); }
+  function toggleVoice(){
+    voiceOn = !voiceOn; setSwitch(voiceTog, voiceOn);
     if(voiceIco) voiceIco.className = voiceOn ? 'ico ico-voice' : 'ico ico-voiceoff';
     if(synth){ try{ synth.cancel(); }catch(e){} }
     if(started && playing){ speakCurrent(); }
-  });
-  capTog.addEventListener('click', ()=>{
-    capsOn = !capsOn; capTog.classList.toggle('on', capsOn);
+  }
+  function toggleCaps(){
+    capsOn = !capsOn; setSwitch(capTog, capsOn);
     capWrap.classList.toggle('hide', !capsOn);
     if(capsOn) renderCaption(curText(), curText().length);
-  });
+  }
+  // make a role="switch" div behave like a button for keyboard users
+  function wireSwitch(el, handler){
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ' || e.code==='Space'){ e.preventDefault(); handler(); } });
+  }
+  wireSwitch(voiceTog, toggleVoice);
+  wireSwitch(capTog, toggleCaps);
 
   // ---- wire controls ---- (the start-screen #playBtn was removed)
   document.getElementById('playPause').addEventListener('click', togglePlay);
