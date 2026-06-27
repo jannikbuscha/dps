@@ -8,7 +8,6 @@
    exactly as before, against the markup rendered by the React components.
    ========================================================================= */
 import { scenes as baseScenes } from '../data/scenes.js';
-import { STORY } from '../data/story.js';
 import { STEPS_BY_NO } from '../data/steps.js';
 import { WPM, PAD } from '../data/config.js';
 
@@ -20,13 +19,12 @@ export function mountPlayer() {
   mounted = true;
   const cleanups = [];
 
-  // ---- compose the running scene list: splice the Lena chapters in ----
+  // ---- the running scene list (analytical scenes + inlined Lena chapters) ----
+  // Scenes already live in playback order in ../data/scenes.js; the Lena
+  // chapters (story:true) are inlined there at their narrative positions, so no
+  // runtime splicing is needed. Clone each so per-run mutation (s.est, s.steps)
+  // never leaks back into the imported module.
   const scenes = baseScenes.map(s => ({ ...s }));
-  STORY.slice().reverse().forEach(st => {
-    const at = scenes.findIndex(s => s.no === st.after);
-    if (at >= 0) { const { after, ...sc } = st; scenes.splice(at + 1, 0, sc); }
-  });
-  const analyticalCount = scenes.filter(s => !s.story).length;
 
   // ---- shell elements rendered by React ----
   const stage = document.getElementById('stage');
