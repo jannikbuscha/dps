@@ -49,8 +49,9 @@ src/
     player.js              ★ The playback engine (ported + wrapped)
     ambient.js             The background canvas animation
   data/                   ← edit these to change the video's content
-    scenes.js                The 14 analytical scenes (scene 01 = visual intro)
-    story.js                 The 3 "Lena" interludes + where they splice in
+    scenes.js                All 17 scenes in playback order: the 14 analytical
+                             scenes (scene 01 = visual intro) plus the 3 inlined
+                             "Lena" interludes (story:true)
     steps.js                 Per-point reveal steps & narration (scenes 03–14)
     config.js                Narration pace (WPM) and inter-point padding
   styles/
@@ -67,7 +68,7 @@ original/linkedin.html    The original single-file build, for reference
 ```
 
 ★ `engine/player.js` is the original engine, lightly adapted: the
-scene/story/step/timing **data moved into `src/data/`**, it is wrapped in
+scene/step/timing **data moved into `src/data/`**, it is wrapped in
 `mountPlayer()` (run once, with a teardown), and the start screen + segmented
 scrubber were removed. The playback logic — speech, word-synced captions, the
 progress clock, count-up stats, bar/meter fills, the network connectors
@@ -88,8 +89,10 @@ Almost everything you'd want to change lives in `src/data/`:
   investigation line, or `null` to hide it), `html` (the scene markup as a
   template string), and `narration` (what the voice reads / the fallback
   caption). Edit the `html` and `narration` and the change shows on save.
-- **The "Lena" interludes** → `src/data/story.js`. Each entry has an `after`
-  field naming the scene number it is inserted after (`"02"`, `"05"`, …).
+- **The "Lena" interludes** also live in `src/data/scenes.js`, inlined at their
+  playback positions (after scenes 05, 09 and 13). They are marked `story:true`
+  with `no:"✦"` and carry their own `steps`; move one by relocating its object
+  within the array.
 - **The synced "points"** within a scene → `src/data/steps.js`. Each point is
   `{ sel, say }`: `sel` is a CSS selector inside the scene (`'.stat@2'` means
   "the 3rd `.stat`"), `say` is the narration spoken while that point is
