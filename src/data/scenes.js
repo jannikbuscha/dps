@@ -146,7 +146,7 @@ export const scenes = [
       <div class="beat gold r" style="--d:.05s">The machine · 4 of 6</div>
       <h2 class="h r" style="--d:.15s">The <span class="blue">value unit</span> you create for free</h2>
       <p class="lead big r" style="--d:.16s">Every platform spins around a <b>core interaction</b>: a tiny <b>value unit</b> changes hands. On LinkedIn, <b>members make every one of them, for free.</b></p>
-      <div class="seclbl r" style="--d:.26s"><span class="num">1</span> <b>Members create the value units</b>, at no cost</div>
+      <div class="seclbl r" style="--d:.26s"><span class="num">1</span> <b>Members create the value units</b><span class="sub">at no cost</span></div>
       <div class="vstack r" style="--d:.34s">
         <div class="vcard"><div class="vt">The Profile</div><div class="vd">your identity</div></div>
         <div class="vcard"><div class="vt">The Connection</div><div class="vd">a graph edge</div></div>
@@ -397,7 +397,7 @@ export const scenes = [
     html:`
       <h2 class="h r">Sources <span class="blue">&amp;</span> references</h2>
       <div class="refgrid r" style="--d:.2s">
-        <div class="refcol">
+        <div class="refcol cols">
           <h4>Theory &amp; frameworks</h4>
           <ol>
             <li><b>Rochet, J.-C. &amp; Tirole, J.</b> (2003). Platform competition in two-sided markets. <i>J. of the European Economic Association</i>, 1(4).</li>

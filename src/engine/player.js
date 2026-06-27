@@ -39,12 +39,9 @@ export function mountPlayer() {
     d.className = 'scene' + (s.refscene?' refscene':'') + (s.story?' storyscene':'');
     d.innerHTML = s.html;
     stage.appendChild(d);
-    // The scene-overview scrubber was removed; seg/fill are kept (detached)
-    // only so the existing progress bookkeeping in loop()/showScene() works.
-    const seg = document.createElement('div'); seg.className='seg'; seg.innerHTML='<i></i>';
     const words = s.narration.trim().split(/\s+/).length;
     s.est = (words / WPM) * 60000 + PAD;
-    return {d, seg, fill:seg.firstElementChild};
+    return {d};
   });
   const totalMs = scenes.reduce((a,s)=>a+s.est,0);
   const weights = scenes.map(s=>s.est/totalMs);
@@ -184,7 +181,6 @@ export function mountPlayer() {
     els.forEach((e,j)=> e.d.classList.toggle('active', j===i));
     idx = i; step = 0;
     updateThread(i);
-    els.forEach((e,j)=>{ e.seg.classList.toggle('done', j<i); if(j>i){ e.fill.style.width='0'; } });
     runSceneFX(els[i].d, i);
     // make each point clickable
     const l = sceneStepEls(i) || [];
@@ -193,6 +189,7 @@ export function mountPlayer() {
     sceneStart = performance.now(); curEst = estimate(curText());
   }
   function runSceneFX(node, i){
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // count-up stats
     node.querySelectorAll('[data-count]').forEach(el=>{
       const target = parseFloat(el.getAttribute('data-count'));
@@ -200,6 +197,8 @@ export function mountPlayer() {
       const pre = el.getAttribute('data-prefix')||'';
       const suf = el.getAttribute('data-suffix')||'';
       const plain = el.getAttribute('data-plain');
+      // reduced motion: show the final value immediately, no rAF tick
+      if(reduceMotion){ el.textContent = pre + (plain?Math.round(target):target.toFixed(dec)) + suf; return; }
       const dur = 1100; const t0 = performance.now();
       function tick(now){
         let p = Math.min(1,(now-t0)/dur); p = 1-Math.pow(1-p,3);
@@ -277,14 +276,12 @@ export function mountPlayer() {
   const onResize = ()=>{ clearTimeout(__netRedraw); __netRedraw = setTimeout(()=> drawNet((els[idx]&&els[idx].d) || document), 120); };
   window.addEventListener('resize', onResize); cleanups.push(()=>window.removeEventListener('resize', onResize));
 
-  // ---- progress clock ----
+  // ---- progress clock (drives the elapsed-time readout) ----
   function loop(){
     if(playing){
-      const e = els[idx];
       const n = stepCount();
       const local = Math.min(1, (performance.now()-sceneStart)/(curEst||scenes[idx].est));
       const frac = Math.min(1, (step+local)/n);
-      e.fill.style.width = (frac*100)+'%';
       const elapsed = weights.slice(0,idx).reduce((a,w)=>a+w,0)*totalMs + frac*weights[idx]*totalMs;
       document.getElementById('elapsed').textContent = fmt(elapsed);
     }
@@ -312,7 +309,6 @@ export function mountPlayer() {
     if(step < stepCount()-1){ gotoStep(step+1); return; }
     if(idx < scenes.length-1){ jump(idx+1); }
     else {
-      els[idx].fill.style.width='100%';
       playing=false; setPP(false); clearTimers();
       if(synth){ try{ synth.cancel(); }catch(e){} }
     }
@@ -342,26 +338,35 @@ export function mountPlayer() {
   function restart(){
     if(synth){ try{ synth.cancel(); }catch(e){} }
     clearTimers(); started=false; playing=false; setPP(false);
-    els.forEach(e=>{ e.seg.classList.remove('done'); e.fill.style.width='0'; });
     document.getElementById('elapsed').textContent='0:00';
     showScene(0);
   }
 
   // ---- toggles ----
+  // The Voice/Captions chips are role="switch" divs: clickable AND keyboard-
+  // operable (Enter/Space), with aria-checked kept in sync with the .on class.
   const voiceTog = document.getElementById('voiceTog');
   const capTog = document.getElementById('capTog');
   const voiceIco = document.getElementById('voiceIco');
-  voiceTog.addEventListener('click', ()=>{
-    voiceOn = !voiceOn; voiceTog.classList.toggle('on', voiceOn);
+  function setSwitch(el, on){ el.classList.toggle('on', on); el.setAttribute('aria-checked', on ? 'true' : 'false'); }
+  function toggleVoice(){
+    voiceOn = !voiceOn; setSwitch(voiceTog, voiceOn);
     if(voiceIco) voiceIco.className = voiceOn ? 'ico ico-voice' : 'ico ico-voiceoff';
     if(synth){ try{ synth.cancel(); }catch(e){} }
     if(started && playing){ speakCurrent(); }
-  });
-  capTog.addEventListener('click', ()=>{
-    capsOn = !capsOn; capTog.classList.toggle('on', capsOn);
+  }
+  function toggleCaps(){
+    capsOn = !capsOn; setSwitch(capTog, capsOn);
     capWrap.classList.toggle('hide', !capsOn);
     if(capsOn) renderCaption(curText(), curText().length);
-  });
+  }
+  // make a role="switch" div behave like a button for keyboard users
+  function wireSwitch(el, handler){
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ' || e.code==='Space'){ e.preventDefault(); handler(); } });
+  }
+  wireSwitch(voiceTog, toggleVoice);
+  wireSwitch(capTog, toggleCaps);
 
   // ---- wire controls ---- (the start-screen #playBtn was removed)
   document.getElementById('playPause').addEventListener('click', togglePlay);

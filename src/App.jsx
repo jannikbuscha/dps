@@ -1,4 +1,3 @@
-import AmbientCanvas from './components/AmbientCanvas.jsx';
 import Frame from './components/Frame.jsx';
 import Caption from './components/Caption.jsx';
 import Controls from './components/Controls.jsx';
@@ -13,13 +12,10 @@ import { usePlayer } from './hooks/usePlayer.js';
 export default function App() {
   usePlayer();
   return (
-    <>
-      <AmbientCanvas />
-      <div className="wrap">
-        <Frame />
-        <Caption />
-        <Controls />
-      </div>
-    </>
+    <div className="wrap">
+      <Frame />
+      <Caption />
+      <Controls />
+    </div>
   );
 }
