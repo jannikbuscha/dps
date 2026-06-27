@@ -1,56 +1,53 @@
-// The full scene list, in playback order — built to play as a VIDEO, not a deck.
+// The full scene list, in playback order — built to play as a VIDEO.
 //
-// Rhythm: a big, centered QUESTION scene (q:true) poses each beat, then a
-// sparse content scene answers it with a large visual + minimal on-screen text
-// (the prose lives in the voiceover / `narration`, not on screen). The source
-// rail (.src) stays on screen the whole time. The recurring "Lena" chapters
-// (story:true, no:"✦") are interleaved. There is no references scene — the full
-// source list is provided separately; the video just closes with a thank-you.
+// Rhythm: it opens on Lena (who she is, why she's on LinkedIn), then a big
+// centered QUESTION poses each beat and a sparse content scene answers it with
+// a large visual + minimal on-screen text (the prose lives in the voiceover).
+// The source rail (.src) stays on screen the whole time. The recurring "Lena"
+// chapters (story:true) are interleaved. There is no references scene — the
+// full source list is provided separately; the video closes with a thank-you.
+
+// Official LinkedIn logo, reused in the hub of the "many sides" scene.
+const LOGO = '<svg class="lilogo" viewBox="0 0 24 24" role="img" aria-label="LinkedIn"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+
 export const scenes = [
 
   /* ============ ACT 1, THE SETUP ============ */
 
+  /* 0 - MEET LENA: who she is + why she's on LinkedIn (centered hero) */
+  { no:"00", kick:"Meet Lena",
+    html:`
+      <div class="lena-hero">
+        <img class="lenaface r" src="/images/lena.jpg" alt="Lena Vogel">
+        <div class="lenaname r" style="--d:.12s">Lena Vogel</div>
+        <div class="lenarole r" style="--d:.18s">Product Designer · Munich</div>
+        <div class="lenawhy r" style="--d:.26s">On LinkedIn to <b>connect with people.</b></div>
+        <div class="taglist r" style="--d:.34s">
+          <span class="mpill on"><i class="ico ico-check" aria-hidden="true"></i> Happily employed</span>
+          <span class="mpill off"><i class="ico ico-x" aria-hidden="true"></i> Not looking</span>
+        </div>
+      </div>`,
+    narration:"Meet Lena, a product designer in Munich. She's on LinkedIn for one simple reason: to connect with people, to keep up with colleagues and stay part of her professional network. Happily employed, and not looking for a job, she tidies up her profile one evening, a sharper headline, a project or two, and thinks nothing of it." },
+
   { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So, what exactly is <span class="blue">LinkedIn</span>?</div>`,
+    html:`<div class="bigq r">So, what <em>exactly</em> is <span class="blue">LinkedIn</span>?</div>`,
     narration:"So, what exactly is LinkedIn?" },
 
-  /* 1 - INTRO: meet Lena + what LinkedIn is, at a glance (visual, scale stats) */
-  {
-    no:"01", kick:"The hook",
-    steps:[
-      {sel:'.introlena', say:"Meet Lena, a product designer in Munich. Happily employed, and not looking for a job. One evening she tidies up her LinkedIn profile: a sharper headline, a project or two, and thinks nothing of it."},
-      {sel:'.bridge', say:"That tiny, ordinary act just placed her among more than a billion people on the same platform. To see why that matters, we first have to understand it."},
-      {sel:'.enterblock', say:"This is LinkedIn: the world's largest professional network. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003."}
-    ],
+  /* ENTER LINKEDIN: the scale answer (stats) */
+  { no:"enter", kick:"The hook",
     html:`
-      <div class="introlena">
-        <img class="mava g introface" src="/images/lena.jpg" alt="Lena Vogel">
-        <div class="introtags">
-          <div class="introname">Lena Vogel</div>
-          <div class="taglist">
-            <span class="mpill"><i class="ico ico-work" aria-hidden="true"></i> Product Designer</span>
-            <span class="mpill"><i class="ico ico-pin" aria-hidden="true"></i> Munich</span>
-            <span class="mpill on"><i class="ico ico-check" aria-hidden="true"></i> Happily employed</span>
-            <span class="mpill off"><i class="ico ico-x" aria-hidden="true"></i> Not looking</span>
-          </div>
-        </div>
-      </div>
-      <div class="bridge"><b>One ordinary profile edit.</b> One of a billion-plus.</div>
-      <div class="enterblock">
-        <h2 class="h">Enter <span class="blue">LinkedIn</span>.</h2>
-        <div class="stats intro-stats">
-          <div class="stat pop"><div class="v" data-count="1.3" data-suffix="B" data-dec="1">0</div><div class="k">members worldwide</div></div>
-          <div class="stat pop"><div class="v c" data-count="200" data-suffix="+">0</div><div class="k">countries &amp; territories</div></div>
-          <div class="stat pop"><div class="v g" data-count="17.8" data-prefix="$" data-suffix="B" data-dec="1">0</div><div class="k">revenue, FY2025</div></div>
-          <div class="stat pop"><div class="v i" data-count="2003" data-plain="1">0</div><div class="k">launched · 22+ yrs ago</div></div>
-        </div>
+      <h2 class="h r">Enter <span class="blue">LinkedIn</span>.</h2>
+      <div class="stats intro-stats r" style="--d:.2s">
+        <div class="stat pop"><div class="v" data-count="1.3" data-suffix="B" data-dec="1">0</div><div class="k">members worldwide</div></div>
+        <div class="stat pop"><div class="v c" data-count="200" data-suffix="+">0</div><div class="k">countries &amp; territories</div></div>
+        <div class="stat pop"><div class="v g" data-count="17.8" data-prefix="$" data-suffix="B" data-dec="1">0</div><div class="k">revenue, FY2025</div></div>
+        <div class="stat pop"><div class="v i" data-count="2003" data-plain="1">0</div><div class="k">launched · 22+ yrs ago</div></div>
       </div>
       <div class="src">
         <span class="cite">DataReportal (2026)</span>
         <span class="cite">Microsoft 10-K, FY2025</span>
       </div>`,
-    narration:"Meet Lena, a product designer in Munich. Happily employed, and not looking for a job. One evening she tidies up her LinkedIn profile: a sharper headline, a project or two, and thinks nothing of it. That tiny, ordinary act just placed her among more than a billion people on the same platform. To see why that matters, we first have to understand it. This is LinkedIn: the world's largest professional network. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003."
-  },
+    narration:"That tiny, ordinary act just placed her among more than a billion people on the same platform. This is LinkedIn: the world's largest professional network. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003." },
 
   { no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">How does one platform serve <em>so many sides</em>?</div>`,
@@ -59,12 +56,11 @@ export const scenes = [
   /* 3, MULTI-SIDED MARKET */
   {
     no:"03", kick:"Multi-sided market", html:`
-      <div class="beat r" style="--d:.05s">How it's wired · 1 of 6</div>
-      <h2 class="h r" style="--d:.15s">One platform, <em>many sides</em></h2>
+      <h2 class="h r" style="--d:.1s">One platform, <em>many sides</em></h2>
       <div class="net">
         <svg class="netsvg">
         </svg>
-        <div class="hubcore nr" style="--d:.3s"><div class="hl">Linked<u>In</u></div><div class="hs">PRICE-SETTER</div></div>
+        <div class="hubcore nr" style="--d:.3s">${LOGO}<div class="hs">PRICE-SETTER</div></div>
         <div class="node nr" style="--d:.5s; left:16%; top:24%"><img class="dot" src="/images/lena.jpg" alt=""><div class="nl">Members</div><div class="ns">free · like Lena</div></div>
         <div class="node money nr" style="--d:.62s; left:84%; top:24%"><img class="dot" src="/images/marco.jpg" alt=""><div class="nl">Recruiters</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · like Marco</div></div>
         <div class="node money nr" style="--d:.74s; left:86%; top:74%"><img class="dot" src="/images/sara.jpg" alt=""><div class="nl">Advertisers</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · a brand</div></div>
@@ -86,8 +82,7 @@ export const scenes = [
   /* 4, NETWORK EFFECTS engine */
   {
     no:"04", kick:"Network effects", html:`
-      <div class="beat gold r" style="--d:.05s">Act 2 · The machine · 2 of 6</div>
-      <h2 class="h r" style="--d:.15s">The engine: <span class="blue">network effects</span></h2>
+      <h2 class="h r" style="--d:.1s">The engine: <span class="blue">network effects</span></h2>
       <div class="panes">
         <div class="pane r" style="--d:.24s"><h4>Direct</h4><p><b>member <i class="ico ico-swap" aria-hidden="true"></i> member</b> · every join makes it more useful</p></div>
         <div class="pane gold r" style="--d:.36s"><h4>Cross-side</h4><p><b>members <i class="ico ico-swap" aria-hidden="true"></i> recruiters</b> · each side pulls the other</p></div>
@@ -107,8 +102,7 @@ export const scenes = [
   /* 5, INTERMEDIARY + SCALE */
   {
     no:"05", kick:"Frictionless scale", html:`
-      <div class="beat gold r" style="--d:.05s">The machine · 3 of 6</div>
-      <h2 class="h r" style="--d:.15s">Matchmaker at <em>near-zero cost</em></h2>
+      <h2 class="h r" style="--d:.1s">Matchmaker at <em>near-zero cost</em></h2>
       <div class="panes">
         <div class="pane r" style="--d:.22s"><h4>The matchmaker</h4>
           <p>it collapses <b>search costs</b> in the job market</p>
@@ -129,14 +123,13 @@ export const scenes = [
   },
 
   /* ✦ LENA · CHAPTER 1 — the match finds her (after scene 05) */
-  { no:"✦", kick:"Lena · Chapter 1", story:true,
+  { no:"✦", kick:"Lena · the match finds her", story:true,
     steps:[
       {sel:'.story-copy', say:"A few weeks drift by, and Lena still isn't job hunting. But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is."},
       {sel:'.mock@0', say:"The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around."},
       {sel:'.mock@1', say:"And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold."}
     ],
     html:`
-      <div class="chap r" style="--d:.05s"><img class="lv" src="/images/lena.jpg" alt="Lena"> Lena · Chapter 1 · The match finds her</div>
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">The opportunity<br><em>finds her.</em></h2>
@@ -160,29 +153,37 @@ export const scenes = [
     html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>`,
     narration:"What exactly are people exchanging?" },
 
-  /* 6, VALUE UNIT / core interaction */
+  /* 6, VALUE UNIT / core interaction — section 2 revealed later (steps) */
   {
-    no:"06", kick:"The value unit", html:`
-      <div class="beat gold r" style="--d:.05s">The machine · 4 of 6</div>
-      <h2 class="h r" style="--d:.15s">The <span class="blue">value unit</span> you create for free</h2>
-      <div class="seclbl r" style="--d:.26s"><span class="num">1</span> <b>Members create the value units</b><span class="sub">at no cost</span></div>
-      <div class="vstack r" style="--d:.34s">
-        <div class="vcard"><div class="vt">The Profile</div><div class="vd">your identity</div></div>
-        <div class="vcard"><div class="vt">The Connection</div><div class="vd">a graph edge</div></div>
-        <div class="vcard"><div class="vt">The Job Post</div><div class="vd">demand</div></div>
-        <div class="vcard"><div class="vt">The Update</div><div class="vd">attention</div></div>
+    no:"06", kick:"The value unit",
+    steps:[
+      {sel:'.vblock@0', say:"What actually changes hands? Members create the value units, the profile, the connection, the job post, the update, and they make every one of them for free."},
+      {sel:'.vblock@1', say:"Then the platform runs the core interaction: it pulls people in with the free network, equips them with tools and the algorithm, and matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."}
+    ],
+    html:`
+      <h2 class="h r" style="--d:.1s">The <span class="blue">value unit</span> you create for free</h2>
+      <div class="vblock">
+        <div class="seclbl"><span class="num">1</span> <b>Members create the value units</b><span class="sub">at no cost</span></div>
+        <div class="vstack">
+          <div class="vcard"><div class="vt">The Profile</div><div class="vd">your identity</div></div>
+          <div class="vcard"><div class="vt">The Connection</div><div class="vd">a graph edge</div></div>
+          <div class="vcard"><div class="vt">The Job Post</div><div class="vd">demand</div></div>
+          <div class="vcard"><div class="vt">The Update</div><div class="vd">attention</div></div>
+        </div>
       </div>
-      <div class="seclbl g r" style="--d:.5s"><span class="num">2</span> <b>The platform runs the core interaction</b></div>
-      <div class="pfm r" style="--d:.58s">
-        <div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div>
-        <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
-        <div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div>
-        <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
-        <div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div>
+      <div class="vblock">
+        <div class="seclbl g"><span class="num">2</span> <b>The platform runs the core interaction</b></div>
+        <div class="pfm">
+          <div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div>
+          <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
+          <div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div>
+          <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
+          <div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div>
+        </div>
       </div>
       <div class="src">
         <span class="cite g">Parker, Van Alstyne &amp; Choudary, "Platform Revolution" (2016)</span>
-      </div>`, narration:"What changed hands was tiny, and that's the point. Parker, Van Alstyne and Choudary say every platform spins around a core interaction and a value unit: the smallest nugget of value exchanged. On LinkedIn those are the profile, the connection, the job post, the update. And members create every one, for free. The platform hands you the tools and the algorithm, then matches you. You write the posts; the algorithm finds the audience; that attention is sold to advertisers. The value you make becomes the inventory LinkedIn rents out. Which means this story is bigger than one company."
+      </div>`, narration:"What actually changes hands? Members create the value units, the profile, the connection, the job post, the update, and they make every one of them for free. Then the platform runs the core interaction: it pulls people in with the free network, equips them with tools and the algorithm, and matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."
   },
 
   { no:"Q", q:true, kick:"Question",
@@ -192,8 +193,7 @@ export const scenes = [
   /* 7, ECOSYSTEM */
   {
     no:"07", kick:"The ecosystem", html:`
-      <div class="beat gold r" style="--d:.05s">The machine · 5 of 6</div>
-      <h2 class="h r" style="--d:.15s">An <em>ecosystem</em>, not one company</h2>
+      <h2 class="h r" style="--d:.1s">An <em>ecosystem</em>, not one company</h2>
       <div class="net" style="height:44cqmin">
         <svg class="netsvg">
         </svg>
@@ -218,8 +218,7 @@ export const scenes = [
   /* 8, GROWTH / chicken-and-egg */
   {
     no:"08", kick:"The cold start", html:`
-      <div class="beat gold r" style="--d:.05s">The machine · 6 of 6</div>
-      <h2 class="h r" style="--d:.15s">Beating the <span class="blue">chicken-and-egg</span></h2>
+      <h2 class="h r" style="--d:.1s">Beating the <span class="blue">chicken-and-egg</span></h2>
       <div class="tl">
         <div class="axis"></div>
         <div class="mile r" style="--d:.3s; left:9%"><div class="mlabel"><div class="yr">2003</div><div class="md">Launch · seed the address book</div></div><div class="pin"></div></div>
@@ -240,35 +239,29 @@ export const scenes = [
     html:`<div class="bigq r">Where does the <em>money</em> come from?</div>`,
     narration:"Where does the money actually come from?" },
 
-  /* 9, BUSINESS MODEL */
+  /* 9, BUSINESS MODEL — one bold proportional split bar */
   {
     no:"09", kick:"The money", html:`
-      <div class="beat cyan r" style="--d:.05s">Follow the money</div>
-      <h2 class="h r" style="--d:.15s">Three revenue <em>engines</em></h2>
-      <div class="bars r" style="--d:.22s">
-        <div class="barrow"><div class="bl">Talent Solutions<small>recruiting · the giant</small></div><div class="track"><div class="fill" style="background:#639a00" data-w="62"></div></div></div>
-        <div class="barrow"><div class="bl">Marketing Solutions<small>ad auction</small></div><div class="track"><div class="fill" style="background:#ca7406" data-w="24"></div></div></div>
-        <div class="barrow"><div class="bl">Premium + Learning<small>subscriptions</small></div><div class="track"><div class="fill" style="background:#7ab83b" data-w="14"></div></div></div>
+      <h2 class="h r" style="--d:.1s">Three revenue <em>engines</em></h2>
+      <div class="splitbar r" style="--d:.24s">
+        <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">recruiting · the giant</div></div>
+        <div class="sb-seg" style="flex:24; --c:#ca7406"><div class="sbv">24%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
+        <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">+ Learning</div></div>
       </div>
-      <div class="bmc r" style="--d:.5s">
-        <div class="bcell"><h5>Key resource</h5><ul><li>The professional graph</li><li>Member data + algorithm</li></ul></div>
-        <div class="bcell"><h5>Who pays</h5><ul><li>Recruiters &amp; firms</li><li>Advertisers</li><li>Premium users</li></ul></div>
-        <div class="bcell"><h5>Who's subsidised</h5><ul><li>Everyday members</li><li>(you, scrolling free)</li></ul></div>
-      </div>
+      <div class="takeaway r" style="--d:.5s">Pamper the members · <b>bill the money side.</b></div>
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft / TechCrunch (2016) · FY25</span>
-      </div>`, narration:"Follow the money, and three engines roar into view. The biggest by far is Talent Solutions, the recruiting tools, which alone drove around two-thirds of revenue back in 2015. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator, Learning. Underneath all three sits the same crown jewel, the professional graph and its data. Classic multi-sided pricing: pamper the members, bill the money side. And that money side is, right now, about to land in Lena's inbox."
+      </div>`, narration:"Follow the money, and three engines roar into view. The biggest by far is Talent Solutions, the recruiting tools, around two-thirds of revenue. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator, Learning. Same multi-sided trick underneath: pamper the members, bill the money side. And that money side is, right now, about to land in Lena's inbox."
   },
 
   /* ✦ LENA · CHAPTER 2 — someone pays to reach her (after scene 09) */
-  { no:"✦", kick:"Lena · Chapter 2", story:true,
+  { no:"✦", kick:"Lena · someone pays to reach her", story:true,
     steps:[
       {sel:'.story-copy', say:"Here's how it reaches her. A message appears in Lena's inbox. It looks like any other note, but it isn't. Marco couldn't just message her; they aren't connected."},
       {sel:'.mock@0', say:"So his company paid LinkedIn for the privilege: a paid InMail, on top of a Recruiter licence that runs into thousands a year. Lena reads it for free, never seeing the price tag. That's the business model, made personal."}
     ],
     html:`
-      <div class="chap r" style="--d:.05s"><img class="lv" src="/images/lena.jpg" alt="Lena"> Lena · Chapter 2 · Someone pays to reach her</div>
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">Someone <em>pays</em><br>to reach her.</h2>
@@ -293,8 +286,7 @@ export const scenes = [
   /* 10, WINNER TAKE ALL? */
   {
     no:"10", kick:"The crack", html:`
-      <div class="beat rose r" style="--d:.05s">Act 3 · The crack</div>
-      <h2 class="h r" style="--d:.12s">Unbeatable? <em>Not quite.</em></h2>
+      <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
       <div class="checks">
         <div class="chk r" style="--d:.3s"><div class="badge y"><i class="ico ico-check" aria-hidden="true"></i></div><div class="grow"><div class="ct">Strong network effects</div><div class="cd">deep cross-side &amp; data effects</div></div><div class="verdict">TIPS <i class="ico ico-arrow" aria-hidden="true"></i></div></div>
         <div class="chk r" style="--d:.42s"><div class="badge n"><i class="ico ico-x" aria-hidden="true"></i></div><div class="grow"><div class="ct">Costly to use rivals too</div><div class="cd">no — switching is cheap</div></div><div class="verdict">RESISTS</div></div>
@@ -320,21 +312,18 @@ export const scenes = [
   /* 11, GOVERNANCE */
   {
     no:"11", kick:"Control is the moat", html:`
-      <div class="beat rose r" style="--d:.05s">The defence</div>
-      <h2 class="h r" style="--d:.12s">Built for <em>control</em>, not openness</h2>
+      <h2 class="h r" style="--d:.1s">Built for <em>control</em>, not openness</h2>
       <div class="dials">
         <div class="dial r" style="--d:.28s"><div class="dt"><b>Feed algorithm</b><span>opaque</span></div><div class="meter"><i data-w="92"></i></div></div>
         <div class="dial r" style="--d:.36s"><div class="dt"><b>Terms &amp; moderation</b><span>strict</span></div><div class="meter"><i data-w="84"></i></div></div>
         <div class="dial r" style="--d:.44s"><div class="dt"><b>Identity</b><span>real names</span></div><div class="meter"><i data-w="70"></i></div></div>
         <div class="dial r" style="--d:.52s"><div class="dt"><b>Anti-scraping</b><span>hiQ Labs</span></div><div class="meter"><i data-w="88"></i></div></div>
       </div>
-      <div class="slider r" style="--d:.64s">
-        <div class="slidertrack"><span class="end">OPEN / GENERATIVE</span><div class="knob"></div><span class="end">CLOSED / CONTROLLED</span></div>
-      </div>
+      <div class="casenote r" style="--d:.64s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup scraped public profiles to resell; LinkedIn cut off its access and won on breach of contract — hiQ shut down. The data stays LinkedIn's.</div>
       <div class="src">
         <span class="cite">Tiwana, Konsynski &amp; Bush (2010)</span>
         <span class="cite g">Boudreau (2010)</span>
-      </div>`, narration:"Not by throwing the doors open, but by locking them. Tiwana frames governance as two questions: who decides, and how open is the platform? On both, LinkedIn leans hard toward control. It rules the feed algorithm, enforces strict terms, demands real identities, and fights scraping hard, the hiQ Labs case being the clearest example, where LinkedIn won on breach of contract and hiQ shut down. Boudreau names the trade-off: openness sparks innovation, but surrendering control risks the platform's integrity. LinkedIn picks control and trust every time. And you see that same instinct in how it treats outside developers."
+      </div>`, narration:"Not by throwing the doors open, but by locking them. Tiwana frames governance as two questions: who decides, and how open is the platform? On both, LinkedIn leans hard toward control. It rules the feed algorithm, enforces strict terms, and demands real identities. And it fights scraping hard. In the landmark hiQ Labs case, a startup harvested public LinkedIn profiles to resell as analytics; LinkedIn blocked it, and after years in court LinkedIn prevailed on breach of contract, and hiQ shut down. Boudreau names the trade-off: openness sparks innovation, but surrendering control risks the platform's integrity. LinkedIn picks control and trust every time. And you see that same instinct in how it treats outside developers."
   },
 
   { no:"Q", q:true, kick:"Question",
@@ -344,8 +333,7 @@ export const scenes = [
   /* 12, BOUNDARY RESOURCES */
   {
     no:"12", kick:"The gated doors", html:`
-      <div class="beat rose r" style="--d:.05s">The gated doors</div>
-      <h2 class="h r" style="--d:.12s"><span class="blue">APIs</span>: open a crack, no more</h2>
+      <h2 class="h r" style="--d:.1s"><span class="blue">APIs</span>: open a crack, no more</h2>
       <div class="pyr">
         <div class="tier t1 r" style="--d:.3s"><div class="tn">Open · any developer</div><div class="ti">Sign-In with LinkedIn · Share API</div></div>
         <div class="tier t2 r" style="--d:.45s"><div class="tn">Partner · apply + review</div><div class="ti">Marketing API · Jobs / ATS</div></div>
@@ -366,8 +354,7 @@ export const scenes = [
   /* 13, THE ETHICAL COST */
   {
     no:"13", kick:"The cost", html:`
-      <div class="beat rose r" style="--d:.05s">The cost</div>
-      <h2 class="h r" style="--d:.12s">It <span class="rosed">rewired</span> work</h2>
+      <h2 class="h r" style="--d:.1s">It <span class="rosed">rewired</span> work</h2>
       <div class="ba">
         <div class="bacol old r" style="--d:.22s"><h4>Before</h4>
           <div class="li">Post a job &amp; wait</div>
@@ -389,13 +376,12 @@ export const scenes = [
   },
 
   /* ✦ LENA · CHAPTER 3 — she got the job (after scene 13) */
-  { no:"✦", kick:"Lena · Chapter 3", story:true,
+  { no:"✦", kick:"Lena · she got the job", story:true,
     steps:[
       {sel:'.story-copy', say:"And, good news, it works out. Six weeks later, Lena signs: Lead Product Designer, a real step up, a genuinely happy ending. But replay how it happened. She never applied."},
       {sel:'.mock@0', say:"An algorithm decided she was worth surfacing; a paying recruiter decided she was worth reaching; and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. Convenience for her, quiet power for the platform. So, time for the final verdict."}
     ],
     html:`
-      <div class="chap r" style="--d:.05s"><img class="lv" src="/images/lena.jpg" alt="Lena"> Lena · Chapter 3 · She got the job</div>
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">Lena got<br>the <span class="blue">job.</span></h2>
@@ -418,8 +404,7 @@ export const scenes = [
   /* 14, VERDICT */
   {
     no:"14", kick:"The verdict", html:`
-      <div class="beat r" style="--d:.05s">The verdict</div>
-      <h2 class="h r" style="--d:.12s">Against the <em>frameworks</em></h2>
+      <h2 class="h r" style="--d:.1s">Against the <em>frameworks</em></h2>
       <div class="score">
         <div class="scorerow r" style="--d:.26s"><div class="sk">Network effects</div><div class="sv good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
         <div class="scorerow r" style="--d:.36s"><div class="sk">Asset-light scale</div><div class="sv good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
