@@ -45,7 +45,7 @@ body{
    tud.svg renders at its natural height; linkedin.svg is scaled to match it. */
 .hud{ position:absolute; inset:0; z-index:6; pointer-events:none; padding:3.2cqmin 3.6cqmin; display:flex; justify-content:space-between; align-items:flex-start; }
 .hud-tud{ display:block; height:46.236px; width:auto; }   /* natural size */
-.hud-li{ display:block; height:46.236px; width:auto; }    /* same height as tud */
+.hud-li{ display:block; height:39.84px; width:auto; }     /* scaled height */
 
 /* ===== QUESTION SCENES — a single big, centered question fills the frame ===== */
 .scene.qscene{ justify-content:center; align-items:center; text-align:center; padding:9cqmin; }
