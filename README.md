@@ -39,18 +39,17 @@ src/
   hooks/
     usePlayer.js           Boots the engine after React mounts the shell
   components/              The static shell (render-once, no state)
-    Frame.jsx                The "video" frame + overlays (Hud, Thread)
+    Frame.jsx                The "video" frame + the Hud brand mark
     Hud.jsx                  The LinkedIn brand mark (top-right only)
-    Thread.jsx               The per-scene question, shown as a title
     Caption.jsx              Subtitle band — rendered BELOW the frame (in App)
     Controls.jsx             prev/play/next, time, voice + caption toggles
   engine/
     player.js              ★ The playback engine (ported + wrapped)
   data/                   ← edit these to change the video's content
-    scenes.js                All 17 scenes in playback order: the 14 analytical
-                             scenes (scene 01 = visual intro) plus the 3 inlined
-                             "Lena" interludes (story:true)
-    steps.js                 Per-point reveal steps & narration (scenes 03–14)
+    scenes.js                Every scene in playback order: big centered QUESTION
+                             scenes (q:true) + sparse content scenes + the 3
+                             "Lena" interludes (story:true) + a closing thank-you
+    steps.js                 Per-point reveal steps & narration (analytical scenes)
     config.js                Narration pace (WPM) and inter-point padding
   styles/
     app.css                The single flat design system (tokens + every component)
@@ -67,21 +66,27 @@ scrubber were removed. The playback logic — speech, word-synced captions, the
 progress clock, count-up stats, bar/meter fills, the network connectors
 (`drawNet`), and the per-point spotlight — is otherwise unchanged.
 
-**Playback & reveal model.** There is no landing screen: the bottom Play button
-starts the intro. Every scene defines `steps` (point-by-point), and content is
-revealed gradually — future points are completely invisible, the current point
-is clean (no outline), and past points are slightly greyed. The `.src` citation
-rail and prev/next walk through these points; ← / → and space also control them.
+**Playback model.** It plays like a video: a big centered **question** scene
+poses each beat, then a sparse content scene answers it with a large visual and
+minimal on-screen text (the prose lives in the voiceover, not on screen). The
+`.src` citation rail stays on screen the whole time. There is no landing screen
+(the bottom Play button starts it) and no references scene — the full source
+list is provided separately; the video closes with a thank-you.
+
+On scenes that define `steps`, content reveals point-by-point — future points
+invisible, current point clean (no outline), past points greyed; ← / → and
+space walk through them.
 
 ## Editing the content (the common case)
 
 Almost everything you'd want to change lives in `src/data/`:
 
 - **Scene text, headings, on-screen elements** → `src/data/scenes.js`.
-  Each scene is an object: `no`, `kick` (HUD label), `thread` (the red
-  investigation line, or `null` to hide it), `html` (the scene markup as a
-  template string), and `narration` (what the voice reads / the fallback
-  caption). Edit the `html` and `narration` and the change shows on save.
+  Each scene is an object: `no`, `kick` (the controls label), `html` (the scene
+  markup as a template string), and `narration` (what the voice reads / the
+  fallback caption). A question scene additionally sets `q:true` (centers a
+  single big `.bigq`); a Lena interlude sets `story:true`. Edit the `html` and
+  `narration` and the change shows on save.
 - **The "Lena" interludes** also live in `src/data/scenes.js`, inlined at their
   playback positions (after scenes 05, 09 and 13). They are marked `story:true`
   with `no:"✦"` and carry their own `steps`; move one by relocating its object

@@ -30,13 +30,11 @@ export function mountPlayer() {
   const stage = document.getElementById('stage');
   const capEl = document.getElementById('cap');
   const capWrap = document.getElementById('caption');
-  const threadEl = document.getElementById('thread');
-  const threadText = document.getElementById('threadText');
 
-  // ---- build scenes + scrub segments ----
+  // ---- build scenes ----
   const els = scenes.map((s,i)=>{
     const d = document.createElement('div');
-    d.className = 'scene' + (s.refscene?' refscene':'') + (s.story?' storyscene':'');
+    d.className = 'scene' + (s.q?' qscene':'') + (s.story?' storyscene':'');
     d.innerHTML = s.html;
     stage.appendChild(d);
     const words = s.narration.trim().split(/\s+/).length;
@@ -119,9 +117,7 @@ export function mountPlayer() {
   function applySpot(){
     const node = els[idx].d;
     node.querySelectorAll('.spotlight,.faded,.preveil').forEach(e=>e.classList.remove('spotlight','faded','preveil'));
-    // Citation rail (.src) is hidden until the scene's final point, then fades in.
-    const srcEl = node.querySelector('.src');
-    if(srcEl) srcEl.classList.toggle('srcshow', step >= stepCount()-1);
+    // The citation rail (.src) stays visible the whole scene (always on screen).
     const l = sceneStepEls(idx); if(!l) return;
     l.forEach((s,k)=>{
       if(!s.el) return;
@@ -161,26 +157,10 @@ export function mountPlayer() {
   }
   function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-  // ---- red thread updater ----
-  function updateThread(i){
-    const t = scenes[i].thread;
-    threadEl.classList.remove('on');
-    if(t){
-      threadText.textContent = t;
-      threadEl.style.display='';
-      // restart entrance animation
-      void threadEl.offsetWidth;
-      threadEl.classList.add('on');
-    } else {
-      threadEl.style.display='none';
-    }
-  }
-
   // ---- scene control ----
   function showScene(i){
     els.forEach((e,j)=> e.d.classList.toggle('active', j===i));
     idx = i; step = 0;
-    updateThread(i);
     runSceneFX(els[i].d, i);
     // make each point clickable
     const l = sceneStepEls(i) || [];

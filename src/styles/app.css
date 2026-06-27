@@ -47,13 +47,13 @@ body{
 .hud .brand .lk{ font-family:var(--display); font-weight:800; font-size:2.7cqmin; letter-spacing:-.02em; color:var(--ink); }
 .hud .brand .lk u{ text-decoration:none; color:var(--accent); }
 
-/* ===== THE INVESTIGATION QUESTION — centered title, no box ===== */
-.thread{ position:absolute; left:50%; top:3.2cqmin; transform:translateX(-50%); z-index:8; pointer-events:none;
-  display:flex; align-items:center; gap:0; opacity:0; max-width:84cqw; }
-.thread.on{ animation:threadIn .6s ease forwards; animation-delay:.15s; }
-@keyframes threadIn{ from{ opacity:0; transform:translateX(-50%) translateY(-6px);} to{ opacity:1; transform:translateX(-50%);} }
-.thread .qtext{ font-family:var(--display); font-weight:800; font-style:normal; font-size:3.1cqmin;
-  color:#639a00; white-space:normal; line-height:1.12; letter-spacing:-.01em; text-align:center; }
+/* ===== QUESTION SCENES — a single big, centered question fills the frame ===== */
+.scene.qscene{ justify-content:center; align-items:center; text-align:center; padding:9cqmin; }
+.bigq{ font-family:var(--display); font-weight:800; font-size:7.2cqmin; line-height:1.08;
+  letter-spacing:-.02em; color:var(--ink); max-width:86cqw; text-wrap:balance; }
+.bigq .blue{ color:var(--accent); } .bigq em{ font-style:italic; color:var(--gold); }
+.bigq .q{ color:var(--accent); }
+.qsub{ margin-top:3cqmin; font-size:2.6cqmin; color:var(--muted); font-weight:600; letter-spacing:.02em; }
 
 /* STAGE */
 .stage{ position:absolute; inset:0; z-index:3; }
@@ -62,7 +62,6 @@ body{
   transform:translateY(2.2cqmin) scale(1.04); filter:blur(7px);
   transition:opacity .55s ease, transform .9s cubic-bezier(.16,.84,.3,1), filter .55s ease; }
 .scene.active{ opacity:1; visibility:visible; transform:none; filter:none; }
-.scene.refscene{ justify-content:flex-start; padding-top:7.5cqmin; }
 
 /* entrance reveal (staggered) */
 .r{ opacity:0; transform:translateY(14px); }
@@ -98,9 +97,8 @@ body{
 .beat{ font-family:var(--mono); font-size:1.65cqmin; letter-spacing:.26em; text-transform:uppercase; color:var(--accent-text); margin-bottom:1.6cqmin; display:flex; align-items:center; gap:0; font-weight:600; }
 .beat.gold{ color:var(--gold); } .beat.rose{ color:var(--rose); } .beat.cyan{ color:var(--cyan); }
 
-/* citation source rail — plain "Name (Year)", hidden until the scene's last point */
-.src{ position:absolute; left:6.5cqmin; bottom:11cqmin; display:flex; gap:1cqmin; flex-wrap:wrap; align-items:center; max-width:60cqw; z-index:4; opacity:.9; filter:opacity(0); transition:filter .55s ease; }
-.src.srcshow{ filter:none; }
+/* citation source rail — plain "Name (Year)", always visible on screen */
+.src{ position:absolute; left:6.5cqmin; bottom:6cqmin; display:flex; gap:1cqmin 1.6cqmin; flex-wrap:wrap; align-items:center; max-width:84cqw; z-index:4; opacity:.9; }
 .src .lbl{ display:none; }
 .cite{ font-family:var(--mono); font-size:1.7cqmin; color:var(--muted); white-space:nowrap; font-weight:500; }
 
@@ -240,22 +238,6 @@ img.dot{ object-fit:cover; padding:0; }
 .sv.good{ color:var(--lime-text); } .sv.bad{ color:var(--rose); } .sv.warn{ color:var(--gold-text); }
 .closing{ font-family:var(--serif); font-style:italic; font-size:3cqmin; margin-top:2.4cqmin; line-height:1.25; max-width:78cqw; color:var(--ink); }
 .closing b{ color:var(--gold); font-style:normal; font-family:var(--display); font-weight:800; }
-
-/* references */
-.refscene .h{ font-size:5cqmin; }
-.refgrid{ display:grid; grid-template-columns:1.8fr 1fr; gap:2.6cqmin; margin-top:2cqmin; overflow-y:auto; padding-right:1cqmin; max-height:68cqmin; }
-.refcol h4{ font-family:var(--mono); font-size:1.55cqmin; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:1.2cqmin; position:sticky; top:0; background:#fff; padding:.6cqmin 0; font-weight:700; }
-.refcol.b h4{ color:var(--gold); }
-.refcol ol{ list-style:none; counter-reset:r; display:flex; flex-direction:column; gap:.8cqmin; }
-.refcol li{ counter-increment:r; font-size:1.6cqmin; line-height:1.4; color:#4c4c4c; padding-left:3.2cqmin; position:relative; }
-/* the long "Theory & frameworks" list (18 refs) flows into two sub-columns so
-   nothing clips inside the fixed 16:9 frame */
-.refcol.cols ol{ display:block; column-count:2; column-gap:2.6cqmin; }
-.refcol.cols li{ break-inside:avoid; margin-bottom:.8cqmin; }
-.refcol li::before{ content:"["counter(r)"]"; position:absolute; left:0; font-family:var(--mono); color:var(--accent); font-size:1.3cqmin; }
-.refcol.b li::before{ color:var(--gold); }
-.refcol li b{ color:var(--ink); font-weight:700; }
-.refscene .endnote{ position:absolute; bottom:11cqmin; left:6.5cqmin; font-family:var(--serif); font-style:italic; font-size:2.2cqmin; color:var(--ink); }
 
 /* ---- CAPTION BAND — subtitles, rendered BELOW the frame ---- */
 .caption{ position:static; text-align:center; padding:14px 16px 0; min-height:3.4em; pointer-events:none; }
