@@ -132,6 +132,11 @@ export function mountPlayer() {
         // defer so the 0 state paints first → the bar animates as focus arrives
         requestAnimationFrame(()=> requestAnimationFrame(()=>{ f.style.width = target; }));
       });
+      // count-up any stats inside this point only as the focus arrives
+      if(k===step && s.el.querySelectorAll){
+        s.el.querySelectorAll('[data-count]').forEach(c=> animateCount(c));
+        if(s.el.matches && s.el.matches('[data-count]')) animateCount(s.el);
+      }
     });
     updateNetLines(node);
   }
@@ -168,29 +173,32 @@ export function mountPlayer() {
     applySpot(); updateNow();
     sceneStart = performance.now(); curEst = estimate(curText());
   }
-  function runSceneFX(node, i){
+  // count-up a single [data-count] element (used on scene load and, for stepped
+  // scenes, when the spotlight reaches the element so the number ticks on reveal)
+  function animateCount(el){
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // count-up stats
-    node.querySelectorAll('[data-count]').forEach(el=>{
-      const target = parseFloat(el.getAttribute('data-count'));
-      const dec = parseInt(el.getAttribute('data-dec')||'0');
-      const pre = el.getAttribute('data-prefix')||'';
-      const suf = el.getAttribute('data-suffix')||'';
-      const plain = el.getAttribute('data-plain');
-      // reduced motion: show the final value immediately, no rAF tick
-      if(reduceMotion){ el.textContent = pre + (plain?Math.round(target):target.toFixed(dec)) + suf; return; }
-      const dur = 1100; const t0 = performance.now();
-      function tick(now){
-        let p = Math.min(1,(now-t0)/dur); p = 1-Math.pow(1-p,3);
-        let val = target*p;
-        let out = plain ? Math.round(val).toString() : val.toFixed(dec);
-        el.textContent = pre+out+suf;
-        if(p<1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    });
-    // bar / meter fills
+    const target = parseFloat(el.getAttribute('data-count'));
+    const dec = parseInt(el.getAttribute('data-dec')||'0');
+    const pre = el.getAttribute('data-prefix')||'';
+    const suf = el.getAttribute('data-suffix')||'';
+    const plain = el.getAttribute('data-plain');
+    if(reduceMotion){ el.textContent = pre + (plain?Math.round(target):target.toFixed(dec)) + suf; return; }
+    const dur = 1100; const t0 = performance.now();
+    function tick(now){
+      let p = Math.min(1,(now-t0)/dur); p = 1-Math.pow(1-p,3);
+      let val = target*p;
+      let out = plain ? Math.round(val).toString() : val.toFixed(dec);
+      el.textContent = pre+out+suf;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  function runSceneFX(node, i){
     const hasSteps = !!scenes[i].steps;
+    // count-up stats — scenes WITHOUT steps count on load; stepped scenes hold at
+    // their initial value and count when the spotlight reaches them (see applySpot).
+    node.querySelectorAll('[data-count]').forEach(el=>{ if(!hasSteps) animateCount(el); });
+    // bar / meter fills
     node.querySelectorAll('.fill[data-w], .meter i[data-w]').forEach(el=>{
       el.style.width='0';
       // scenes WITHOUT per-point steps keep the old behaviour: animate on scene load.

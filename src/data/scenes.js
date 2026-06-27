@@ -35,12 +35,15 @@ export const scenes = [
       </div>`,
     narration:"Meet Lena, a product designer in Munich. She's happily employed and not looking for a job. But she wants one simple thing: to connect with people in her field, keep up with colleagues, and stay part of her professional network. So one evening she goes looking for the place where that happens." },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So, what <em>exactly</em> is <span class="blue">LinkedIn</span>?</div>`,
-    narration:"So, what exactly is LinkedIn?" },
-
-  /* ENTER LINKEDIN: the scale answer (stats) */
+  /* ENTER LINKEDIN: the scale answer (stats) — revealed stat-by-stat */
   { no:"enter", kick:"The hook",
+    steps:[
+      {sel:'.h@0', say:"The place she's looking for is LinkedIn: the world's largest professional network. Just by creating a profile, Lena joins more than a billion people."},
+      {sel:'.stat@0', say:"Over one point three billion members worldwide."},
+      {sel:'.stat@1', say:"Across more than two hundred countries and territories."},
+      {sel:'.stat@2', say:"Around seventeen point eight billion dollars in revenue last year."},
+      {sel:'.stat@3', say:"All from an idea launched back in 2003, more than twenty-two years ago."}
+    ],
     html:`
       <h2 class="h r">Enter <span class="blue">LinkedIn</span>.</h2>
       <div class="stats intro-stats r" style="--d:.2s">
@@ -66,7 +69,7 @@ export const scenes = [
       <div class="net">
         <svg class="netsvg">
         </svg>
-        <div class="hubcore nr" style="--d:.3s">${LOGO}<div class="hs">PRICE-SETTER</div></div>
+        <div class="hubcore pswhite nr" style="--d:.3s">${LOGO}<div class="hs">PRICE-SETTER</div></div>
         <div class="node nr" style="--d:.5s; left:16%; top:24%"><img class="dot" src="${B}images/lena.jpg" alt=""><div class="nl">Members</div><div class="ns">free · like Lena</div></div>
         <div class="node money nr" style="--d:.62s; left:84%; top:24%"><img class="dot" src="${B}images/marco.jpg" alt=""><div class="nl">Recruiters</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · like Marco</div></div>
         <div class="node money nr" style="--d:.74s; left:86%; top:74%"><img class="dot" src="${B}images/sara.jpg" alt=""><div class="nl">Advertisers</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · a brand</div></div>
@@ -112,7 +115,7 @@ export const scenes = [
       <div class="panes">
         <div class="pane r" style="--d:.22s"><h4>The matchmaker</h4>
           <p>it collapses <b>search costs</b> in the job market</p>
-          <div class="flowstrip" style="margin-top:1.4cqmin"><div class="step"><span class="t">Recruiter</span></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><span class="n">LinkedIn</span></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><span class="t">Hidden talent</span></div></div>
+          <div class="flowstrip" style="margin-top:1.4cqmin"><div class="step"><span class="t">Recruiter</span></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><img class="steplogo" src="${B}linkedin.svg" alt="LinkedIn"></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><span class="t">Hidden talent</span></div></div>
         </div>
         <div class="pane gold r" style="--d:.36s"><h4>Asset-light</h4>
           <p>just <b>software + data</b> · the next member costs ~nothing</p>
@@ -141,7 +144,6 @@ export const scenes = [
         <div class="story-copy">
           <h2 class="h">The opportunity<br><em>finds her.</em></h2>
           <p>Still not searching — but a recruiter's <b>three filters</b> surface her in seconds.</p>
-          <p>The job travels to <b>Lena</b>, not the other way around.</p>
         </div>
         <div>
           <div class="mock">
@@ -173,8 +175,15 @@ export const scenes = [
   {
     no:"06", kick:"The value unit",
     steps:[
-      {sel:'.vblock@0', say:"What actually changes hands? Members create the value units, the profile, the connection, the job post, the update, and they make every one of them for free."},
-      {sel:'.vblock@1', say:"Then the platform runs the core interaction: it pulls people in with the free network, equips them with tools and the algorithm, and matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."}
+      {sel:'.seclbl@0', say:"What actually changes hands? Members create the value units — and they make every one of them for free."},
+      {sel:'.vcard@0', say:"The profile — your identity."},
+      {sel:'.vcard@1', say:"The connection — an edge in the graph."},
+      {sel:'.vcard@2', say:"The job post — demand."},
+      {sel:'.vcard@3', say:"The update — attention."},
+      {sel:'.seclbl@1', say:"Then the platform runs the core interaction."},
+      {sel:'.pfgrp@0', say:"It pulls people in with the free network."},
+      {sel:'.pfgrp@1', say:"Equips them with the tools and the algorithm."},
+      {sel:'.pfgrp@2', say:"And matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."}
     ],
     html:`
       <h2 class="h r" style="--d:.1s">The <span class="blue">value unit</span> you create for free</h2>
@@ -190,11 +199,9 @@ export const scenes = [
       <div class="vblock">
         <div class="seclbl g"><span class="num">2</span> <b>The platform runs the core interaction</b></div>
         <div class="pfm">
-          <div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div>
-          <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
-          <div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div>
-          <div class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
-          <div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div>
+          <div class="pfgrp"><span class="pfarrow ghost" aria-hidden="true"><i class="ico ico-arrow"></i></span><div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div></div>
+          <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div></div>
+          <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div></div>
         </div>
       </div>
       <div class="src">
@@ -303,12 +310,12 @@ export const scenes = [
   {
     no:"10", kick:"The crack", html:`
       <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
-      <div class="checks">
-        <div class="chk r" style="--d:.3s"><div class="badge y"><i class="ico ico-check" aria-hidden="true"></i></div><div class="grow"><div class="ct">Strong network effects</div><div class="cd">deep cross-side &amp; data effects</div></div><div class="verdict">TIPS <i class="ico ico-arrow" aria-hidden="true"></i></div></div>
-        <div class="chk r" style="--d:.42s"><div class="badge n"><i class="ico ico-x" aria-hidden="true"></i></div><div class="grow"><div class="ct">Costly to use rivals too</div><div class="cd">no — switching is cheap</div></div><div class="verdict">RESISTS</div></div>
-        <div class="chk r" style="--d:.54s"><div class="badge m"><i class="ico ico-approx" aria-hidden="true"></i></div><div class="grow"><div class="ct">Everyone wants the same thing</div><div class="cd">no — it splits by function &amp; region</div></div><div class="verdict">MIXED</div></div>
+      <div class="wta">
+        <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES — IT TIPS</div><div class="wtad">deep cross-side &amp; data effects</div></div>
+        <div class="wtac n r" style="--d:.44s"><div class="wtaq">Costly to switch?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO — IT RESISTS</div><div class="wtad">recruiters run rivals side by side</div></div>
+        <div class="wtac m r" style="--d:.58s"><div class="wtaq">One-size-fits-all?</div><div class="wtaicon"><i class="ico ico-approx" aria-hidden="true"></i></div><div class="wtav mixed">NOT REALLY</div><div class="wtad">splits by function &amp; region</div></div>
       </div>
-      <div class="rivals r" style="--d:.68s">
+      <div class="rivals r" style="--d:.72s">
         <span class="pill">Still contested:</span>
         <span class="rival">Indeed · jobs</span>
         <span class="rival">Glassdoor · reviews</span>
@@ -322,8 +329,8 @@ export const scenes = [
   },
 
   { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">If not unbeatable, how does it <em>defend</em> itself?</div>`,
-    narration:"If not unbeatable, how does it defend itself?" },
+    html:`<div class="bigq r">So what is its real <em>moat</em>?</div>`,
+    narration:"So what is its real moat?" },
 
   /* 11, GOVERNANCE */
   {
@@ -331,11 +338,11 @@ export const scenes = [
       <h2 class="h r" style="--d:.1s">Built for <em>control</em>, not openness</h2>
       <div class="dials">
         <div class="dial r" style="--d:.28s"><div class="dt"><b>Feed algorithm</b><span>opaque</span></div><div class="meter"><i data-w="92"></i></div></div>
-        <div class="dial r" style="--d:.36s"><div class="dt"><b>Terms &amp; moderation</b><span>strict</span></div><div class="meter"><i data-w="84"></i></div></div>
-        <div class="dial r" style="--d:.44s"><div class="dt"><b>Identity</b><span>real names</span></div><div class="meter"><i data-w="70"></i></div></div>
-        <div class="dial r" style="--d:.52s"><div class="dt"><b>Anti-scraping</b><span>hiQ Labs</span></div><div class="meter"><i data-w="88"></i></div></div>
+        <div class="dial r" style="--d:.38s"><div class="dt"><b>Terms &amp; moderation</b><span>strict</span></div><div class="meter"><i data-w="84"></i></div></div>
+        <div class="dial r" style="--d:.48s"><div class="dt"><b>Identity</b><span>real names</span></div><div class="meter"><i data-w="70"></i></div></div>
+        <div class="dial r" style="--d:.58s"><div class="dt"><b>Anti-scraping</b><span>enforced</span></div><div class="meter"><i data-w="88"></i></div></div>
       </div>
-      <div class="casenote r" style="--d:.64s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup scraped public profiles to resell; LinkedIn cut off its access and won on breach of contract — hiQ shut down. The data stays LinkedIn's.</div>
+      <div class="casenote r" style="--d:.72s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup sued to keep scraping public profiles — and lost. The data stays LinkedIn's.</div>
       <div class="src">
         <span class="cite">Tiwana, Konsynski &amp; Bush (2010)</span>
         <span class="cite g">Boudreau (2010)</span>
@@ -351,9 +358,9 @@ export const scenes = [
     no:"12", kick:"The gated doors", html:`
       <h2 class="h r" style="--d:.1s"><span class="blue">APIs</span>: open a crack, no more</h2>
       <div class="pyr">
-        <div class="tier t1 r" style="--d:.3s"><div class="tn">Open · any developer</div><div class="ti">Sign-In with LinkedIn · Share API</div></div>
-        <div class="tier t2 r" style="--d:.45s"><div class="tn">Partner · apply + review</div><div class="ti">Marketing API · Jobs / ATS</div></div>
-        <div class="tier t3 r" style="--d:.6s"><div class="tn">Partner · invite only</div><div class="ti">Talent · Learning · Sales Navigator</div></div>
+        <div class="tier t1 r" style="--d:.3s"><div class="tn">Open · any developer</div><div class="ti">Sign-In with LinkedIn · Share API</div><div class="tx">log users in with their LinkedIn identity · post updates to the feed</div></div>
+        <div class="tier t2 r" style="--d:.45s"><div class="tn">Partner · apply + review</div><div class="ti">Marketing API · Jobs / ATS</div><div class="tx">build &amp; automate ad campaigns · sync job posts and applicants</div></div>
+        <div class="tier t3 r" style="--d:.6s"><div class="tn">Partner · invite only</div><div class="ti">Talent · Learning · Sales Navigator</div><div class="tx">deep recruiting, training &amp; sales-prospecting data</div></div>
       </div>
       <div class="stamp r" style="--d:.8s"><i class="ico ico-ban" aria-hidden="true"></i> NO BULK DATA</div>
       <div class="src">
@@ -372,16 +379,18 @@ export const scenes = [
     no:"13", kick:"The cost", html:`
       <h2 class="h r" style="--d:.1s">It <span class="rosed">rewired</span> work</h2>
       <div class="ba">
-        <div class="bacol old r" style="--d:.22s"><h4>Before</h4>
+        <div class="bacol old"><h4>Before</h4>
           <div class="li">Post a job &amp; wait</div>
           <div class="li">Paper résumé</div>
           <div class="li">Headhunter networks</div>
         </div>
-        <div class="baarrow r" style="--d:.42s"><i class="ico ico-arrow" aria-hidden="true"></i></div>
-        <div class="bacol new r" style="--d:.32s"><h4>After LinkedIn</h4>
-          <div class="li">Hunt <b>passive</b> candidates</div>
-          <div class="li">A living, public profile</div>
-          <div class="li">Self-serve search</div>
+        <div class="bagrp">
+          <div class="baarrow"><i class="ico ico-arrow" aria-hidden="true"></i></div>
+          <div class="bacol new"><h4>After LinkedIn</h4>
+            <div class="li">Hunt <b>passive</b> candidates</div>
+            <div class="li">A living, public profile</div>
+            <div class="li">Self-serve search</div>
+          </div>
         </div>
       </div>
       <div class="warnbox r" style="--d:.6s"><b>One private gatekeeper</b> decides who gets seen — bias, surveillance, invisibility off-platform.</div>
@@ -421,12 +430,12 @@ export const scenes = [
   {
     no:"14", kick:"The verdict", html:`
       <h2 class="h r" style="--d:.1s">Against the <em>frameworks</em></h2>
-      <div class="score">
-        <div class="scorerow r" style="--d:.26s"><div class="sk">Network effects</div><div class="sv good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
-        <div class="scorerow r" style="--d:.36s"><div class="sk">Asset-light scale</div><div class="sv good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
-        <div class="scorerow r" style="--d:.46s"><div class="sk">Unbeatable monopoly</div><div class="sv bad">CONTESTABLE <i class="ico ico-x" aria-hidden="true"></i></div></div>
-        <div class="scorerow r" style="--d:.56s"><div class="sk">Openness</div><div class="sv bad">LOW <i class="ico ico-x" aria-hidden="true"></i></div></div>
-        <div class="scorerow r" style="--d:.66s"><div class="sk">Labour-market ethics</div><div class="sv warn">CONCERN <i class="ico ico-warn" aria-hidden="true"></i></div></div>
+      <div class="fwk">
+        <div class="fwc good r" style="--d:.26s"><div class="fwk-k">Network effects</div><div class="fwk-v good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
+        <div class="fwc good r" style="--d:.36s"><div class="fwk-k">Asset-light scale</div><div class="fwk-v good">STRONG <i class="ico ico-check" aria-hidden="true"></i></div></div>
+        <div class="fwc bad r" style="--d:.46s"><div class="fwk-k">Unbeatable monopoly</div><div class="fwk-v bad">CONTESTABLE <i class="ico ico-x" aria-hidden="true"></i></div></div>
+        <div class="fwc bad r" style="--d:.56s"><div class="fwk-k">Openness</div><div class="fwk-v bad">LOW <i class="ico ico-x" aria-hidden="true"></i></div></div>
+        <div class="fwc warn r" style="--d:.66s"><div class="fwk-k">Labour-market ethics</div><div class="fwk-v warn">CONCERN <i class="ico ico-warn" aria-hidden="true"></i></div></div>
       </div>
       <div class="closing r" style="--d:.82s"><b>Powerful, but not unbeatable.</b> The moat is the network and the data — not openness.</div>
       <div class="src">
