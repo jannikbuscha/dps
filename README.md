@@ -39,7 +39,6 @@ src/
   hooks/
     usePlayer.js           Boots the engine after React mounts the shell
   components/              The static shell (render-once, no state)
-    AmbientCanvas.jsx        Fixed background network animation
     Frame.jsx                The "video" frame + overlays (Hud, Thread)
     Hud.jsx                  The LinkedIn brand mark (top-right only)
     Thread.jsx               The per-scene question, shown as a title
@@ -47,7 +46,6 @@ src/
     Controls.jsx             prev/play/next, time, voice + caption toggles
   engine/
     player.js              ★ The playback engine (ported + wrapped)
-    ambient.js             The background canvas animation
   data/                   ← edit these to change the video's content
     scenes.js                All 17 scenes in playback order: the 14 analytical
                              scenes (scene 01 = visual intro) plus the 3 inlined
@@ -55,14 +53,9 @@ src/
     steps.js                 Per-point reveal steps & narration (scenes 03–14)
     config.js                Narration pace (WPM) and inter-point padding
   styles/
-    fonts.css              Bundled webfonts (see "Fonts" below)
-    app.css                Design tokens + all component styling (verbatim)
-    theme-flat.css         The flat green/Arial theme — wins the cascade
+    app.css                The single flat design system (tokens + every component)
     icons.css              CSS-mask SVG icon set (.ico / .ico-*) — replaces glyphs
     root.css               Layout shim so #root is transparent to the layout
-    redesign.css           ★ Redesign overrides (loaded LAST): border, larger
-                           text, reveal rules, prominent question, photo avatars
-public/fonts/             16 woff2 files referenced by fonts.css
 public/images/            Character stock photos (lena, marco, anna, tom, sara)
 original/linkedin.html    The original single-file build, for reference
 ```
@@ -100,19 +93,15 @@ Almost everything you'd want to change lives in `src/data/`:
 - **Pacing** → `src/data/config.js` (`WPM` words-per-minute and `PAD` ms of
   padding added to each point's estimated duration).
 
-Styling lives in `src/styles/`. `app.css` is the full original stylesheet
-(design tokens + every component). `theme-flat.css` is layered **last** and
-deliberately overrides everything to the flat, Arial, green/orange look — so
-that's usually the file to touch for colours and typography.
+Styling lives in `src/styles/app.css` — a single flat design system (tokens +
+every component). It is the only theme: the former layered base + flat-theme +
+redesign-override stylesheets were merged here and all pre-redesign rules
+removed. Colours and type live in the `:root` tokens at the top of the file.
 
 ## Fonts
 
-The original bundles Fraunces, Hanken Grotesk and JetBrains Mono (extracted to
-`public/fonts/` as real `.woff2` files and declared in `styles/fonts.css`).
-However, `theme-flat.css` remaps every font variable to **Arial**, so those
-webfonts are loaded but not displayed — matching the original's rendered
-output exactly. To restore the richer typography, remove the
-`--display/--serif/--sans/--mono` overrides in `theme-flat.css`.
+The design uses **Arial** throughout (one typeface, set via the `:root` font
+tokens) — no webfonts are bundled or loaded.
 
 ## Notes
 

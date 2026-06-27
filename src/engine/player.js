@@ -39,12 +39,9 @@ export function mountPlayer() {
     d.className = 'scene' + (s.refscene?' refscene':'') + (s.story?' storyscene':'');
     d.innerHTML = s.html;
     stage.appendChild(d);
-    // The scene-overview scrubber was removed; seg/fill are kept (detached)
-    // only so the existing progress bookkeeping in loop()/showScene() works.
-    const seg = document.createElement('div'); seg.className='seg'; seg.innerHTML='<i></i>';
     const words = s.narration.trim().split(/\s+/).length;
     s.est = (words / WPM) * 60000 + PAD;
-    return {d, seg, fill:seg.firstElementChild};
+    return {d};
   });
   const totalMs = scenes.reduce((a,s)=>a+s.est,0);
   const weights = scenes.map(s=>s.est/totalMs);
@@ -184,7 +181,6 @@ export function mountPlayer() {
     els.forEach((e,j)=> e.d.classList.toggle('active', j===i));
     idx = i; step = 0;
     updateThread(i);
-    els.forEach((e,j)=>{ e.seg.classList.toggle('done', j<i); if(j>i){ e.fill.style.width='0'; } });
     runSceneFX(els[i].d, i);
     // make each point clickable
     const l = sceneStepEls(i) || [];
@@ -277,14 +273,12 @@ export function mountPlayer() {
   const onResize = ()=>{ clearTimeout(__netRedraw); __netRedraw = setTimeout(()=> drawNet((els[idx]&&els[idx].d) || document), 120); };
   window.addEventListener('resize', onResize); cleanups.push(()=>window.removeEventListener('resize', onResize));
 
-  // ---- progress clock ----
+  // ---- progress clock (drives the elapsed-time readout) ----
   function loop(){
     if(playing){
-      const e = els[idx];
       const n = stepCount();
       const local = Math.min(1, (performance.now()-sceneStart)/(curEst||scenes[idx].est));
       const frac = Math.min(1, (step+local)/n);
-      e.fill.style.width = (frac*100)+'%';
       const elapsed = weights.slice(0,idx).reduce((a,w)=>a+w,0)*totalMs + frac*weights[idx]*totalMs;
       document.getElementById('elapsed').textContent = fmt(elapsed);
     }
@@ -312,7 +306,6 @@ export function mountPlayer() {
     if(step < stepCount()-1){ gotoStep(step+1); return; }
     if(idx < scenes.length-1){ jump(idx+1); }
     else {
-      els[idx].fill.style.width='100%';
       playing=false; setPP(false); clearTimers();
       if(synth){ try{ synth.cancel(); }catch(e){} }
     }
@@ -342,7 +335,6 @@ export function mountPlayer() {
   function restart(){
     if(synth){ try{ synth.cancel(); }catch(e){} }
     clearTimers(); started=false; playing=false; setPP(false);
-    els.forEach(e=>{ e.seg.classList.remove('done'); e.fill.style.width='0'; });
     document.getElementById('elapsed').textContent='0:00';
     showScene(0);
   }
