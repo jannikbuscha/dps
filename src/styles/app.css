@@ -307,6 +307,8 @@ img.dot{ object-fit:cover; padding:0; }
 .mbody b{ color:var(--ink); font-weight:700; }
 .mnote{ display:flex; align-items:flex-start; gap:1cqmin; font-family:var(--mono); font-size:1.4cqmin; line-height:1.4; color:var(--muted); margin-top:1.8cqmin; padding-top:1.6cqmin; border-top:1px dashed var(--line2); }
 .mnote .mdot{ width:1cqmin; height:1cqmin; border-radius:50%; background:var(--gold); flex:none; margin-top:.5cqmin; }
+.mfilters{ display:flex; flex-wrap:wrap; gap:1cqmin; }
+.fchip{ font-family:var(--mono); font-size:1.5cqmin; padding:.8cqmin 1.3cqmin; background:var(--accent-tint); color:var(--accent-text); font-weight:700; white-space:nowrap; }
 
 /* ===== INTRO SCENE (scene 01) — visual hero, tags, scale stats ===== */
 .introlena{ display:flex; align-items:center; gap:3.4cqmin; margin-bottom:2cqmin; }

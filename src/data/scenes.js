@@ -12,27 +12,28 @@
 // import.meta.env.BASE_URL.
 const B = import.meta.env.BASE_URL;
 
-// The LinkedIn logo, reused as the price-setter hub in the "many sides" scene.
-const LOGO = `<img class="hublogo" src="${B}linkedin.svg" alt="LinkedIn">`;
+// The square LinkedIn "bug" logo, used as the price-setter hub in the
+// "many sides" scene (linkedin_small.svg).
+const LOGO = `<img class="hublogo" src="${B}linkedin_small.svg" alt="LinkedIn">`;
 
 export const scenes = [
 
   /* ============ ACT 1, THE SETUP ============ */
 
-  /* 0 - MEET LENA: who she is + why she's on LinkedIn (centered hero) */
+  /* 0 - MEET LENA: who she is + what she wants (to connect) — not on LinkedIn yet */
   { no:"00", kick:"Meet Lena",
     html:`
       <div class="lena-hero">
         <img class="lenaface r" src="${B}images/lena.jpg" alt="Lena Vogel">
         <div class="lenaname r" style="--d:.12s">Lena Vogel</div>
         <div class="lenarole r" style="--d:.18s">Product Designer · Munich</div>
-        <div class="lenawhy r" style="--d:.26s">On LinkedIn to <b>connect with people.</b></div>
+        <div class="lenawhy r" style="--d:.26s">Wants to <b>connect with people</b> in her field.</div>
         <div class="taglist r" style="--d:.34s">
           <span class="mpill on"><i class="ico ico-check" aria-hidden="true"></i> Happily employed</span>
-          <span class="mpill off"><i class="ico ico-x" aria-hidden="true"></i> Not looking</span>
+          <span class="mpill off"><i class="ico ico-x" aria-hidden="true"></i> Not job-hunting</span>
         </div>
       </div>`,
-    narration:"Meet Lena, a product designer in Munich. She's on LinkedIn for one simple reason: to connect with people, to keep up with colleagues and stay part of her professional network. Happily employed, and not looking for a job, she tidies up her profile one evening, a sharper headline, a project or two, and thinks nothing of it." },
+    narration:"Meet Lena, a product designer in Munich. She's happily employed and not looking for a job. But she wants one simple thing: to connect with people in her field, keep up with colleagues, and stay part of her professional network. So one evening she goes looking for the place where that happens." },
 
   { no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">So, what <em>exactly</em> is <span class="blue">LinkedIn</span>?</div>`,
@@ -52,7 +53,7 @@ export const scenes = [
         <span class="cite">DataReportal (2026)</span>
         <span class="cite">Microsoft 10-K, FY2025</span>
       </div>`,
-    narration:"That tiny, ordinary act just placed her among more than a billion people on the same platform. This is LinkedIn: the world's largest professional network. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003." },
+    narration:"The place she's looking for is LinkedIn: the world's largest professional network. By creating a profile, Lena just placed herself among more than a billion people. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003." },
 
   { no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">How does one platform serve <em>so many sides</em>?</div>`,
@@ -130,9 +131,10 @@ export const scenes = [
   /* ✦ LENA · CHAPTER 1 — the match finds her (after scene 05) */
   { no:"✦", kick:"Lena · the match finds her", story:true,
     steps:[
-      {sel:'.story-copy', say:"A few weeks drift by, and Lena still isn't job hunting. But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is."},
-      {sel:'.mock@0', say:"The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around."},
-      {sel:'.mock@1', say:"And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold."}
+      {sel:'.story-copy', say:"A few weeks drift by, and Lena still isn't job hunting."},
+      {sel:'.mock@0', say:"But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is."},
+      {sel:'.mock@1', say:"The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around."},
+      {sel:'.mock@2', say:"And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold."}
     ],
     html:`
       <div class="storygrid">
@@ -142,6 +144,15 @@ export const scenes = [
           <p>The job travels to <b>Lena</b>, not the other way around.</p>
         </div>
         <div>
+          <div class="mock">
+            <span class="mtag">Recruiter search · Berlin · 600 km away</span>
+            <div class="mfilters">
+              <span class="fchip">Role · Designer</span>
+              <span class="fchip">Location · Munich</span>
+              <span class="fchip">Skill · Design systems</span>
+            </div>
+            <div class="mnote" style="color:var(--accent)"><span class="mdot" style="background:var(--accent)"></span> 1 strong match — surfaced in seconds</div>
+          </div>
           <div class="mock">
             <div class="mhead"><img class="mava" src="${B}images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter viewed your profile</div><div class="msub">Senior Recruiter · Berlin · 600 km away</div></div></div>
           </div>
