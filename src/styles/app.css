@@ -76,9 +76,13 @@ body{
 
 /* ---- per-point reveal: future = invisible, current = clean, past = greyed ----
    dimming uses filter:opacity() (not the opacity property) so the staggered
-   .r reveal animations can't cancel it. */
-.spotlight,.faded,.preveil{ transition:filter .55s ease, opacity .55s ease; }
-.preveil{ filter:opacity(0) !important; pointer-events:none; }
+   .r reveal animations can't cancel it.
+   Only spotlight/faded transition: future elements (preveil) must hide
+   INSTANTLY, otherwise they'd fade out over .55s as the scene opens and you'd
+   glimpse later content before it's meant to appear. Reveal stays smooth
+   because the destination state (spotlight/faded) carries the transition. */
+.spotlight,.faded{ transition:filter .55s ease, opacity .55s ease; }
+.preveil{ filter:opacity(0) !important; pointer-events:none; transition:none; }
 .faded{ filter:grayscale(.85) opacity(.42) !important; }
 .spotlight{ filter:none !important; outline:none !important; box-shadow:none !important; border-radius:0; position:relative; z-index:5; }
 .node.spotlight{ background:transparent !important; }
