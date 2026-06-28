@@ -8,7 +8,7 @@
    exactly as before, against the markup rendered by the React components.
    ========================================================================= */
 import { scenes as baseScenes } from '../data/scenes.js';
-import { STEPS_BY_NO } from '../data/steps.js';
+import { script } from '../data/script.js';
 import { WPM, PAD } from '../data/config.js';
 
 let mounted = false;
@@ -25,6 +25,16 @@ export function mountPlayer() {
   // runtime splicing is needed. Clone each so per-run mutation (s.est, s.steps)
   // never leaks back into the imported module.
   const scenes = baseScenes.map(s => ({ ...s }));
+
+  // ---- attach the spoken script (../data/script.js), matched by scene id ----
+  // An array → per-step reveals ({sel, say}); a string → a single narration
+  // block. `s.narration` holds the full text (the steps joined, for stepped
+  // scenes) and drives the per-scene duration estimate below.
+  scenes.forEach(s => {
+    const sc = script[s.id];
+    if (Array.isArray(sc)) { s.steps = sc; s.narration = sc.map(x => x.say).join(' '); }
+    else { s.steps = null; s.narration = sc || ''; }
+  });
 
   // ---- shell elements rendered by React ----
   const stage = document.getElementById('stage');
@@ -49,10 +59,6 @@ export function mountPlayer() {
   let idx = 0, step = 0, playing = false, started = false;
   let sceneStart = 0, curEst = 0, raf = null, advanceTimer = null, keepAlive = null;
   let voiceOn = true, capsOn = true;
-
-  // Prefer per-scene inline `steps` (intro + story scenes define their own);
-  // fall back to the shared STEPS_BY_NO map keyed by scene number.
-  scenes.forEach(s => { s.steps = s.steps || STEPS_BY_NO[s.no] || null; });
 
   // ---- speech ----
   let synth = window.speechSynthesis || null;

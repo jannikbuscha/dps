@@ -1,11 +1,23 @@
 // The full scene list, in playback order — built to play as a VIDEO.
 //
-// Rhythm: it opens on Lena (who she is, why she's on LinkedIn), then a big
-// centered QUESTION poses each beat and a sparse content scene answers it with
-// a large visual + minimal on-screen text (the prose lives in the voiceover).
-// The source rail (.src) stays on screen the whole time. The recurring "Lena"
-// chapters (story:true) are interleaved. There is no references scene — the
-// full source list is provided separately; the video closes with a thank-you.
+// This file holds only the VISUALS: each scene's markup and structural flags.
+// The spoken text (voiceover / captions, and the per-step reveal timing) lives
+// in script.js, matched to each scene by its `id`. Edit words there, layout here.
+//
+// Rhythm: it opens on Lena (who she is, what she wants), then a big centered
+// QUESTION poses each beat and a sparse content scene answers it with a large
+// visual + minimal on-screen text. The source rail (.src) stays on screen the
+// whole time. The recurring "Lena" chapters (story:true) are interleaved. There
+// is no references scene — the full source list is provided separately; the
+// video closes with a thank-you.
+//
+// Scene fields:
+//   id     unique key into script.js (required)
+//   no     short on-screen/debug tag; NOT unique ("Q" and "✦" repeat)
+//   kick   the "now playing" label shown under the controls
+//   q      true → a full-frame question interstitial (.qscene)
+//   story  true → a two-column "Lena" chapter (.storyscene)
+//   html   the scene markup
 
 // Base URL for runtime asset paths (so /images/… and the SVG logos resolve
 // under the GitHub Pages "/dps/" base as well as "/" in dev). Vite inlines
@@ -21,7 +33,7 @@ export const scenes = [
   /* ============ ACT 1, THE SETUP ============ */
 
   /* 0 - MEET LENA: who she is + what she wants (to connect) — not on LinkedIn yet */
-  { no:"00", kick:"Meet Lena",
+  { id:"meet-lena", no:"00", kick:"Meet Lena",
     html:`
       <div class="lena-hero">
         <img class="lenaface r" src="${B}images/lena.jpg" alt="Lena Vogel">
@@ -32,18 +44,10 @@ export const scenes = [
           <span class="mpill on"><i class="ico ico-check" aria-hidden="true"></i> Happily employed</span>
           <span class="mpill off"><i class="ico ico-x" aria-hidden="true"></i> Not job-hunting</span>
         </div>
-      </div>`,
-    narration:"Meet Lena, a product designer in Munich. She's happily employed and not looking for a job. But she wants one simple thing: to connect with people in her field, keep up with colleagues, and stay part of her professional network. So one evening she goes looking for the place where that happens." },
+      </div>` },
 
   /* ENTER LINKEDIN: the scale answer (stats) — revealed stat-by-stat */
-  { no:"enter", kick:"The hook",
-    steps:[
-      {sel:'.h@0', say:"The place she's looking for is LinkedIn: the world's largest professional network."},
-      {sel:'.stat@0', say:"Just by creating a profile, Lena joins more than 1.3 billion people."},
-      {sel:'.stat@1', say:"Across more than two hundred countries and territories."},
-      {sel:'.stat@2', say:"Around seventeen point eight billion dollars in revenue last year."},
-      {sel:'.stat@3', say:"All from an idea launched back in 2003, more than twenty-two years ago."}
-    ],
+  { id:"enter", no:"enter", kick:"The hook",
     html:`
       <h2 class="h r">Enter <span class="blue">LinkedIn</span>.</h2>
       <div class="stats intro-stats r" style="--d:.2s">
@@ -55,16 +59,13 @@ export const scenes = [
       <div class="src">
         <span class="cite">DataReportal (2026)</span>
         <span class="cite">Microsoft 10-K, FY2025</span>
-      </div>`,
-    narration:"The place she's looking for is LinkedIn: the world's largest professional network. By creating a profile, Lena just placed herself among more than a billion people. Over one point three billion members, across two hundred countries, and around seventeen point eight billion dollars in revenue last year, growing since 2003." },
+      </div>` },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">How does one platform serve <em>so many sides</em>?</div>`,
-    narration:"How does one platform serve so many sides?" },
+  { id:"q-many-sides", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">How does one platform serve <em>so many sides</em>?</div>` },
 
   /* 3, MULTI-SIDED MARKET */
-  {
-    no:"03", kick:"Multi-sided market", html:`
+  { id:"multi-sided", no:"03", kick:"Multi-sided market", html:`
       <h2 class="h r" style="--d:.1s">One platform, <em>many sides</em></h2>
       <div class="net">
         <svg class="netsvg">
@@ -79,18 +80,16 @@ export const scenes = [
         <span class="cite">Rochet &amp; Tirole (2003)</span>
         <span class="cite g">Hagiu &amp; Wright (2015)</span>
         <span class="cite">Armstrong (2006)</span>
-      </div>`, narration:"So what is it? At its core, LinkedIn is a multi-sided platform. Rochet and Tirole describe that as a business that connects distinct groups and gets the pricing right between them. LinkedIn juggles four at once: members, recruiters, advertisers, and developers, and it prices them shamelessly unequally. Members glide in almost free, while recruiters and advertisers foot the bill. And as Hagiu and Wright note, LinkedIn never owns the deal itself; it just makes the right people findable."
+      </div>`
   },
 
   /* ============ ACT 2, THE MACHINE ============ */
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What makes it <em>grow</em> on its own?</div>`,
-    narration:"What makes it grow on its own?" },
+  { id:"q-grow", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">What makes it <em>grow</em> on its own?</div>` },
 
   /* 4, NETWORK EFFECTS engine */
-  {
-    no:"04", kick:"Network effects", html:`
+  { id:"network-effects", no:"04", kick:"Network effects", html:`
       <h2 class="h r" style="--d:.1s">The engine: <span class="blue">network effects</span></h2>
       <div class="panes">
         <div class="pane r" style="--d:.24s"><h4>Direct</h4><p><b>member <i class="ico ico-swap" aria-hidden="true"></i> member</b> · every join makes it more useful</p></div>
@@ -101,16 +100,14 @@ export const scenes = [
       <div class="src">
         <span class="cite">Katz &amp; Shapiro (1985)</span>
         <span class="cite g">Eisenmann, Parker &amp; Van Alstyne (2006)</span>
-      </div>`, narration:"One answer: network effects, the engine under the whole thing. Katz and Shapiro split it in two. Direct: every new member makes the network more useful for everyone already on it. Cross-side: more members lure more recruiters, and more recruiters lure more members. LinkedIn has both, plus a sneaky third, data network effects: every click trains its matching, pulling in more people, making more data. A flywheel that spins itself. But there's a dark side, spam and recruiter fatigue. Past a point, the crowd can make it worse. Still, two forces make this engine almost impossible to stop."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Why is it almost <em>free</em> to grow?</div>`,
-    narration:"Why is it almost free to grow?" },
+  { id:"q-free", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">Why is it almost <em>free</em> to grow?</div>` },
 
   /* 5, INTERMEDIARY + SCALE */
-  {
-    no:"05", kick:"Frictionless scale", html:`
+  { id:"matchmaker", no:"05", kick:"Frictionless scale", html:`
       <h2 class="h r" style="--d:.1s">Matchmaker at <em>near-zero cost</em></h2>
       <div class="panes">
         <div class="pane r" style="--d:.22s"><h4>The matchmaker</h4>
@@ -128,17 +125,11 @@ export const scenes = [
       <div class="src">
         <span class="cite">Van Alstyne, Parker &amp; Choudary (2016, HBR)</span>
         <span class="cite g">Hagiu &amp; Wright (2015)</span>
-      </div>`, narration:"Why almost unstoppable? Two reasons. First, LinkedIn is a frictionless matchmaker, it crushes the cost of searching the job market, quietly linking a recruiter in Munich to a perfect candidate in São Paulo who isn't even looking. Second, it's gloriously asset-light: basically software plus data, so the ten-millionth member costs almost nothing, yet can be sold to recruiters again and again. No warehouses, no factories, the textbook contrast between a platform and a pipeline. And that matchmaking isn't just theory. It's about to happen to Lena."
+      </div>`
   },
 
-  /* ✦ LENA · CHAPTER 1 — the match finds her (after scene 05) */
-  { no:"✦", kick:"Lena · the match finds her", story:true,
-    steps:[
-      {sel:'.story-copy', say:"A few weeks drift by, and Lena still isn't job hunting."},
-      {sel:'.mock@0', say:"But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is."},
-      {sel:'.mock@1', say:"The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around."},
-      {sel:'.mock@2', say:"And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold."}
-    ],
+  /* ✦ LENA · CHAPTER 1 — the match finds her (after the matchmaker scene) */
+  { id:"lena-match", no:"✦", kick:"Lena · the match finds her", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
@@ -164,27 +155,13 @@ export const scenes = [
             <div class="mline"><img class="mava" src="${B}images/tom.jpg" alt="Tom Brandt" style="width:5cqmin;height:5cqmin"><div class="msub" style="margin:0">Tom Brandt · former teammate · 8 mutual</div></div>
           </div>
         </div>
-      </div>`,
-    narration:"A few weeks drift by, and Lena still isn't job hunting. But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is. The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around. And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold." },
+      </div>` },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>`,
-    narration:"What exactly are people exchanging?" },
+  { id:"q-exchange", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>` },
 
-  /* 6, VALUE UNIT / core interaction — section 2 revealed later (steps) */
-  {
-    no:"06", kick:"The value unit",
-    steps:[
-      {sel:'.seclbl@0', say:"Members create the value units — and they make every one of them for free."},
-      {sel:'.vcard@0', say:"The profile — your identity."},
-      {sel:'.vcard@1', say:"The connection — an edge in the graph."},
-      {sel:'.vcard@2', say:"The job post — demand."},
-      {sel:'.vcard@3', say:"The update — attention."},
-      {sel:'.seclbl@1', say:"Then the platform runs the core interaction."},
-      {sel:'.pfgrp@0', say:"It pulls people in with the free network."},
-      {sel:'.pfgrp@1', say:"Equips them with the tools and the algorithm."},
-      {sel:'.pfgrp@2', say:"And matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."}
-    ],
+  /* 6, VALUE UNIT / core interaction — revealed card by card, then stage by stage */
+  { id:"value-unit", no:"06", kick:"The value unit",
     html:`
       <h2 class="h r" style="--d:.1s">The <span class="blue">value unit</span> you create for free</h2>
       <div class="vblock">
@@ -206,16 +183,14 @@ export const scenes = [
       </div>
       <div class="src">
         <span class="cite g">Parker, Van Alstyne &amp; Choudary, "Platform Revolution" (2016)</span>
-      </div>`, narration:"What actually changes hands? Members create the value units, the profile, the connection, the job post, the update, and they make every one of them for free. Then the platform runs the core interaction: it pulls people in with the free network, equips them with tools and the algorithm, and matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Who else <em>lives off</em> this platform?</div>`,
-    narration:"Who else lives off this platform?" },
+  { id:"q-ecosystem", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">Who else <em>lives off</em> this platform?</div>` },
 
   /* 7, ECOSYSTEM */
-  {
-    no:"07", kick:"The ecosystem", html:`
+  { id:"ecosystem", no:"07", kick:"The ecosystem", html:`
       <h2 class="h r" style="--d:.1s">An <em>ecosystem</em>, not one company</h2>
       <div class="net" style="height:44cqmin">
         <svg class="netsvg">
@@ -231,16 +206,14 @@ export const scenes = [
       <div class="src">
         <span class="cite">Jacobides, Cennamo &amp; Gawer (2018)</span>
         <span class="cite g">Gawer &amp; Cusumano (2014)</span>
-      </div>`, narration:"Much bigger, because LinkedIn isn't really a company, it's an ecosystem. Jacobides describes ecosystems as loose crowds of complementors building value around a shared platform, with light central control. Picture everything orbiting LinkedIn: hiring-software vendors, ad agencies, course creators, data partners. And at the centre, the owner, a Microsoft company since 2016, plays referee and architect: setting rules, policing quality, skimming a cut of nearly everything."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">How do you start a network <em>from zero</em>?</div>`,
-    narration:"How do you start a network from zero?" },
+  { id:"q-from-zero", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">How do you start a network <em>from zero</em>?</div>` },
 
   /* 8, GROWTH / chicken-and-egg */
-  {
-    no:"08", kick:"The cold start", html:`
+  { id:"cold-start", no:"08", kick:"The cold start", html:`
       <h2 class="h r" style="--d:.1s">Beating the <span class="blue">chicken-and-egg</span></h2>
       <div class="tl">
         <div class="axis"></div>
@@ -255,16 +228,14 @@ export const scenes = [
         <span class="cite g">Caillaud &amp; Jullien (2003)</span>
         <span class="cite">Microsoft 8-K (June 2016)</span>
         <span class="cite">Hoffman &amp; Yeh, "Blitzscaling" (2018)</span>
-      </div>`, narration:"Honestly, it almost didn't. Every network hits the same wall at birth, the chicken-and-egg problem Caillaud and Jullien describe: no users without recruiters, no recruiters without users. LinkedIn's escape moves are studied like chess openings: import your address book to seed connections, People You May Know for a viral loop, public profiles so Google ships free traffic, and from 2005, freemium to turn power users into payers. It worked, public in 2011, bought by Microsoft in 2016 for twenty-six-point-two billion dollars."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Where does the <em>money</em> come from?</div>`,
-    narration:"Where does the money actually come from?" },
+  { id:"q-money", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">Where does the <em>money</em> come from?</div>` },
 
   /* 9, BUSINESS MODEL — one bold proportional split bar */
-  {
-    no:"09", kick:"The money", html:`
+  { id:"revenue", no:"09", kick:"The money", html:`
       <h2 class="h r" style="--d:.1s">Three revenue <em>engines</em></h2>
       <div class="splitbar r" style="--d:.24s">
         <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">recruiting · the giant</div></div>
@@ -275,15 +246,11 @@ export const scenes = [
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft / TechCrunch (2016) · FY25</span>
-      </div>`, narration:"Follow the money, and three engines roar into view. The biggest by far is Talent Solutions, the recruiting tools, around two-thirds of revenue. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator, Learning. Same multi-sided trick underneath: pamper the members, bill the money side. And that money side is, right now, about to land in Lena's inbox."
+      </div>`
   },
 
-  /* ✦ LENA · CHAPTER 2 — someone pays to reach her (after scene 09) */
-  { no:"✦", kick:"Lena · someone pays to reach her", story:true,
-    steps:[
-      {sel:'.story-copy', say:"Here's how it reaches her. A message appears in Lena's inbox. It looks like any other note, but it isn't. Marco couldn't just message her; they aren't connected."},
-      {sel:'.mock@0', say:"So his company paid LinkedIn for the privilege: a paid InMail, on top of a Recruiter licence that runs into thousands a year. Lena reads it for free, never seeing the price tag. That's the business model, made personal."}
-    ],
+  /* ✦ LENA · CHAPTER 2 — someone pays to reach her (after the revenue scene) */
+  { id:"lena-pays", no:"✦", kick:"Lena · someone pays to reach her", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
@@ -297,18 +264,15 @@ export const scenes = [
           <div class="mbody">"Hi Lena — we're hiring a <b>Lead Product Designer</b>, and your design-systems work is exactly it. Open to a chat?"</div>
           <div class="mnote"><span class="mdot"></span> Paid: InMail credit + a Recruiter licence (~thousands / year)</div>
         </div>
-      </div>`,
-    narration:"Here's how it reaches her. A message appears in Lena's inbox. It looks like any other note, but it isn't. Marco couldn't just message her; they aren't connected. So his company paid LinkedIn for the privilege: a paid InMail, on top of a Recruiter licence that runs into thousands a year. Lena reads it for free, never seeing the price tag. That's the business model, made personal." },
+      </div>` },
 
   /* ============ ACT 3, THE CRACK & VERDICT ============ */
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Is LinkedIn really <em>unbeatable</em>?</div>`,
-    narration:"Is LinkedIn really unbeatable?" },
+  { id:"q-unbeatable", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">Is LinkedIn really <em>unbeatable</em>?</div>` },
 
   /* 10, WINNER TAKE ALL? */
-  {
-    no:"10", kick:"The crack", html:`
+  { id:"crack", no:"10", kick:"The crack", html:`
       <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
       <div class="wta">
         <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES — IT TIPS</div><div class="wtad">deep cross-side &amp; data effects</div></div>
@@ -325,16 +289,14 @@ export const scenes = [
         <span class="cite">Eisenmann, Parker &amp; Van Alstyne (2006)</span>
         <span class="cite r">Eisenmann et al. (2011)</span>
         <span class="cite g">Caillaud &amp; Jullien (2003)</span>
-      </div>`, narration:"Let's answer that. Does this market tip until one winner takes everything? Eisenmann says winner-take-all needs three things at once: strong network effects, painful switching costs, and everyone wanting the same one-size-fits-all thing. LinkedIn aces the first, and stumbles on the other two. Switching is cheap: a recruiter runs LinkedIn, Indeed and Glassdoor side by side, and in the DACH region plenty still keep a Xing profile. And the market splits by function and geography. So LinkedIn owns professional identity in the West, but it isn't untouchable. A champion, not an unbeatable one."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So what is its real <em>moat</em>?</div>`,
-    narration:"So what is its real moat?" },
+  { id:"q-moat", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">So what is its real <em>moat</em>?</div>` },
 
   /* 11, GOVERNANCE */
-  {
-    no:"11", kick:"Control is the moat", html:`
+  { id:"control", no:"11", kick:"Control is the moat", html:`
       <h2 class="h r" style="--d:.1s">Built for <em>control</em>, not openness</h2>
       <div class="dials">
         <div class="dial r" style="--d:.28s"><div class="dt"><b>Feed algorithm</b><span>opaque</span></div><div class="meter"><i data-w="92"></i></div></div>
@@ -346,16 +308,14 @@ export const scenes = [
       <div class="src">
         <span class="cite">Tiwana, Konsynski &amp; Bush (2010)</span>
         <span class="cite g">Boudreau (2010)</span>
-      </div>`, narration:"Not by throwing the doors open, but by locking them. Tiwana frames governance as two questions: who decides, and how open is the platform? On both, LinkedIn leans hard toward control. It rules the feed algorithm, enforces strict terms, and demands real identities. And it fights scraping hard. In the landmark hiQ Labs case, a startup harvested public LinkedIn profiles to resell as analytics; LinkedIn blocked it, and after years in court LinkedIn prevailed on breach of contract, and hiQ shut down. Boudreau names the trade-off: openness sparks innovation, but surrendering control risks the platform's integrity. LinkedIn picks control and trust every time. And you see that same instinct in how it treats outside developers."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">How tightly does it <em>guard the doors</em>?</div>`,
-    narration:"How tightly does it guard the doors?" },
+  { id:"q-guard-doors", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">How tightly does it <em>guard the doors</em>?</div>` },
 
   /* 12, BOUNDARY RESOURCES */
-  {
-    no:"12", kick:"The gated doors", html:`
+  { id:"apis", no:"12", kick:"The gated doors", html:`
       <h2 class="h r" style="--d:.1s"><span class="blue">APIs</span>: open a crack, no more</h2>
       <div class="pyr">
         <div class="tier t1 r" style="--d:.3s"><div class="tn">Open · any developer</div><div class="ti">Sign-In with LinkedIn · Share API</div><div class="tx">log users in with their LinkedIn identity · post updates to the feed</div></div>
@@ -367,16 +327,14 @@ export const scenes = [
         <span class="cite g">Ghazawneh &amp; Henfridsson (2013)</span>
         <span class="cite">Eaton et al. (2015)</span>
         <span class="cite">Microsoft Learn, API docs</span>
-      </div>`, narration:"Those developers meet LinkedIn at its APIs. Ghazawneh and Henfridsson call APIs boundary resources, the dials that balance control against contribution. LinkedIn opens its door just a crack. Anyone can use the basics, Sign-In with LinkedIn, on OpenID Connect over OAuth 2.0, plus the Share API. But everything valuable hides behind a velvet rope: Marketing and Jobs need partner approval; Talent, Learning and Sales Navigator are invite-only. Bulk data access? Forbidden. Next to Apple or Salesforce, this surface is deliberately narrow. Control beats openness again. But that grip on data carries a cost, and it isn't LinkedIn that pays it."
+      </div>`
   },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What does all that control <em>cost us</em>?</div>`,
-    narration:"What does all that control cost us?" },
+  { id:"q-cost", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">What does all that control <em>cost us</em>?</div>` },
 
   /* 13, THE ETHICAL COST */
-  {
-    no:"13", kick:"The cost", html:`
+  { id:"rewired", no:"13", kick:"The cost", html:`
       <h2 class="h r" style="--d:.1s">It <span class="rosed">rewired</span> work</h2>
       <div class="ba">
         <div class="bacol old"><h4>Before</h4>
@@ -397,15 +355,11 @@ export const scenes = [
       <div class="src">
         <span class="cite">Gawer &amp; Cusumano (2014)</span>
         <span class="cite r">platform power · labour-market gatekeeping</span>
-      </div>`, narration:"We pay it, through the job market itself. LinkedIn rewired how work works: recruiting flipped from posting a job and waiting, to hunting people who never raised their hand, turning every professional into a permanently visible, searchable asset. Convenient? Hugely. But the flip side: it hands enormous power over the labour market to a single private, algorithmic gatekeeper that decides who gets seen. That raises real questions, about bias, surveillance, and everyone left off the platform. Convenience for the many; quiet power for the one. To feel both sides of that bargain, let's check in on Lena one last time."
+      </div>`
   },
 
-  /* ✦ LENA · CHAPTER 3 — she got the job (after scene 13) */
-  { no:"✦", kick:"Lena · she got the job", story:true,
-    steps:[
-      {sel:'.story-copy', say:"And, good news, it works out. Six weeks later, Lena signs: Lead Product Designer, a real step up, a genuinely happy ending. But replay how it happened. She never applied."},
-      {sel:'.mock@0', say:"An algorithm decided she was worth surfacing; a paying recruiter decided she was worth reaching; and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. Convenience for her, quiet power for the platform. So, time for the final verdict."}
-    ],
+  /* ✦ LENA · CHAPTER 3 — she got the job (after the cost scene) */
+  { id:"lena-job", no:"✦", kick:"Lena · she got the job", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
@@ -419,16 +373,13 @@ export const scenes = [
           <div class="mline"><span class="mpill on">Hired via LinkedIn</span><span class="mpill gold">Ranked by the algorithm</span></div>
           <div class="mnote"><span class="mdot"></span> Lena won. So did LinkedIn — it owned every step.</div>
         </div>
-      </div>`,
-    narration:"And, good news, it works out. Six weeks later, Lena signs: Lead Product Designer, a real step up, a genuinely happy ending. But replay how it happened. She never applied. An algorithm decided she was worth surfacing; a paying recruiter decided she was worth reaching; and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. Convenience for her, quiet power for the platform. So, time for the final verdict." },
+      </div>` },
 
-  { no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So — <span class="blue">strong</span>, or <em>unbeatable</em>?</div>`,
-    narration:"So, strong, or unbeatable?" },
+  { id:"q-strong-or-unbeatable", no:"Q", q:true, kick:"Question",
+    html:`<div class="bigq r">So — <span class="blue">strong</span>, or <em>unbeatable</em>?</div>` },
 
   /* 14, VERDICT */
-  {
-    no:"14", kick:"The verdict", html:`
+  { id:"verdict", no:"14", kick:"The verdict", html:`
       <h2 class="h r" style="--d:.1s">Against the <em>frameworks</em></h2>
       <div class="fwk">
         <div class="fwc good r" style="--d:.26s"><div class="fwk-k">Network effects</div><div class="fwkicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="fwk-v good">STRONG</div></div>
@@ -442,12 +393,11 @@ export const scenes = [
         <span class="cite">Eisenmann et al. (2006)</span>
         <span class="cite g">Parker et al. (2016)</span>
         <span class="cite r">Boudreau (2010)</span>
-      </div>`, narration:"Let's settle it, framework by framework. LinkedIn is a textbook multi-sided platform, powered by formidable network effects, direct, cross-side and data, with beautiful asset-light scale. But it's no flawless monopoly: cheap switching and a market sliced by function keep it contestable, and rivals like Xing survive in their regions. Its greatest strength, tight governance and trust, is also its ceiling: low openness, narrow APIs. And its grip on the labour market earns the scrutiny it gets. So the answer to our opening question? Powerful, but not unbeatable. The real lesson: owning the network and the data, not opening the doors, is the most durable moat of all."
+      </div>`
   },
 
   /* CLOSE — no references scene; the full source list is provided separately */
-  { no:"✦", q:true, kick:"The end",
+  { id:"the-end", no:"✦", q:true, kick:"The end",
     html:`<div class="bigq">Thank you for <em>watching</em>.</div>
-      <div class="qsub">Powerful, but not unbeatable.</div>`,
-    narration:"Powerful, but not unbeatable. Thanks for watching." }
+      <div class="qsub">Powerful, but not unbeatable.</div>` }
 ];
