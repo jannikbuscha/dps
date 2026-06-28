@@ -119,7 +119,7 @@ export const scenes = [
         </div>
         <div class="pane gold r" style="--d:.36s"><h4>Asset-light</h4>
           <p>just <b>software + data</b> · the next member costs ~nothing</p>
-          <div class="bars" style="margin-top:1.4cqmin; max-width:none">
+          <div class="bars" style="margin-top:1.4cqmin; max-width:none; width:100%">
             <div class="barrow"><div class="bl" style="width:22cqmin; font-size:1.6cqmin">Platform cost / user</div><div class="track"><div class="fill" style="background:#7ab83b" data-w="9"></div></div></div>
             <div class="barrow"><div class="bl" style="width:22cqmin; font-size:1.6cqmin">Old "pipeline" cost</div><div class="track"><div class="fill" style="background:#ca7406" data-w="82"></div></div></div>
           </div>
