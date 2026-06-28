@@ -263,7 +263,7 @@ img.dot{ object-fit:cover; padding:0; }
 
 /* verdict against the frameworks — five color-coded cards across the frame */
 .fwk{ display:grid; grid-template-columns:repeat(5,1fr); gap:1.8cqmin; margin-top:3.2cqmin; width:100%; }
-.fwc{ background:#f2f2f2; padding:3cqmin 1.6cqmin 2.8cqmin; min-height:30cqmin; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:1.6cqmin; text-align:center; border-top:.5cqmin solid var(--line); }
+.fwc{ background:#f2f2f2; padding:3cqmin 1.6cqmin 2.8cqmin; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:1.6cqmin; text-align:center; border-top:.5cqmin solid var(--line); }
 .fwc.good{ border-top-color:var(--accent); } .fwc.bad{ border-top-color:var(--rose); } .fwc.warn{ border-top-color:var(--gold); }
 .fwk-k{ font-weight:800; font-size:2.3cqmin; color:var(--ink); line-height:1.15; }
 .fwkicon{ width:5.6cqmin; height:5.6cqmin; display:grid; place-items:center; border-radius:50%; font-size:3cqmin; font-weight:800; margin-top:auto; }
