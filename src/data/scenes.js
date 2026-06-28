@@ -95,7 +95,7 @@ export const scenes = [
       <div class="panes">
         <div class="pane r" style="--d:.24s"><h4>Direct</h4><p><b>member <i class="ico ico-swap" aria-hidden="true"></i> member</b> · every join makes it more useful</p></div>
         <div class="pane gold r" style="--d:.36s"><h4>Cross-side</h4><p><b>members <i class="ico ico-swap" aria-hidden="true"></i> recruiters</b> · each side pulls the other</p></div>
-        <div class="pane cyan r" style="--d:.48s"><h4>Data effect</h4><p>clicks <i class="ico ico-arrow" aria-hidden="true"></i> better matching <i class="ico ico-arrow" aria-hidden="true"></i> more data</p></div>
+        <div class="pane cyan r" style="--d:.48s"><h4>Data</h4><p>clicks <i class="ico ico-arrow" aria-hidden="true"></i> better matching <i class="ico ico-arrow" aria-hidden="true"></i> more data</p></div>
         <div class="pane rose r" style="--d:.6s"><h4><i class="ico ico-warn" aria-hidden="true"></i> The dark side</h4><p>spam &amp; fatigue can <b>erode value</b></p></div>
       </div>
       <div class="src">
