@@ -33,12 +33,12 @@ export const script = {
   'q-many-sides': "How does one platform serve so many sides?",
 
   'multi-sided': [
-    { sel:'.lead@0',    say:"At its core, LinkedIn is a multi-sided platform: it connects distinct groups and gets the price structure right between them." },
-    { sel:'.hubcore@0', say:"It sits in the middle as the price-setter, deciding who pays and who doesn't." },
-    { sel:'.node@0',    say:"Members get the network almost free, people like Lena." },
-    { sel:'.node@1',    say:"Recruiters, like Marco, sit on the paying side; they pay to find talent." },
+    { sel:'.lead@0',    say:"So what is it? At its core, LinkedIn is a multi-sided platform — Rochet and Tirole describe that as a business that connects distinct groups and gets the pricing right between them." },
+    { sel:'.hubcore@0', say:"LinkedIn sits in the middle as the price-setter, deciding who pays and who doesn't — and it prices the four sides shamelessly unequally." },
+    { sel:'.node@0',    say:"Members, people like Lena, glide in almost free." },
+    { sel:'.node@1',    say:"Recruiters, like Marco, sit on the paying side; they foot the bill to find talent." },
     { sel:'.node@2',    say:"Advertisers pay too, putting their brand in front of you." },
-    { sel:'.node@3',    say:"And developers build on top, extending what the platform can do." },
+    { sel:'.node@3',    say:"And developers build on top, extending what the platform can do. As Hagiu and Wright note, LinkedIn never owns the deal itself; it just makes the right people findable." },
   ],
 
   /* ===================== ACT 2 — THE MACHINE ===================== */
@@ -46,17 +46,17 @@ export const script = {
   'q-grow': "What makes it grow on its own?",
 
   'network-effects': [
-    { sel:'.pane@0', say:"Direct effects: each new member makes the network more useful to everyone else." },
-    { sel:'.pane@1', say:"Cross-side effects: more members pull in recruiters, and more recruiters pull in members." },
-    { sel:'.pane@2', say:"Data effects: every click trains better matching, a flywheel that spins itself faster." },
-    { sel:'.pane@3', say:"But watch the edge, a dark side: spam and recruiter fatigue can erode value as the crowd swells." },
+    { sel:'.pane@0', say:"Network effects are the engine under the whole thing. Katz and Shapiro split them in two. Direct: every new member makes the network more useful for everyone already on it." },
+    { sel:'.pane@1', say:"Cross-side: more members lure more recruiters, and more recruiters lure more members — LinkedIn has both." },
+    { sel:'.pane@2', say:"Plus a sneaky third, data network effects: every click trains its matching, pulling in more people and making more data — a flywheel that spins itself." },
+    { sel:'.pane@3', say:"But there's a dark side: spam and recruiter fatigue. Past a point, the crowd can make it worse." },
   ],
 
   'q-free': "Why is it almost free to grow?",
 
   'matchmaker': [
-    { sel:'.pane@0', say:"Two things make that engine almost unstoppable. First, it's a frictionless matchmaker, crushing the cost of search in the job market." },
-    { sel:'.pane@1', say:"Second, it's asset-light: just software and data, so the ten-millionth member costs almost nothing, and that effortless matching is about to find Lena." },
+    { sel:'.pane@0', say:"Two reasons it's almost unstoppable. First, LinkedIn is a frictionless matchmaker: it crushes the cost of searching the job market, quietly linking a recruiter in Munich to a perfect candidate in São Paulo who isn't even looking." },
+    { sel:'.pane@1', say:"Second, it's gloriously asset-light: basically software plus data, so the ten-millionth member costs almost nothing, yet can be sold to recruiters again and again. No warehouses, no factories — the textbook contrast between a platform and a pipeline. And that matching isn't just theory; it's about to happen to Lena." },
   ],
 
   'lena-match': [
@@ -83,24 +83,24 @@ export const script = {
   'q-ecosystem': "Who else lives off this platform?",
 
   'ecosystem': [
-    { sel:'.lead@0',    say:"Which means this is bigger than one company, it's an ecosystem: a crowd of complementors creating value around a shared platform." },
-    { sel:'.hubcore@0', say:"At the centre, the owner plays referee and architect, setting and policing the rules." },
-    { sel:'.node@0',    say:"Hiring-software vendors plug in." },
+    { sel:'.lead@0',    say:"Bigger still, because LinkedIn isn't really a company — it's an ecosystem. Jacobides describes ecosystems as loose crowds of complementors building value around a shared platform, with light central control." },
+    { sel:'.hubcore@0', say:"At the centre, the owner — a Microsoft company since 2016 — plays referee and architect: setting the rules and policing quality." },
+    { sel:'.node@0',    say:"Picture everything orbiting it. Hiring-software vendors plug in." },
     { sel:'.node@1',    say:"Ad agencies build campaigns." },
     { sel:'.node@2',    say:"Instructors and course creators teach on it." },
     { sel:'.node@3',    say:"Creators publish content." },
     { sel:'.node@4',    say:"Data partners wire themselves in." },
-    { sel:'.node@5',    say:"And LinkedIn quietly takes a cut of almost everything that flows through." },
+    { sel:'.node@5',    say:"And LinkedIn quietly skims a cut of almost everything that flows through." },
   ],
 
   'q-from-zero': "How do you start a network from zero?",
 
   'cold-start': [
-    { sel:'.mile@0', say:"In 2003, LinkedIn launches, seeded from your own address book." },
-    { sel:'.mile@1', say:"2005, freemium turns power users into payers." },
-    { sel:'.mile@2', say:"2006, People You May Know sparks a viral loop." },
-    { sel:'.mile@3', say:"2011, the IPO on the New York Stock Exchange." },
-    { sel:'.mile@4', say:"2016, Microsoft buys LinkedIn for twenty-six-point-two billion dollars." },
+    { sel:'.mile@0', say:"In 2003, LinkedIn launches — and beats the chicken-and-egg problem Caillaud and Jullien describe, no users without recruiters and no recruiters without users, by seeding from your own address book." },
+    { sel:'.mile@1', say:"In 2005, freemium turns power users into payers." },
+    { sel:'.mile@2', say:"In 2006, People You May Know sparks a viral loop — and public profiles let Google ship free traffic." },
+    { sel:'.mile@3', say:"In 2011, the IPO on the New York Stock Exchange." },
+    { sel:'.mile@4', say:"In 2016, Microsoft buys LinkedIn for twenty-six-point-two billion dollars." },
     { sel:'.mile@5', say:"And from 2023, the AI era deepens the data moat even further." },
   ],
 
@@ -119,37 +119,37 @@ export const script = {
   'q-unbeatable': "Is LinkedIn really unbeatable?",
 
   'crack': [
-    { sel:'.wtac@0',   say:"Test one: strong network effects? Yes, a global professional graph that pushes the market to tip." },
-    { sel:'.wtac@1',   say:"Test two: costly to leave for rivals? No, switching is cheap. A recruiter can run LinkedIn, Indeed and Glassdoor side by side, paying for whichever delivers." },
-    { sel:'.wtac@2',   say:"Test three: does everyone want the same thing? Not really, the market splits by purpose and region, so no single platform owns it all." },
-    { sel:'.rivals@0', say:"That's why real rivals survive: Indeed dominates raw job listings, Glassdoor owns salaries and reviews, and here in the DACH region Xing still holds professional networking. Powerful, but genuinely contestable." },
+    { sel:'.wtac@0',   say:"Eisenmann says winner-take-all needs three things at once. Test one: strong network effects? Yes — a global professional graph that pushes the market to tip. LinkedIn aces this one." },
+    { sel:'.wtac@1',   say:"Test two: painful switching costs? No — switching is cheap. A recruiter runs LinkedIn, Indeed and Glassdoor side by side, paying for whichever delivers." },
+    { sel:'.wtac@2',   say:"Test three: does everyone want the same one-size-fits-all thing? Not really — the market splits by function and geography, so no single platform owns it all." },
+    { sel:'.rivals@0', say:"That's why real rivals survive: Indeed dominates raw job listings, Glassdoor owns salaries and reviews, and in the DACH region Xing still holds professional networking. So LinkedIn owns professional identity in the West — a champion, but genuinely contestable, not an unbeatable one." },
   ],
 
   'q-moat': "So what is its real moat?",
 
   'control': [
-    { sel:'.dial@0',     say:"Its real moat isn't openness, it's control. The feed algorithm is opaque, tightly held." },
+    { sel:'.dial@0',     say:"Its real moat isn't openness — it's control. Tiwana frames governance as two questions: who decides, and how open is the platform? On both, LinkedIn leans hard toward control, starting with a feed algorithm that's opaque and tightly held." },
     { sel:'.dial@1',     say:"Terms and moderation are strict." },
-    { sel:'.dial@2',     say:"Identities are verified, real names only." },
-    { sel:'.dial@3',     say:"And anti-scraping is enforced hard." },
-    { sel:'.casenote@0', say:"Take the landmark hiQ Labs case: a startup sued to keep scraping public LinkedIn profiles, and lost. The data stays LinkedIn's, firmly at the closed, controlled end." },
+    { sel:'.dial@2',     say:"Identities are verified — real names only." },
+    { sel:'.dial@3',     say:"And it fights scraping hard." },
+    { sel:'.casenote@0', say:"Take the landmark hiQ Labs case: a startup harvested public profiles to resell as analytics; LinkedIn blocked it and, after years in court, prevailed on breach of contract — hiQ shut down. Boudreau names the trade-off: openness sparks innovation, but surrendering control risks the platform's integrity. LinkedIn picks control and trust every time." },
   ],
 
   'q-guard-doors': "How tightly does it guard the doors?",
 
   'apis': [
-    { sel:'.tier@0',  say:"That control extends to developers. Open to anyone: Sign-In with LinkedIn, which lets other apps log you in with your LinkedIn identity, and the Share API, which lets them post updates to your feed." },
-    { sel:'.tier@1',  say:"Then a partner tier you must apply for: the Marketing API to build and automate ad campaigns, and the Jobs and ATS APIs to sync postings and applicants." },
-    { sel:'.tier@2',  say:"And an invite-only inner ring: Talent, Learning and Sales Navigator, the deep recruiting, training and sales-prospecting data." },
-    { sel:'.stamp@0', say:"Bulk data access? Forbidden. Control beats openness again." },
+    { sel:'.tier@0',  say:"Those developers meet LinkedIn at its APIs — what Ghazawneh and Henfridsson call boundary resources, the dials that balance control against contribution. LinkedIn opens the door just a crack: anyone can use Sign-In with LinkedIn, on OpenID Connect over OAuth 2.0, to log users in with their LinkedIn identity, plus the Share API to post updates to the feed." },
+    { sel:'.tier@1',  say:"But everything valuable hides behind a velvet rope: the Marketing API to build and automate ad campaigns, and the Jobs and ATS APIs to sync postings and applicants, all need partner approval." },
+    { sel:'.tier@2',  say:"And an invite-only inner ring: Talent, Learning and Sales Navigator — the deep recruiting, training and sales-prospecting data." },
+    { sel:'.stamp@0', say:"Bulk data access? Forbidden. Next to Apple or Salesforce, this surface is deliberately narrow — control beats openness again." },
   ],
 
   'q-cost': "What does all that control cost us?",
 
   'rewired': [
-    { sel:'.bacol@0',   say:"And it reshaped work itself. Before: post a job and wait, with static résumés and headhunter networks." },
-    { sel:'.bagrp@0',   say:"After LinkedIn: hunt passive candidates through living, public profiles and self-serve search." },
-    { sel:'.warnbox@0', say:"But here's the critical edge, it hands one private, algorithmic gatekeeper enormous power over who gets seen. To weigh that bargain, let's return to Lena." },
+    { sel:'.bacol@0',   say:"We pay it through the job market itself. Before LinkedIn, recruiting meant posting a job and waiting — static résumés and headhunter networks." },
+    { sel:'.bagrp@0',   say:"After LinkedIn, it flipped to hunting people who never raised their hand — living, public profiles and self-serve search — turning every professional into a permanently visible, searchable asset." },
+    { sel:'.warnbox@0', say:"Convenient? Hugely. But the flip side hands enormous power over the labour market to one private, algorithmic gatekeeper that decides who gets seen — raising real questions about bias, surveillance, and everyone left off the platform. To weigh that bargain, let's return to Lena one last time." },
   ],
 
   'lena-job': [
@@ -160,12 +160,12 @@ export const script = {
   'q-strong-or-unbeatable': "So, strong, or unbeatable?",
 
   'verdict': [
-    { sel:'.fwc@0',     say:"Network effects, direct, cross-side and data, strong." },
-    { sel:'.fwc@1',     say:"Asset-light scalability, strong." },
-    { sel:'.fwc@2',     say:"A truly unbeatable monopoly? No, it stays contestable." },
-    { sel:'.fwc@3',     say:"Openness and generativity, low." },
-    { sel:'.fwc@4',     say:"Labour-market power and ethics, a real concern." },
-    { sel:'.closing@0', say:"The bottom line: powerful, but not unbeatable. Owning the network and the data, not openness, is the more durable moat." },
+    { sel:'.fwc@0',     say:"Framework by framework: LinkedIn is a textbook multi-sided platform, powered by formidable network effects — direct, cross-side and data. Strong." },
+    { sel:'.fwc@1',     say:"With beautiful asset-light scale. Strong." },
+    { sel:'.fwc@2',     say:"But it's no flawless monopoly: cheap switching and a market sliced by function keep it contestable — rivals like Xing survive in their regions." },
+    { sel:'.fwc@3',     say:"Its greatest strength, tight governance and trust, is also its ceiling: openness is low, the APIs narrow." },
+    { sel:'.fwc@4',     say:"And its grip on the labour market earns the scrutiny it gets — a real ethical concern." },
+    { sel:'.closing@0', say:"So the answer to our opening question? Powerful, but not unbeatable. The real lesson: owning the network and the data, not opening the doors, is the most durable moat of all." },
   ],
 
   'the-end': "Powerful, but not unbeatable. Thanks for watching.",
