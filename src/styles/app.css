@@ -212,7 +212,7 @@ img.dot{ object-fit:cover; padding:0; }
 .bcell li::before{ content:"\25AA"; color:#639a00; font-size:1.4cqmin; }
 .bars{ margin-top:1.6cqmin; display:flex; flex-direction:column; gap:1cqmin; max-width:64cqw; }
 .barrow{ display:flex; align-items:center; gap:1.4cqmin; }
-.barrow .bl{ width:24cqmin; font-size:1.8cqmin; font-weight:700; color:var(--ink); } .barrow .bl small{ display:block; font-family:var(--mono); font-size:1.3cqmin; color:var(--muted); font-weight:400; }
+.barrow .bl{ width:24cqmin; font-size:1.8cqmin; font-weight:700; color:var(--ink); text-align:left; } .barrow .bl small{ display:block; font-family:var(--mono); font-size:1.3cqmin; color:var(--muted); font-weight:400; }
 .track{ flex:1; height:2.6cqmin; background:#e6e6e6; overflow:hidden; }
 .fill{ height:100%; width:0; }
 .scene.active .fill{ transition:width 1.2s cubic-bezier(.2,.8,.2,1); transition-delay:.3s; }
