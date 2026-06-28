@@ -292,7 +292,7 @@ img.dot{ object-fit:cover; padding:0; }
 .takeaway b{ color:var(--accent); font-weight:800; }
 
 /* ---- hiQ Labs case note (governance) ---- */
-.casenote{ display:flex; align-items:baseline; justify-content:center; gap:1cqmin; margin:2.4cqmin auto 0; max-width:80cqw;
+.casenote{ display:flex; align-items:center; justify-content:center; gap:1cqmin; margin:2.4cqmin auto 0; max-width:80cqw;
   background:#f2f2f2; padding:1.6cqmin 2cqmin; font-size:1.95cqmin; line-height:1.45; color:var(--ink); }
 .casenote b{ color:var(--rose); } .casenote .ico{ color:var(--rose); flex:none; }
 
