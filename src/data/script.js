@@ -25,7 +25,7 @@ export const script = {
   'enter': [
     { sel:'.h@0',    say:"The place she's looking for is LinkedIn: the world's largest professional network." },
     { sel:'.stat@0', say:"Just by creating a profile, Lena joins more than 1.3 billion people." },
-    { sel:'.stat@1', say:"Across more than two hundred countries and territories." },
+    { sel:'.stat@1', say:"Across more than two hundred countries." },
     { sel:'.stat@2', say:"Around seventeen point eight billion dollars in revenue last year." },
     { sel:'.stat@3', say:"All from an idea launched back in 2003, more than twenty-two years ago." },
   ],
