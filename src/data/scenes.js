@@ -1,4 +1,4 @@
-// The full scene list, in playback order — built to play as a VIDEO.
+// The full scene list, in playback order, built to play as a VIDEO.
 //
 // This file holds only the VISUALS: each scene's markup and structural flags.
 // The spoken text (voiceover / captions, and the per-step reveal timing) lives
@@ -8,7 +8,7 @@
 // QUESTION poses each beat and a sparse content scene answers it with a large
 // visual + minimal on-screen text. The source rail (.src) stays on screen the
 // whole time. The recurring "Lena" chapters (story:true) are interleaved. There
-// is no references scene — the full source list is provided separately; the
+// is no references scene, the full source list is provided separately; the
 // video closes with a thank-you.
 //
 // Scene fields:
@@ -32,7 +32,7 @@ export const scenes = [
 
   /* ============ ACT 1, THE SETUP ============ */
 
-  /* 0 - MEET LENA: who she is + what she wants (to connect) — not on LinkedIn yet */
+  /* 0 - MEET LENA: who she is + what she wants (to connect), not on LinkedIn yet */
   { id:"meet-lena", no:"00", kick:"Meet Lena",
     html:`
       <div class="lena-hero">
@@ -46,7 +46,7 @@ export const scenes = [
         </div>
       </div>` },
 
-  /* ENTER LINKEDIN: the scale answer (stats) — revealed stat-by-stat */
+  /* ENTER LINKEDIN: the scale answer (stats), revealed stat-by-stat */
   { id:"enter", no:"enter", kick:"The hook",
     html:`
       <h2 class="h r">Enter <span class="blue">LinkedIn</span>.</h2>
@@ -128,13 +128,13 @@ export const scenes = [
       </div>`
   },
 
-  /* ✦ LENA · CHAPTER 1 — the match finds her (after the matchmaker scene) */
+  /* ✦ LENA · CHAPTER 1, the match finds her (after the matchmaker scene) */
   { id:"lena-match", no:"✦", kick:"Lena · the match finds her", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">The opportunity<br><em>finds her.</em></h2>
-          <p>Still not searching — but a recruiter's <b>three filters</b> surface her in seconds.</p>
+          <p>Still not searching, but a recruiter's <b>three filters</b> surface her in seconds.</p>
         </div>
         <div>
           <div class="mock">
@@ -144,7 +144,7 @@ export const scenes = [
               <span class="fchip">Location · Munich</span>
               <span class="fchip">Skill · Design systems</span>
             </div>
-            <div class="mnote" style="color:var(--accent)"><span class="mdot" style="background:var(--accent)"></span> 1 strong match — surfaced in seconds</div>
+            <div class="mnote" style="color:var(--accent)"><span class="mdot" style="background:var(--accent)"></span> 1 strong match, surfaced in seconds</div>
           </div>
           <div class="mock">
             <div class="mhead"><img class="mava" src="${B}images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter viewed your profile</div><div class="msub">Senior Recruiter · Berlin · 600 km away</div></div></div>
@@ -160,7 +160,7 @@ export const scenes = [
   { id:"q-exchange", no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>` },
 
-  /* 6, VALUE UNIT / core interaction — revealed card by card, then stage by stage */
+  /* 6, VALUE UNIT / core interaction, revealed card by card, then stage by stage */
   { id:"value-unit", no:"06", kick:"The value unit",
     html:`
       <h2 class="h r" style="--d:.1s">The <span class="blue">value unit</span> you create for free</h2>
@@ -234,7 +234,7 @@ export const scenes = [
   { id:"q-money", no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">Where does the <em>money</em> come from?</div>` },
 
-  /* 9, BUSINESS MODEL — one bold proportional split bar */
+  /* 9, BUSINESS MODEL, one bold proportional split bar */
   { id:"revenue", no:"09", kick:"The money", html:`
       <h2 class="h r" style="--d:.1s">Three revenue <em>engines</em></h2>
       <div class="splitbar r" style="--d:.24s">
@@ -249,19 +249,19 @@ export const scenes = [
       </div>`
   },
 
-  /* ✦ LENA · CHAPTER 2 — someone pays to reach her (after the revenue scene) */
+  /* ✦ LENA · CHAPTER 2, someone pays to reach her (after the revenue scene) */
   { id:"lena-pays", no:"✦", kick:"Lena · someone pays to reach her", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">Someone <em>pays</em><br>to reach her.</h2>
-          <p>Not connected — so Marco's company <b>paid LinkedIn</b> to message her.</p>
+          <p>Not connected, so Marco's company <b>paid LinkedIn</b> to message her.</p>
           <p>Lena reads it free. The platform got <b>paid to put it there.</b></p>
         </div>
         <div class="mock">
           <span class="mtag" style="color:var(--gold)">Sponsored · InMail</span>
           <div class="mhead"><img class="mava" src="${B}images/marco.jpg" alt="Marco Reuter"><div><div class="mname" style="font-size:2.1cqmin">Marco Reuter</div><div class="msub">Senior Recruiter · Studio Berlin</div></div></div>
-          <div class="mbody">"Hi Lena — we're hiring a <b>Lead Product Designer</b>, and your design-systems work is exactly it. Open to a chat?"</div>
+          <div class="mbody">"Hi Lena, we're hiring a <b>Lead Product Designer</b>, and your design-systems work is exactly it. Open to a chat?"</div>
           <div class="mnote"><span class="mdot"></span> Paid: InMail credit + a Recruiter licence (~thousands / year)</div>
         </div>
       </div>` },
@@ -275,8 +275,8 @@ export const scenes = [
   { id:"crack", no:"10", kick:"The crack", html:`
       <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
       <div class="wta">
-        <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES — IT TIPS</div><div class="wtad">deep cross-side &amp; data effects</div></div>
-        <div class="wtac n r" style="--d:.44s"><div class="wtaq">Costly to switch?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO — IT RESISTS</div><div class="wtad">recruiters run rivals side by side</div></div>
+        <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES, IT TIPS</div><div class="wtad">deep cross-side &amp; data effects</div></div>
+        <div class="wtac n r" style="--d:.44s"><div class="wtaq">Costly to switch?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO, IT RESISTS</div><div class="wtad">recruiters run rivals side by side</div></div>
         <div class="wtac m r" style="--d:.58s"><div class="wtaq">One-size-fits-all?</div><div class="wtaicon"><i class="ico ico-approx" aria-hidden="true"></i></div><div class="wtav mixed">NOT REALLY</div><div class="wtad">splits by function &amp; region</div></div>
       </div>
       <div class="rivals r" style="--d:.72s">
@@ -304,7 +304,7 @@ export const scenes = [
         <div class="dial r" style="--d:.48s"><div class="dt"><b>Identity</b><span>real names</span></div><div class="meter"><i data-w="70"></i></div></div>
         <div class="dial r" style="--d:.58s"><div class="dt"><b>Anti-scraping</b><span>enforced</span></div><div class="meter"><i data-w="88"></i></div></div>
       </div>
-      <div class="casenote r" style="--d:.72s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup sued to keep scraping public profiles — and lost. The data stays LinkedIn's.</div>
+      <div class="casenote r" style="--d:.72s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup sued to keep scraping public profiles, and lost. The data stays LinkedIn's.</div>
       <div class="src">
         <span class="cite">Tiwana, Konsynski &amp; Bush (2010)</span>
         <span class="cite g">Boudreau (2010)</span>
@@ -351,32 +351,32 @@ export const scenes = [
           </div>
         </div>
       </div>
-      <div class="warnbox r" style="--d:.6s"><b>One private gatekeeper</b> decides who gets seen — bias, surveillance, invisibility off-platform.</div>
+      <div class="warnbox r" style="--d:.6s"><b>One private gatekeeper</b> decides who gets seen, bias, surveillance, invisibility off-platform.</div>
       <div class="src">
         <span class="cite">Gawer &amp; Cusumano (2014)</span>
         <span class="cite r">platform power · labour-market gatekeeping</span>
       </div>`
   },
 
-  /* ✦ LENA · CHAPTER 3 — she got the job (after the cost scene) */
+  /* ✦ LENA · CHAPTER 3, she got the job (after the cost scene) */
   { id:"lena-job", no:"✦", kick:"Lena · she got the job", story:true,
     html:`
       <div class="storygrid">
         <div class="story-copy">
           <h2 class="h">Lena got<br>the <span class="blue">job.</span></h2>
-          <p><b>Lead Product Designer</b> — a real step up.</p>
+          <p><b>Lead Product Designer</b>, a real step up.</p>
           <p>But she never applied. <b>Who owned that match?</b></p>
         </div>
         <div class="mock">
           <span class="mtag" style="color:var(--cyan)">Offer accepted</span>
           <div class="mhead"><img class="mava g" src="${B}images/lena.jpg" alt="Lena Vogel"><div><div class="mname">Lead Product Designer</div><div class="msub">Studio Berlin · starts in 6 weeks</div></div></div>
           <div class="mline"><span class="mpill on">Hired via LinkedIn</span><span class="mpill gold">Ranked by the algorithm</span></div>
-          <div class="mnote"><span class="mdot"></span> Lena won. So did LinkedIn — it owned every step.</div>
+          <div class="mnote"><span class="mdot"></span> Lena won. So did LinkedIn, it owned every step.</div>
         </div>
       </div>` },
 
   { id:"q-strong-or-unbeatable", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So — <span class="blue">strong</span>, or <em>unbeatable</em>?</div>` },
+    html:`<div class="bigq r">So, <span class="blue">strong</span>, or <em>unbeatable</em>?</div>` },
 
   /* 14, VERDICT */
   { id:"verdict", no:"14", kick:"The verdict", html:`
@@ -388,7 +388,7 @@ export const scenes = [
         <div class="fwc bad r" style="--d:.56s"><div class="fwk-k">Openness</div><div class="fwkicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="fwk-v bad">LOW</div></div>
         <div class="fwc warn r" style="--d:.66s"><div class="fwk-k">Labour-market ethics</div><div class="fwkicon"><i class="ico ico-warn" aria-hidden="true"></i></div><div class="fwk-v warn">CONCERN</div></div>
       </div>
-      <div class="closing r" style="--d:.82s"><b>Powerful, but not unbeatable.</b> The moat is the network and the data — not openness.</div>
+      <div class="closing r" style="--d:.82s"><b>Powerful, but not unbeatable.</b> The moat is the network and the data, not openness.</div>
       <div class="src">
         <span class="cite">Eisenmann et al. (2006)</span>
         <span class="cite g">Parker et al. (2016)</span>
@@ -396,7 +396,7 @@ export const scenes = [
       </div>`
   },
 
-  /* CLOSE — no references scene; the full source list is provided separately */
+  /* CLOSE, no references scene; the full source list is provided separately */
   { id:"the-end", no:"✦", q:true, kick:"The end",
     html:`<div class="bigq">Thank you for <em>watching</em>.</div>
       <div class="qsub">Powerful, but not unbeatable.</div>` }
