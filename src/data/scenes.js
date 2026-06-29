@@ -169,12 +169,12 @@ export const scenes = [
       <div class="cocreate">
         <div class="cocard members r" style="--d:.42s">
           <div class="cohead">Members</div>
-          <div class="cosub">free · the value units</div>
+          <div class="cosub">free · generate supply</div>
           <div class="coitems">
             <span>Profiles &amp; identity</span>
             <span>Connections</span>
             <span>Posts &amp; updates</span>
-            <span>The jobs they need filled</span>
+            <span>Their attention &amp; data</span>
           </div>
         </div>
         <div class="cocard platform r" style="--d:.24s">
@@ -190,7 +190,7 @@ export const scenes = [
         </div>
         <div class="cocard compl r" style="--d:.6s">
           <div class="cohead">Complementors</div>
-          <div class="cosub">paid · transaction-based</div>
+          <div class="cosub">paid · generate demand</div>
           <div class="coitems">
             <span>Recruiters pay to reach talent</span>
             <span>Advertisers bid in the ad auction</span>
