@@ -62,7 +62,7 @@ export const scenes = [
       </div>` },
 
   { id:"q-many-sides", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What makes it a <em>platform</em>?</div>` },
+    html:`<div class="bigq r">What makes LinkedIn a <em>platform</em>?</div>` },
 
   /* 3, MULTI-SIDED MARKET + ECOSYSTEM (merged) */
   { id:"multi-sided", no:"03", kick:"Multi-sided platform", html:`
@@ -88,7 +88,7 @@ export const scenes = [
   /* ============ ACT 2, THE MACHINE ============ */
 
   { id:"q-grow", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What makes it <em>grow</em>?</div>` },
+    html:`<div class="bigq r">What makes it <em>grow</em> on its own?</div>` },
 
   /* 4, NETWORK EFFECTS engine */
   { id:"network-effects", no:"04", kick:"Network effects", html:`
@@ -106,7 +106,7 @@ export const scenes = [
   },
 
   { id:"q-free", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Why almost <em>free</em>?</div>` },
+    html:`<div class="bigq r">Why is it almost <em>free</em> to grow?</div>` },
 
   /* 5, INTERMEDIARY + SCALE */
   { id:"matchmaker", no:"05", kick:"Frictionless scale", html:`
@@ -160,7 +160,7 @@ export const scenes = [
       </div>` },
 
   { id:"q-exchange", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">What's <em>exchanged</em>?</div>` },
+    html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>` },
 
   /* 6, VALUE CO-CREATION — members · complementors · platform */
   { id:"value-unit", no:"06", kick:"Value co-creation",
@@ -204,7 +204,7 @@ export const scenes = [
   },
 
   { id:"q-from-zero", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Starting from <em>zero</em>?</div>` },
+    html:`<div class="bigq r">How do you start a network <em>from zero</em>?</div>` },
 
   /* 8, GROWTH / chicken-and-egg */
   { id:"cold-start", no:"08", kick:"The cold start", html:`
@@ -226,7 +226,7 @@ export const scenes = [
   },
 
   { id:"q-money", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Where's the <em>money</em>?</div>` },
+    html:`<div class="bigq r">Where does the <em>money</em> come from?</div>` },
 
   /* 9, BUSINESS MODEL, one bold proportional split bar */
   { id:"revenue", no:"09", kick:"The money", html:`
@@ -268,7 +268,7 @@ export const scenes = [
   /* ============ ACT 3, THE CRACK & VERDICT ============ */
 
   { id:"q-unbeatable", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Really <em>winner-take-all</em>?</div>` },
+    html:`<div class="bigq r">Is LinkedIn really <em>winner-take-all</em>?</div>` },
 
   /* 10, WINNER TAKE ALL? */
   { id:"crack", no:"10", kick:"The crack", html:`
@@ -292,7 +292,7 @@ export const scenes = [
   },
 
   { id:"q-moat", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Its real <em>moat</em>?</div>` },
+    html:`<div class="bigq r">So what is its real <em>moat</em>?</div>` },
 
   /* 11, GOVERNANCE */
   { id:"control", no:"11", kick:"Control is the moat", html:`
@@ -311,7 +311,7 @@ export const scenes = [
   },
 
   { id:"q-guard-doors", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Guarding the <em>doors</em>?</div>` },
+    html:`<div class="bigq r">How tightly does it <em>guard the doors</em>?</div>` },
 
   /* 12, BOUNDARY RESOURCES */
   { id:"apis", no:"12", kick:"The gated doors", html:`
@@ -330,7 +330,7 @@ export const scenes = [
   },
 
   { id:"q-cost", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">The <em>cost</em> to us?</div>` },
+    html:`<div class="bigq r">What does all that control <em>cost us</em>?</div>` },
 
   /* 13, THE ETHICAL COST */
   { id:"rewired", no:"13", kick:"The cost", html:`
