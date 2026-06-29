@@ -172,6 +172,21 @@ img.dot{ object-fit:cover; padding:0; }
 .pfarrow{ display:flex; align-items:center; justify-content:center; padding:0 1.3cqmin; color:var(--accent); font-size:3cqmin; font-weight:700; flex:none; }
 .pfarrow.ghost{ visibility:hidden; }   /* reserves equal width for the first block */
 
+/* value co-creation — three contributors: members · complementors · platform */
+.cocreate{ display:grid; grid-template-columns:repeat(3,1fr); gap:2.4cqmin; margin-top:3cqmin; width:100%; }
+.cocard{ background:#f2f2f2; padding:3cqmin 2.4cqmin; min-height:38cqmin; display:flex; flex-direction:column; align-items:center; gap:1.2cqmin; text-align:center; border-top:.5cqmin solid var(--line); }
+.cocard.members{ border-top-color:var(--accent); }
+.cocard.compl{ border-top-color:var(--gold); }
+.cocard.platform{ border-top-color:var(--cyan); }
+.cohead{ font-family:var(--display); font-weight:800; font-size:3cqmin; color:var(--ink); line-height:1.05; }
+.cosub{ font-family:var(--mono); font-size:1.45cqmin; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+.cocard.members .cosub{ color:var(--accent-text); }
+.cocard.compl .cosub{ color:var(--gold-text); }
+.cocard.platform .cosub{ color:var(--lime-text); }
+.coitems{ display:flex; flex-direction:column; gap:1.1cqmin; margin-top:1cqmin; width:100%; }
+.coitems span{ font-size:2cqmin; color:#4c4c4c; line-height:1.35; }
+.conote{ margin-top:auto; font-family:var(--mono); font-size:1.55cqmin; color:var(--gold-text); font-weight:700; }
+
 /* checklist (WTA / governance) */
 .checks{ display:flex; flex-direction:column; gap:1.3cqmin; margin-top:1.6cqmin; max-width:72cqw; }
 .chk{ display:flex; align-items:center; gap:1.6cqmin; padding:1.4cqmin 1.8cqmin; background:#f2f2f2; }

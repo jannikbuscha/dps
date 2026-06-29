@@ -69,15 +69,9 @@ export const script = {
   'q-exchange': "What exactly are people exchanging?",
 
   'value-unit': [
-    { sel:'.seclbl@0', say:"Members create the value units, and they make every one of them for free." },
-    { sel:'.vcard@0',  say:"The profile." },
-    { sel:'.vcard@1',  say:"The connection." },
-    { sel:'.vcard@2',  say:"The job post." },
-    { sel:'.vcard@3',  say:"The update." },
-    { sel:'.seclbl@1', say:"Then the platform runs the core interaction." },
-    { sel:'.pfgrp@0',  say:"It pulls people in with the free network." },
-    { sel:'.pfgrp@1',  say:"Equips them with the tools and the algorithm." },
-    { sel:'.pfgrp@2',  say:"And matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers." },
+    { sel:'.cocard@0', say:"So what's actually exchanged? The value here is co-created by three parties. First, the members supply the raw value units, and they make every one for free: their profiles, their connections, the posts they share, and the jobs they need filled." },
+    { sel:'.cocard@1', say:"Then the complementors co-create through paid transactions: recruiters pay to reach talent, advertisers bid in the ad auction, and developers and creators build tools and content on top. Each one is a transaction the platform takes a cut of." },
+    { sel:'.cocard@2', say:"And the platform turns it all into a working market. It runs the core interaction, pulling people in with the free network, equipping them with the tools and the matching algorithm, and matching the right person to the right opportunity. The value everyone makes becomes the inventory it monetizes." },
   ],
 
   'q-from-zero': "How do you start a network from zero?",

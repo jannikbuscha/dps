@@ -162,26 +162,39 @@ export const scenes = [
   { id:"q-exchange", no:"Q", q:true, kick:"Question",
     html:`<div class="bigq r">What exactly are people <em>exchanging</em>?</div>` },
 
-  /* 6, VALUE UNIT / core interaction, revealed card by card, then stage by stage */
-  { id:"value-unit", no:"06", kick:"The value unit",
+  /* 6, VALUE CO-CREATION — members · complementors · platform */
+  { id:"value-unit", no:"06", kick:"Value co-creation",
     html:`
-      <h2 class="h r" style="--d:.1s">The <span class="blue">value unit</span> you create for free</h2>
-      <div class="vblock">
-        <div class="seclbl"><span class="num">1</span> <b>Members create the value units</b><span class="sub">at no cost</span></div>
-        <div class="vstack">
-          <div class="vcard"><div class="vt">The Profile</div><div class="vd">your identity</div></div>
-          <div class="vcard"><div class="vt">The Connection</div><div class="vd">a graph edge</div></div>
-          <div class="vcard"><div class="vt">The Job Post</div><div class="vd">demand</div></div>
-          <div class="vcard"><div class="vt">The Update</div><div class="vd">attention</div></div>
+      <h2 class="h r" style="--d:.1s">Value, <em>co-created</em></h2>
+      <div class="cocreate">
+        <div class="cocard members r" style="--d:.24s">
+          <div class="cohead">Members</div>
+          <div class="cosub">free · the value units</div>
+          <div class="coitems">
+            <span>Profiles &amp; identity</span>
+            <span>Connections</span>
+            <span>Posts &amp; updates</span>
+            <span>The jobs they need filled</span>
+          </div>
         </div>
-      </div>
-      <div class="vblock">
-        <div class="seclbl g"><span class="num">2</span> <b>The platform runs the core interaction</b></div>
-        <div class="pfm">
-          <div class="pfgrp"><span class="pfarrow ghost" aria-hidden="true"><i class="ico ico-arrow"></i></span><div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div></div>
-          <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div></div>
-          <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div></div>
-          <span class="pfarrow ghost" aria-hidden="true"><i class="ico ico-arrow"></i></span>
+        <div class="cocard compl r" style="--d:.42s">
+          <div class="cohead">Complementors</div>
+          <div class="cosub">paid · transaction-based</div>
+          <div class="coitems">
+            <span>Recruiters pay to reach talent</span>
+            <span>Advertisers bid in the ad auction</span>
+            <span>Developers &amp; creators build on top</span>
+          </div>
+        </div>
+        <div class="cocard platform r" style="--d:.6s">
+          <div class="cohead">The platform</div>
+          <div class="cosub">runs the core interaction</div>
+          <div class="coitems">
+            <span>Pull · the free network</span>
+            <span>Facilitate · tools + algorithm</span>
+            <span>Match · person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</span>
+          </div>
+          <div class="conote">…and takes a cut</div>
         </div>
       </div>
       <div class="src">
