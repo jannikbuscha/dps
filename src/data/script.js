@@ -61,7 +61,7 @@ export const script = {
 
   'lena-match': [
     { sel:'.story-copy', say:"A few weeks drift by, and Lena still isn't job hunting." },
-    { sel:'.mock@0',     say:"But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters: designer, Munich, design systems. In seconds, there she is." },
+    { sel:'.mock@0',     say:"But six hundred kilometres away in Berlin, a recruiter named Marco types three little filters. In seconds, there she is." },
     { sel:'.mock@1',     say:"The network's reach and that near zero search cost did all the work. The opportunity travelled to Lena, not the other way around." },
     { sel:'.mock@2',     say:"And it isn't luck. Shared connections like Anna and Tom vouch for her quietly, so the match feels trustworthy before a single word is exchanged. But pause there, because something just changed hands, and it wasn't anything you could hold." },
   ],
