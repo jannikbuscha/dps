@@ -316,10 +316,6 @@ img.dot{ object-fit:cover; padding:0; }
 .sb-seg .sbd{ font-family:var(--mono); font-size:1.6cqmin; opacity:.9; text-align:center; }
 .takeaway{ margin-top:3cqmin; font-size:3cqmin; color:var(--ink); }
 .takeaway b{ color:var(--accent); font-weight:800; }
-/* premium products — brief glosses */
-.premdetail{ display:flex; justify-content:center; flex-wrap:wrap; gap:1cqmin 3.2cqmin; margin-top:2.2cqmin; }
-.premdetail span{ font-family:var(--mono); font-size:1.7cqmin; color:var(--muted); }
-.premdetail b{ color:var(--ink); font-weight:700; font-family:var(--display); }
 /* pricing strategy — prominent callout (revealed as its own step) */
 .pricing{ margin:2.6cqmin auto 0; background:var(--accent-tint); padding:2.2cqmin 3.4cqmin; max-width:80cqw; }
 .pricing-lbl{ font-family:var(--mono); font-size:1.5cqmin; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-text); font-weight:700; margin-bottom:.8cqmin; }

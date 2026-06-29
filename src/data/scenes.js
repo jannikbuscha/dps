@@ -236,11 +236,6 @@ export const scenes = [
         <div class="sb-seg" style="flex:24; --c:#ca7406"><div class="sbv">24%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
         <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">individuals pay</div></div>
       </div>
-      <div class="premdetail">
-        <span><b>Premium</b> · see who viewed you + InMail</span>
-        <span><b>Sales Navigator</b> · find &amp; reach leads</span>
-        <span><b>Learning</b> · online courses</span>
-      </div>
       <div class="pricing">
         <div class="pricing-lbl">The pricing strategy</div>
         <div class="pricing-txt">Cross-subsidise · members ~free, <b>the money side pays.</b></div>
