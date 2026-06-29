@@ -232,18 +232,19 @@ export const scenes = [
   { id:"revenue", no:"09", kick:"The money", html:`
       <h2 class="h r" style="--d:.1s">Three revenue <em>engines</em></h2>
       <div class="splitbar r" style="--d:.24s">
-        <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">the recruiting suite</div></div>
-        <div class="sb-seg" style="flex:24; --c:#ca7406"><div class="sbv">24%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
-        <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">individuals pay</div></div>
+        <div class="sb-seg" style="flex:60; --c:#639a00"><div class="sbv">60%</div><div class="sbn">Talent Solutions</div><div class="sbd">the recruiting suite</div></div>
+        <div class="sb-seg" style="flex:25; --c:#ca7406"><div class="sbv">25%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
+        <div class="sb-seg" style="flex:15; --c:#7ab83b"><div class="sbv">15%</div><div class="sbn">Premium &amp; others</div><div class="sbd">individuals pay</div></div>
       </div>
       <div class="pricing">
         <div class="pricing-lbl">The pricing strategy</div>
-        <div class="pricing-txt">Cross-subsidise · members ~free, <b>the money side pays.</b></div>
+        <div class="pricing-txt">Freemium + cross-subsidisation · free users add value, <b>the money side pays.</b></div>
       </div>
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft Corporation (2025)</span>
         <span class="cite">TechCrunch (2016)</span>
+        <span class="cite">LeadCRM (n.d.)</span>
       </div>`
   },
 
@@ -392,6 +393,7 @@ export const scenes = [
           <span><b>Hoffman, R., &amp; Yeh, C.</b> (2018). <em>Blitzscaling: The lightning-fast path to building massively valuable companies.</em> Currency.</span>
           <span><b>Jacobides, M. G., Cennamo, C., &amp; Gawer, A.</b> (2018). Towards a theory of ecosystems. <em>Strategic Management Journal, 39</em>(8), 2255–2276.</span>
           <span><b>Katz, M. L., &amp; Shapiro, C.</b> (1985). Network externalities, competition, and compatibility. <em>The American Economic Review, 75</em>(3), 424–440.</span>
+          <span><b>LeadCRM.</b> (n.d.). <em>How does LinkedIn make money?</em></span>
           <span><b>Microsoft.</b> (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
           <span><b>Microsoft Corporation.</b> (2016). <em>Current report (Form 8-K).</em> U.S. Securities and Exchange Commission.</span>
           <span><b>Microsoft Corporation.</b> (2025). <em>Annual report (Form 10-K).</em> U.S. Securities and Exchange Commission.</span>
