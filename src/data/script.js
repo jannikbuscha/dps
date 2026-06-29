@@ -33,12 +33,12 @@ export const script = {
   'q-many-sides': "What makes LinkedIn a platform?",
 
   'multi-sided': [
-    { sel:'.lead@0',    say:"So what makes it a platform? At its core, LinkedIn is a multi-sided platform, what Rochet and Tirole describe as a business that connects several distinct groups at once. More than that, it's a whole ecosystem of players creating value around it." },
+    { sel:'.lead@0',    say:"At its core, LinkedIn is a multi-sided platform: it doesn't serve a single customer but several distinct groups at once, and each side only becomes valuable because the others are there." },
     { sel:'.hubcore@0', say:"At the centre sits the owner. It plays referee and architect, setting the rules, deciding how the sides connect, and keeping the network trustworthy. It never owns the deal itself, it just makes the right people findable." },
     { sel:'.node@0',    say:"On one side, members, people like Lena, who join for free." },
     { sel:'.node@1',    say:"On another, recruiters, like Marco, who come to find talent." },
     { sel:'.node@2',    say:"Advertisers come to put their brand in front of you." },
-    { sel:'.node@3',    say:"And around them all, a wider ecosystem builds on top: developers, hiring tools, ad agencies, course creators and data partners. Jacobides calls these complementors, and the owner takes a cut of nearly everything that flows through." },
+    { sel:'.node@3',    say:"Then the complementors build on top: developers, hiring tools, ad agencies, course creators and data partners. And the owner takes a cut of nearly everything that flows through." },
   ],
 
   /* ===================== ACT 2, THE MACHINE ===================== */
