@@ -309,13 +309,22 @@ img.dot{ object-fit:cover; padding:0; }
 
 /* ---- THREE REVENUE ENGINES — one bold proportional split bar ---- */
 .vblock{ width:100%; }
-.splitbar{ display:flex; gap:1.4cqmin; width:100%; max-width:84cqw; height:34cqmin; margin:3cqmin auto 0; }
+.splitbar{ display:flex; gap:1.4cqmin; width:100%; max-width:84cqw; height:28cqmin; margin:2.6cqmin auto 0; }
 .sb-seg{ background:var(--c); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5cqmin; padding:2cqmin 1cqmin; min-width:0; }
 .sb-seg .sbv{ font-family:var(--display); font-weight:800; font-size:7cqmin; line-height:1; letter-spacing:-.02em; }
 .sb-seg .sbn{ font-weight:700; font-size:2.4cqmin; line-height:1.1; text-align:center; }
 .sb-seg .sbd{ font-family:var(--mono); font-size:1.6cqmin; opacity:.9; text-align:center; }
 .takeaway{ margin-top:3cqmin; font-size:3cqmin; color:var(--ink); }
 .takeaway b{ color:var(--accent); font-weight:800; }
+/* premium products — brief glosses */
+.premdetail{ display:flex; justify-content:center; flex-wrap:wrap; gap:1cqmin 3.2cqmin; margin-top:2.2cqmin; }
+.premdetail span{ font-family:var(--mono); font-size:1.7cqmin; color:var(--muted); }
+.premdetail b{ color:var(--ink); font-weight:700; font-family:var(--display); }
+/* pricing strategy — prominent callout (revealed as its own step) */
+.pricing{ margin:2.6cqmin auto 0; background:var(--accent-tint); padding:2.2cqmin 3.4cqmin; max-width:80cqw; }
+.pricing-lbl{ font-family:var(--mono); font-size:1.5cqmin; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-text); font-weight:700; margin-bottom:.8cqmin; }
+.pricing-txt{ font-size:3.1cqmin; color:var(--ink); line-height:1.2; }
+.pricing-txt b{ color:var(--accent); font-weight:800; }
 
 /* ---- hiQ Labs case note (governance) ---- */
 .casenote{ display:flex; align-items:center; justify-content:center; gap:1cqmin; margin:2.4cqmin auto 0; max-width:80cqw;

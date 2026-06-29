@@ -87,8 +87,11 @@ export const script = {
 
   'q-money': "Where does the money actually come from?",
 
-  'revenue':
-    "Follow the money, and three engines roar into view. By far the biggest, around two-thirds of revenue, is Talent Solutions, LinkedIn's paid recruiting suite: the Recruiter seats, job slots and hiring tools that companies buy to find and contact candidates. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator and Learning. And underneath them all sits the pricing strategy, cross-subsidisation: members glide in almost free, while the money side, recruiters and advertisers, foots the bill. That money side is, right now, about to land in Lena's inbox.",
+  'revenue': [
+    { sel:'.splitbar@0',  say:"Follow the money, and three engines roar into view. By far the biggest, around two-thirds of revenue, is Talent Solutions, LinkedIn's paid recruiting suite: the Recruiter seats, job slots and hiring tools that companies buy. Next, Marketing Solutions, ads sold through an auction. And the rest is what individuals pay for directly." },
+    { sel:'.premdetail@0', say:"Premium, the paid subscription that shows who viewed you and unlocks InMail. Sales Navigator, a sales-prospecting tool for finding and reaching leads. And Learning, LinkedIn's library of online courses." },
+    { sel:'.pricing@0',   say:"But underneath all three sits the real pricing strategy, cross-subsidisation: members glide in almost free, while the money side, recruiters and advertisers, foots the bill. That money side is, right now, about to land in Lena's inbox." },
+  ],
 
   'lena-pays': [
     { sel:'.story-copy', say:"Here's how it reaches her. A message appears in Lena's inbox. It looks like any other note, but it isn't. Marco couldn't just message her, they aren't connected." },

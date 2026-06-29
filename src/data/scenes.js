@@ -234,9 +234,17 @@ export const scenes = [
       <div class="splitbar r" style="--d:.24s">
         <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">the recruiting suite</div></div>
         <div class="sb-seg" style="flex:24; --c:#ca7406"><div class="sbv">24%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
-        <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">+ Learning</div></div>
+        <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">individuals pay</div></div>
       </div>
-      <div class="takeaway r" style="--d:.5s">Pricing · subsidise members, <b>charge the money side.</b></div>
+      <div class="premdetail">
+        <span><b>Premium</b> · see who viewed you + InMail</span>
+        <span><b>Sales Navigator</b> · find &amp; reach leads</span>
+        <span><b>Learning</b> · online courses</span>
+      </div>
+      <div class="pricing">
+        <div class="pricing-lbl">The pricing strategy</div>
+        <div class="pricing-txt">Cross-subsidise · members ~free, <b>the money side pays.</b></div>
+      </div>
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft Corporation (2025)</span>
