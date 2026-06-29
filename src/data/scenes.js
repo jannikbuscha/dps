@@ -179,6 +179,7 @@ export const scenes = [
           <div class="pfgrp"><span class="pfarrow ghost" aria-hidden="true"><i class="ico ico-arrow"></i></span><div class="pf"><div class="pn">PULL</div><div class="pt">Attract</div><div class="pp">free network</div></div></div>
           <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">FACILITATE</div><div class="pt">Equip</div><div class="pp">tools + algorithm</div></div></div>
           <div class="pfgrp"><span class="pfarrow"><i class="ico ico-arrow" aria-hidden="true"></i></span><div class="pf"><div class="pn">MATCH</div><div class="pt">Connect</div><div class="pp">person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</div></div></div>
+          <span class="pfarrow ghost" aria-hidden="true"><i class="ico ico-arrow"></i></span>
         </div>
       </div>
       <div class="src">
@@ -335,7 +336,7 @@ export const scenes = [
 
   /* 13, THE ETHICAL COST */
   { id:"rewired", no:"13", kick:"The cost", html:`
-      <h2 class="h r" style="--d:.1s">It <span class="rosed">rewired</span> work</h2>
+      <h2 class="h r" style="--d:.1s">It <em>rewired</em> work</h2>
       <div class="ba">
         <div class="bacol old"><h4>Before</h4>
           <div class="li">Post a job &amp; wait</div>
@@ -403,28 +404,28 @@ export const scenes = [
       <div class="sources r" style="--d:.3s">
         <div class="sources-h">Sources</div>
         <div class="sources-list">
-          <span>Armstrong, M. (2006). Competition in two-sided markets. <em>The RAND Journal of Economics, 37</em>(3), 668–691.</span>
-          <span>Boudreau, K. (2010). Open platform strategies and innovation: Granting access vs. devolving control. <em>Management Science, 56</em>(10), 1849–1872.</span>
-          <span>Caillaud, B., &amp; Jullien, B. (2003). Chicken &amp; egg: Competition among intermediation service providers. <em>The RAND Journal of Economics, 34</em>(2), 309–328.</span>
-          <span>DataReportal. (2026). <em>LinkedIn statistics and trends.</em></span>
-          <span>Eaton, B., Elaluf-Calderwood, S., Sørensen, C., &amp; Yoo, Y. (2015). Distributed tuning of boundary resources: The case of Apple's iOS service system. <em>MIS Quarterly, 39</em>(1), 217–243.</span>
-          <span>Eisenmann, T., Parker, G., &amp; Van Alstyne, M. W. (2006). Strategies for two-sided markets. <em>Harvard Business Review, 84</em>(10), 92–101.</span>
-          <span>Eisenmann, T., Parker, G., &amp; Van Alstyne, M. W. (2011). Platform envelopment. <em>Strategic Management Journal, 32</em>(12), 1270–1285.</span>
-          <span>Gawer, A., &amp; Cusumano, M. A. (2014). Industry platforms and ecosystem innovation. <em>Journal of Product Innovation Management, 31</em>(3), 417–433.</span>
-          <span>Ghazawneh, A., &amp; Henfridsson, O. (2013). Balancing platform control and external contribution in third-party development: The boundary resources model. <em>Information Systems Journal, 23</em>(2), 173–192.</span>
-          <span>Hagiu, A., &amp; Wright, J. (2015). Multi-sided platforms. <em>International Journal of Industrial Organization, 43</em>, 162–174.</span>
-          <span>Hoffman, R., &amp; Yeh, C. (2018). <em>Blitzscaling: The lightning-fast path to building massively valuable companies.</em> Currency.</span>
-          <span>Jacobides, M. G., Cennamo, C., &amp; Gawer, A. (2018). Towards a theory of ecosystems. <em>Strategic Management Journal, 39</em>(8), 2255–2276.</span>
-          <span>Katz, M. L., &amp; Shapiro, C. (1985). Network externalities, competition, and compatibility. <em>The American Economic Review, 75</em>(3), 424–440.</span>
-          <span>Microsoft Corporation. (2016). <em>Current report (Form 8-K).</em> U.S. Securities and Exchange Commission.</span>
-          <span>Microsoft Corporation. (2025). <em>Annual report (Form 10-K).</em> U.S. Securities and Exchange Commission.</span>
-          <span>Microsoft. (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
-          <span>Osterwalder, A., &amp; Pigneur, Y. (2010). <em>Business model generation: A handbook for visionaries, game changers, and challengers.</em> Wiley.</span>
-          <span>Parker, G. G., Van Alstyne, M. W., &amp; Choudary, S. P. (2016). <em>Platform revolution: How networked markets are transforming the economy and how to make them work for you.</em> W. W. Norton.</span>
-          <span>Rochet, J.-C., &amp; Tirole, J. (2003). Platform competition in two-sided markets. <em>Journal of the European Economic Association, 1</em>(4), 990–1029.</span>
-          <span>TechCrunch. (2016). <em>Microsoft to acquire LinkedIn for $26.2 billion.</em></span>
-          <span>Tiwana, A., Konsynski, B., &amp; Bush, A. A. (2010). Platform evolution: Coevolution of platform architecture, governance, and environmental dynamics. <em>Information Systems Research, 21</em>(4), 675–687.</span>
-          <span>Van Alstyne, M. W., Parker, G. G., &amp; Choudary, S. P. (2016). Pipelines, platforms, and the new rules of strategy. <em>Harvard Business Review, 94</em>(4), 54–62.</span>
+          <span><b>Armstrong, M.</b> (2006). Competition in two-sided markets. <em>The RAND Journal of Economics, 37</em>(3), 668–691.</span>
+          <span><b>Boudreau, K.</b> (2010). Open platform strategies and innovation: Granting access vs. devolving control. <em>Management Science, 56</em>(10), 1849–1872.</span>
+          <span><b>Caillaud, B., &amp; Jullien, B.</b> (2003). Chicken &amp; egg: Competition among intermediation service providers. <em>The RAND Journal of Economics, 34</em>(2), 309–328.</span>
+          <span><b>DataReportal.</b> (2026). <em>LinkedIn statistics and trends.</em></span>
+          <span><b>Eaton, B., Elaluf-Calderwood, S., Sørensen, C., &amp; Yoo, Y.</b> (2015). Distributed tuning of boundary resources: The case of Apple's iOS service system. <em>MIS Quarterly, 39</em>(1), 217–243.</span>
+          <span><b>Eisenmann, T., Parker, G., &amp; Van Alstyne, M. W.</b> (2006). Strategies for two-sided markets. <em>Harvard Business Review, 84</em>(10), 92–101.</span>
+          <span><b>Eisenmann, T., Parker, G., &amp; Van Alstyne, M. W.</b> (2011). Platform envelopment. <em>Strategic Management Journal, 32</em>(12), 1270–1285.</span>
+          <span><b>Gawer, A., &amp; Cusumano, M. A.</b> (2014). Industry platforms and ecosystem innovation. <em>Journal of Product Innovation Management, 31</em>(3), 417–433.</span>
+          <span><b>Ghazawneh, A., &amp; Henfridsson, O.</b> (2013). Balancing platform control and external contribution in third-party development: The boundary resources model. <em>Information Systems Journal, 23</em>(2), 173–192.</span>
+          <span><b>Hagiu, A., &amp; Wright, J.</b> (2015). Multi-sided platforms. <em>International Journal of Industrial Organization, 43</em>, 162–174.</span>
+          <span><b>Hoffman, R., &amp; Yeh, C.</b> (2018). <em>Blitzscaling: The lightning-fast path to building massively valuable companies.</em> Currency.</span>
+          <span><b>Jacobides, M. G., Cennamo, C., &amp; Gawer, A.</b> (2018). Towards a theory of ecosystems. <em>Strategic Management Journal, 39</em>(8), 2255–2276.</span>
+          <span><b>Katz, M. L., &amp; Shapiro, C.</b> (1985). Network externalities, competition, and compatibility. <em>The American Economic Review, 75</em>(3), 424–440.</span>
+          <span><b>Microsoft Corporation.</b> (2016). <em>Current report (Form 8-K).</em> U.S. Securities and Exchange Commission.</span>
+          <span><b>Microsoft Corporation.</b> (2025). <em>Annual report (Form 10-K).</em> U.S. Securities and Exchange Commission.</span>
+          <span><b>Microsoft.</b> (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
+          <span><b>Osterwalder, A., &amp; Pigneur, Y.</b> (2010). <em>Business model generation: A handbook for visionaries, game changers, and challengers.</em> Wiley.</span>
+          <span><b>Parker, G. G., Van Alstyne, M. W., &amp; Choudary, S. P.</b> (2016). <em>Platform revolution: How networked markets are transforming the economy and how to make them work for you.</em> W. W. Norton.</span>
+          <span><b>Rochet, J.-C., &amp; Tirole, J.</b> (2003). Platform competition in two-sided markets. <em>Journal of the European Economic Association, 1</em>(4), 990–1029.</span>
+          <span><b>TechCrunch.</b> (2016). <em>Microsoft to acquire LinkedIn for $26.2 billion.</em></span>
+          <span><b>Tiwana, A., Konsynski, B., &amp; Bush, A. A.</b> (2010). Platform evolution: Coevolution of platform architecture, governance, and environmental dynamics. <em>Information Systems Research, 21</em>(4), 675–687.</span>
+          <span><b>Van Alstyne, M. W., Parker, G. G., &amp; Choudary, S. P.</b> (2016). Pipelines, platforms, and the new rules of strategy. <em>Harvard Business Review, 94</em>(4), 54–62.</span>
         </div>
       </div>` }
 ];
