@@ -30,15 +30,15 @@ export const script = {
     { sel:'.stat@3', say:"All from an idea launched back in 2003, more than twenty-two years ago." },
   ],
 
-  'q-many-sides': "How does one platform serve so many sides?",
+  'q-many-sides': "What makes LinkedIn a platform?",
 
   'multi-sided': [
-    { sel:'.lead@0',    say:"At its core, LinkedIn is a multi-sided platform, Rochet and Tirole describe that as a business that connects distinct groups and gets the pricing right between them." },
-    { sel:'.hubcore@0', say:"LinkedIn sits in the middle as the price-setter, deciding who pays and who doesn't, and it prices the four sides shamelessly unequally." },
-    { sel:'.node@0',    say:"Members, people like Lena, glide in almost free." },
-    { sel:'.node@1',    say:"Recruiters, like Marco, sit on the paying side, they foot the bill to find talent." },
-    { sel:'.node@2',    say:"Advertisers pay too, putting their brand in front of you." },
-    { sel:'.node@3',    say:"And developers build on top, extending what the platform can do. As Hagiu and Wright note, LinkedIn never owns the deal itself, it just makes the right people findable." },
+    { sel:'.lead@0',    say:"So what makes it a platform? At its core, LinkedIn is a multi-sided platform, what Rochet and Tirole describe as a business that connects several distinct groups at once. More than that, it's a whole ecosystem of players creating value around it." },
+    { sel:'.hubcore@0', say:"At the centre sits the owner. It plays referee and architect, setting the rules, deciding how the sides connect, and keeping the network trustworthy. It never owns the deal itself, it just makes the right people findable." },
+    { sel:'.node@0',    say:"On one side, members, people like Lena, who join for free." },
+    { sel:'.node@1',    say:"On another, recruiters, like Marco, who come to find talent." },
+    { sel:'.node@2',    say:"Advertisers come to put their brand in front of you." },
+    { sel:'.node@3',    say:"And around them all, a wider ecosystem builds on top: developers, hiring tools, ad agencies, course creators and data partners. Jacobides calls these complementors, and the owner takes a cut of nearly everything that flows through." },
   ],
 
   /* ===================== ACT 2, THE MACHINE ===================== */
@@ -78,19 +78,6 @@ export const script = {
     { sel:'.pfgrp@0',  say:"It pulls people in with the free network." },
     { sel:'.pfgrp@1',  say:"Equips them with the tools and the algorithm." },
     { sel:'.pfgrp@2',  say:"And matches the right person to the right opportunity. The value you make becomes the inventory it rents out to advertisers." },
-  ],
-
-  'q-ecosystem': "Who else lives off this platform?",
-
-  'ecosystem': [
-    { sel:'.lead@0',    say:"Which means this is bigger than one company, it's an ecosystem: a crowd of complementors creating value around a shared platform." },
-    { sel:'.hubcore@0', say:"At the centre, the owner plays referee and architect, setting and policing the rules." },
-    { sel:'.node@0',    say:"Picture everything orbiting it. Hiring-software vendors plug in." },
-    { sel:'.node@1',    say:"Ad agencies build campaigns." },
-    { sel:'.node@2',    say:"Instructors and course creators teach on it." },
-    { sel:'.node@3',    say:"Creators publish content." },
-    { sel:'.node@4',    say:"Data partners wire themselves in." },
-    { sel:'.node@5',    say:"And LinkedIn quietly takes a cut of almost everything that flows through." },
   ],
 
   'q-from-zero': "How do you start a network from zero?",

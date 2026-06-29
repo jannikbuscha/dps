@@ -62,24 +62,26 @@ export const scenes = [
       </div>` },
 
   { id:"q-many-sides", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">How does one platform serve <em>so many sides</em>?</div>` },
+    html:`<div class="bigq r">What makes LinkedIn a <em>platform</em>?</div>` },
 
-  /* 3, MULTI-SIDED MARKET */
-  { id:"multi-sided", no:"03", kick:"Multi-sided market", html:`
+  /* 3, MULTI-SIDED MARKET + ECOSYSTEM (merged) */
+  { id:"multi-sided", no:"03", kick:"Multi-sided platform", html:`
       <h2 class="h r" style="--d:.1s">One platform, <em>many sides</em></h2>
       <div class="net">
         <svg class="netsvg">
         </svg>
-        <div class="hubcore pswhite nr" style="--d:.3s">${LOGO}<div class="hs">PRICE-SETTER</div></div>
+        <div class="hubcore pswhite nr" style="--d:.3s">${LOGO}<div class="hs">REFEREE · ARCHITECT</div></div>
         <div class="node nr" style="--d:.5s; left:16%; top:24%"><img class="dot" src="${B}images/lena.jpg" alt=""><div class="nl">Members</div><div class="ns">free · like Lena</div></div>
         <div class="node money nr" style="--d:.62s; left:84%; top:24%"><img class="dot" src="${B}images/marco.jpg" alt=""><div class="nl">Recruiters</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · like Marco</div></div>
         <div class="node money nr" style="--d:.74s; left:86%; top:74%"><img class="dot" src="${B}images/sara.jpg" alt=""><div class="nl">Advertisers</div><div class="ns">they pay <i class="ico ico-coin" aria-hidden="true"></i> · a brand</div></div>
-        <div class="node nr" data-stroke="#7ab83b" style="--d:.86s; left:14%; top:74%"><img class="dot" src="${B}images/tom.jpg" alt=""><div class="nl">Developers</div><div class="ns">build on top</div></div>
+        <div class="node nr" data-stroke="#7ab83b" style="--d:.86s; left:14%; top:74%"><img class="dot" src="${B}images/tom.jpg" alt=""><div class="nl">Developers &amp; partners</div><div class="ns">build on top</div></div>
       </div>
       <div class="src">
         <span class="cite">Rochet &amp; Tirole (2003)</span>
         <span class="cite g">Hagiu &amp; Wright (2015)</span>
         <span class="cite">Armstrong (2006)</span>
+        <span class="cite">Jacobides et al. (2018)</span>
+        <span class="cite g">Gawer &amp; Cusumano (2014)</span>
       </div>`
   },
 
@@ -184,29 +186,6 @@ export const scenes = [
       </div>
       <div class="src">
         <span class="cite g">Parker et al. (2016)</span>
-      </div>`
-  },
-
-  { id:"q-ecosystem", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Who else <em>lives off</em> this platform?</div>` },
-
-  /* 7, ECOSYSTEM */
-  { id:"ecosystem", no:"07", kick:"The ecosystem", html:`
-      <h2 class="h r" style="--d:.1s">An <em>ecosystem</em>, not one company</h2>
-      <div class="net" style="height:44cqmin">
-        <svg class="netsvg">
-        </svg>
-        <div class="hubcore nr" style="--d:.3s"><div class="hl">Owner</div><div class="hs">REFEREE · ARCHITECT</div></div>
-        <div class="node nr" style="--d:.45s; left:50%; top:16%"><div class="dot" style="font-size:1.2cqmin">ATS</div><div class="nl">Hiring tools</div></div>
-        <div class="node nr" data-stroke="#7ab83b" style="--d:.55s; left:84%; top:34%"><div class="dot">Ad</div><div class="nl">Ad agencies</div></div>
-        <div class="node nr" style="--d:.65s; left:84%; top:70%"><div class="dot">Ed</div><div class="nl">Instructors</div></div>
-        <div class="node nr" style="--d:.75s; left:50%; top:86%"><div class="dot">Cr</div><div class="nl">Creators</div></div>
-        <div class="node nr" data-stroke="#7ab83b" style="--d:.85s; left:16%; top:70%"><div class="dot">Da</div><div class="nl">Data partners</div></div>
-        <div class="node money nr" style="--d:.95s; left:16%; top:34%"><div class="dot">$</div><div class="nl">LinkedIn's cut</div></div>
-      </div>
-      <div class="src">
-        <span class="cite">Jacobides et al. (2018)</span>
-        <span class="cite g">Gawer &amp; Cusumano (2014)</span>
       </div>`
   },
 
