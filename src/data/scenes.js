@@ -244,7 +244,7 @@ export const scenes = [
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft Corporation (2025)</span>
         <span class="cite">TechCrunch (2016)</span>
-        <span class="cite">LeadCRM (n.d.)</span>
+        <span class="cite">LeadCRM (2026)</span>
       </div>`
   },
 
@@ -393,7 +393,7 @@ export const scenes = [
           <span><b>Hoffman, R., &amp; Yeh, C.</b> (2018). <em>Blitzscaling: The lightning-fast path to building massively valuable companies.</em> Currency.</span>
           <span><b>Jacobides, M. G., Cennamo, C., &amp; Gawer, A.</b> (2018). Towards a theory of ecosystems. <em>Strategic Management Journal, 39</em>(8), 2255–2276.</span>
           <span><b>Katz, M. L., &amp; Shapiro, C.</b> (1985). Network externalities, competition, and compatibility. <em>The American Economic Review, 75</em>(3), 424–440.</span>
-          <span><b>LeadCRM.</b> (n.d.). <em>How does LinkedIn make money?</em></span>
+          <span><b>LeadCRM.</b> (2026). <em>How does LinkedIn make money?</em></span>
           <span><b>Microsoft.</b> (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
           <span><b>Microsoft Corporation.</b> (2016). <em>Current report (Form 8-K).</em> U.S. Securities and Exchange Commission.</span>
           <span><b>Microsoft Corporation.</b> (2025). <em>Annual report (Form 10-K).</em> U.S. Securities and Exchange Commission.</span>
