@@ -315,7 +315,7 @@ export const scenes = [
 
   /* 12, BOUNDARY RESOURCES */
   { id:"apis", no:"12", kick:"The gated doors", html:`
-      <h2 class="h r" style="--d:.1s"><span class="blue">APIs</span>: open a crack, no more</h2>
+      <h2 class="h r" style="--d:.1s"><span class="blue">APIs</span>: the <em>boundary resource</em>, open a crack</h2>
       <div class="pyr">
         <div class="tier t1 r" style="--d:.3s"><div class="tn">Open · any developer</div><div class="ti">Sign-In with LinkedIn · Share API</div><div class="tx">log users in with their LinkedIn identity · post updates to the feed</div></div>
         <div class="tier t2 r" style="--d:.45s"><div class="tn">Partner · apply + review</div><div class="ti">Marketing API · Jobs / ATS</div><div class="tx">build &amp; automate ad campaigns · sync job posts and applicants</div></div>

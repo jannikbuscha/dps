@@ -121,7 +121,7 @@ export const script = {
   'q-guard-doors': "How tightly does it guard the doors?",
 
   'apis': [
-    { sel:'.tier@0',  say:"Those developers meet LinkedIn at its APIs, what Ghazawneh and Henfridsson call boundary resources, the dials that balance control against contribution. LinkedIn opens the door just a crack: anyone can use Sign-In with LinkedIn, which lets other apps log you in with your LinkedIn identity, plus the Share API to post updates to the feed." },
+    { sel:'.tier@0',  say:"As for boundary resources, LinkedIn offers no SDKs, only APIs, what Ghazawneh and Henfridsson call the dials that balance control against contribution. And it opens that door just a crack: anyone can use Sign-In with LinkedIn, which lets other apps log you in with your LinkedIn identity, plus the Share API to post updates to the feed." },
     { sel:'.tier@1',  say:"But everything valuable hides behind a velvet rope: the Marketing API to build and automate ad campaigns, and the Jobs and ATS APIs to sync postings and applicants, all need partner approval." },
     { sel:'.tier@2',  say:"And an invite-only inner ring: Talent, Learning and Sales Navigator, the deep recruiting, training and sales-prospecting data." },
     { sel:'.stamp@0', say:"Bulk data access? Forbidden. Next to Apple or Salesforce, this surface is deliberately narrow, control beats openness again." },
