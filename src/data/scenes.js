@@ -52,9 +52,9 @@ export const scenes = [
       <h2 class="h r">Enter <span class="blue">LinkedIn</span>.</h2>
       <div class="stats intro-stats r" style="--d:.2s">
         <div class="stat pop"><div class="v" data-count="1.3" data-suffix="B" data-dec="1">0</div><div class="k">members worldwide</div></div>
-        <div class="stat pop"><div class="v c" data-count="200" data-suffix="+">0</div><div class="k">countries &amp; territories</div></div>
-        <div class="stat pop"><div class="v g" data-count="17.8" data-prefix="$" data-suffix="B" data-dec="1">0</div><div class="k">revenue, FY2025</div></div>
-        <div class="stat pop"><div class="v i" data-count="2003" data-plain="1">0</div><div class="k">launched · 22+ yrs ago</div></div>
+        <div class="stat pop"><div class="v" data-count="200" data-suffix="+">0</div><div class="k">countries &amp; territories</div></div>
+        <div class="stat pop"><div class="v" data-count="17.8" data-prefix="$" data-suffix="B" data-dec="1">0</div><div class="k">revenue, FY2025</div></div>
+        <div class="stat pop"><div class="v" data-count="2003" data-plain="1">0</div><div class="k">launched · 22+ yrs ago</div></div>
       </div>
       <div class="src">
         <span class="cite">DataReportal (2026)</span>
@@ -95,8 +95,8 @@ export const scenes = [
       <h2 class="h r" style="--d:.1s">The engine: <span class="blue">network effects</span></h2>
       <div class="panes">
         <div class="pane r" style="--d:.24s"><h4>Direct</h4><p><b>member <i class="ico ico-swap" aria-hidden="true"></i> member</b> · every join makes it more useful</p></div>
-        <div class="pane gold r" style="--d:.36s"><h4>Cross-side</h4><p><b>members <i class="ico ico-swap" aria-hidden="true"></i> recruiters</b> · each side pulls the other</p></div>
-        <div class="pane cyan r" style="--d:.48s"><h4>Data</h4><p>clicks <i class="ico ico-arrow" aria-hidden="true"></i> better matching <i class="ico ico-arrow" aria-hidden="true"></i> more data</p></div>
+        <div class="pane r" style="--d:.36s"><h4>Cross-side</h4><p><b>members <i class="ico ico-swap" aria-hidden="true"></i> recruiters</b> · each side pulls the other</p></div>
+        <div class="pane r" style="--d:.48s"><h4>Data</h4><p>clicks <i class="ico ico-arrow" aria-hidden="true"></i> better matching <i class="ico ico-arrow" aria-hidden="true"></i> more data</p></div>
         <div class="pane rose r" style="--d:.6s"><h4><i class="ico ico-warn" aria-hidden="true"></i> The dark side</h4><p>spam &amp; fatigue can <b>erode value</b></p></div>
       </div>
       <div class="src">
@@ -177,7 +177,7 @@ export const scenes = [
             <span>Their attention &amp; data</span>
           </div>
         </div>
-        <div class="cocard platform r" style="--d:.24s">
+        <div class="cocard r" style="--d:.24s">
           <div class="cohead">The platform</div>
           <div class="cosub">runs the core interaction</div>
           <div class="coitems">
@@ -188,7 +188,7 @@ export const scenes = [
           </div>
           <div class="conote">…and takes a cut</div>
         </div>
-        <div class="cocard compl r" style="--d:.6s">
+        <div class="cocard r" style="--d:.6s">
           <div class="cohead">Complementors</div>
           <div class="cosub">paid · generate demand</div>
           <div class="coitems">
