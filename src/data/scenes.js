@@ -256,9 +256,9 @@ export const scenes = [
   { id:"crack", no:"10", kick:"The crack", html:`
       <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
       <div class="wta">
-        <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES, IT TIPS</div><div class="wtad">deep cross-side &amp; data effects</div></div>
-        <div class="wtac n r" style="--d:.44s"><div class="wtaq">Costly to switch?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO, IT RESISTS</div><div class="wtad">recruiters run rivals side by side</div></div>
-        <div class="wtac m r" style="--d:.58s"><div class="wtaq">One-size-fits-all?</div><div class="wtaicon"><i class="ico ico-approx" aria-hidden="true"></i></div><div class="wtav mixed">NOT REALLY</div><div class="wtad">splits by function &amp; region</div></div>
+        <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong indirect network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES</div><div class="wtad">each side pulls in the others</div></div>
+        <div class="wtac n r" style="--d:.44s"><div class="wtaq">High multi-homing costs?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO</div><div class="wtad">rivals run side by side, cheaply</div></div>
+        <div class="wtac m r" style="--d:.58s"><div class="wtaq">Low demand for niche features?</div><div class="wtaicon"><i class="ico ico-approx" aria-hidden="true"></i></div><div class="wtav mixed">NOT QUITE</div><div class="wtad">splits by function &amp; region</div></div>
       </div>
       <div class="rivals r" style="--d:.72s">
         <span class="pill">Still contested:</span>

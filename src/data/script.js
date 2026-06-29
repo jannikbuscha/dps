@@ -106,10 +106,10 @@ export const script = {
   'q-unbeatable': "Is LinkedIn really unbeatable?",
 
   'crack': [
-    { sel:'.wtac@0',   say:"Eisenmann says winner-take-all needs three things at once. Test one: strong network effects? Yes, a global professional graph that pushes the market to tip. LinkedIn aces this one." },
-    { sel:'.wtac@1',   say:"Test two: painful switching costs? No, switching is cheap. A recruiter runs LinkedIn, Indeed and Glassdoor side by side, paying for whichever delivers." },
-    { sel:'.wtac@2',   say:"Test three: does everyone want the same one-size-fits-all thing? Not really, the market splits by function and geography, so no single platform owns it all." },
-    { sel:'.rivals@0', say:"That's why real rivals survive: Indeed dominates raw job listings, Glassdoor owns salaries and reviews, and in the DACH region Xing still holds professional networking. So LinkedIn owns professional identity in the West, a champion, but genuinely contestable, not an unbeatable one." },
+    { sel:'.wtac@0',   say:"Eisenmann says a two-sided market only tips to one winner when three conditions hold at once. First, strong indirect network effects: the more members join, the more recruiters and advertisers they attract, and the bigger the user base, the more those providers want in. LinkedIn has this in spades." },
+    { sel:'.wtac@1',   say:"Second, high multi-homing costs: it has to be too costly or time-consuming to stay active on rivals as well. Here LinkedIn fails the test, a recruiter happily runs LinkedIn, Indeed and Glassdoor at the same time, paying for whichever delivers." },
+    { sel:'.wtac@2',   say:"Third, low demand for specialized features: users wanting one standardized, ubiquitous solution rather than niche tools. Not quite, the market still splits by function and region." },
+    { sel:'.rivals@0', say:"That's why real rivals survive: Indeed dominates raw job listings, Glassdoor owns salaries and reviews, and in the DACH region Xing still holds professional networking. Only one of the three conditions holds, so LinkedIn is a champion, powerful but genuinely contestable, not winner-take-all." },
   ],
 
   'q-moat': "So what is its real moat?",
