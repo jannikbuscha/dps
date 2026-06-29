@@ -167,7 +167,7 @@ export const scenes = [
     html:`
       <h2 class="h r" style="--d:.1s">Value, <em>co-created</em></h2>
       <div class="cocreate">
-        <div class="cocard members r" style="--d:.24s">
+        <div class="cocard members r" style="--d:.42s">
           <div class="cohead">Members</div>
           <div class="cosub">free · the value units</div>
           <div class="coitems">
@@ -177,7 +177,18 @@ export const scenes = [
             <span>The jobs they need filled</span>
           </div>
         </div>
-        <div class="cocard compl r" style="--d:.42s">
+        <div class="cocard platform r" style="--d:.24s">
+          <div class="cohead">The platform</div>
+          <div class="cosub">runs the core interaction</div>
+          <div class="coitems">
+            <span>Infrastructure &amp; support</span>
+            <span>Pull · the free network</span>
+            <span>Facilitate · tools + algorithm</span>
+            <span>Match · person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</span>
+          </div>
+          <div class="conote">…and takes a cut</div>
+        </div>
+        <div class="cocard compl r" style="--d:.6s">
           <div class="cohead">Complementors</div>
           <div class="cosub">paid · transaction-based</div>
           <div class="coitems">
@@ -185,16 +196,6 @@ export const scenes = [
             <span>Advertisers bid in the ad auction</span>
             <span>Developers &amp; creators build on top</span>
           </div>
-        </div>
-        <div class="cocard platform r" style="--d:.6s">
-          <div class="cohead">The platform</div>
-          <div class="cosub">runs the core interaction</div>
-          <div class="coitems">
-            <span>Pull · the free network</span>
-            <span>Facilitate · tools + algorithm</span>
-            <span>Match · person <i class="ico ico-swap" aria-hidden="true"></i> opportunity</span>
-          </div>
-          <div class="conote">…and takes a cut</div>
         </div>
       </div>
       <div class="src">

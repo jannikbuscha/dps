@@ -69,9 +69,9 @@ export const script = {
   'q-exchange': "What exactly are people exchanging?",
 
   'value-unit': [
-    { sel:'.cocard@0', say:"So what's actually exchanged? The value here is co-created by three parties. First, the members supply the raw value units, and they make every one for free: their profiles, their connections, the posts they share, and the jobs they need filled." },
-    { sel:'.cocard@1', say:"Then the complementors co-create through paid transactions: recruiters pay to reach talent, advertisers bid in the ad auction, and developers and creators build tools and content on top. Each one is a transaction the platform takes a cut of." },
-    { sel:'.cocard@2', say:"And the platform turns it all into a working market. It runs the core interaction, pulling people in with the free network, equipping them with the tools and the matching algorithm, and matching the right person to the right opportunity. The value everyone makes becomes the inventory it monetizes." },
+    { sel:'.cocard@1', say:"The value here is co-created by three parties. At the centre, the platform provides the infrastructure and support: the network, the tools and the matching algorithm. It runs the core interaction, pulling people in, equipping them, and matching the right person to the right opportunity, and it takes a cut of everything that flows through." },
+    { sel:'.cocard@0', say:"On it, the members supply the raw value units, and they make every one for free: their profiles, their connections, the posts they share, and the jobs they need filled." },
+    { sel:'.cocard@2', say:"And the complementors co-create through paid transactions: recruiters pay to reach talent, advertisers bid in the ad auction, and developers and creators build tools and content on top." },
   ],
 
   'q-from-zero': "How do you start a network from zero?",
