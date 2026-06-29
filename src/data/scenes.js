@@ -66,7 +66,7 @@ export const scenes = [
 
   /* 3, MULTI-SIDED MARKET + ECOSYSTEM (merged) */
   { id:"multi-sided", no:"03", kick:"Multi-sided platform", html:`
-      <h2 class="h r" style="--d:.1s">One platform, <em>many sides</em></h2>
+      <h2 class="h r" style="--d:.1s">A <em>multi-sided</em> platform</h2>
       <div class="net">
         <svg class="netsvg">
         </svg>
@@ -112,12 +112,12 @@ export const scenes = [
   { id:"matchmaker", no:"05", kick:"Frictionless scale", html:`
       <h2 class="h r" style="--d:.1s">Matchmaker at <em>near-zero cost</em></h2>
       <div class="panes">
-        <div class="pane r" style="--d:.22s"><h4>The matchmaker</h4>
-          <p>it collapses <b>search costs</b> in the job market</p>
+        <div class="pane r" style="--d:.22s"><h4>The intermediary</h4>
+          <p>an <b>intermediary</b> that collapses search costs in the job market</p>
           <div class="flowstrip" style="margin-top:1.4cqmin"><div class="step"><span class="t">Recruiter</span></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><img class="steplogo" src="${B}linkedin.svg" alt="LinkedIn"></div><span class="arrow"><i class="ico ico-swap" aria-hidden="true"></i></span><div class="step"><span class="t">Hidden talent</span></div></div>
         </div>
-        <div class="pane gold r" style="--d:.36s"><h4>Asset-light</h4>
-          <p>just <b>software + data</b> · the next member costs ~nothing</p>
+        <div class="pane gold r" style="--d:.36s"><h4>Scalability</h4>
+          <p><b>asset-light</b> · just software + data, the next member costs ~nothing</p>
           <div class="bars" style="margin-top:1.4cqmin; max-width:none; width:100%">
             <div class="barrow"><div class="bl" style="width:22cqmin; font-size:1.6cqmin">Platform cost / user</div><div class="track"><div class="fill" style="background:#7ab83b" data-w="9"></div></div></div>
             <div class="barrow"><div class="bl" style="width:22cqmin; font-size:1.6cqmin">Old "pipeline" cost</div><div class="track"><div class="fill" style="background:#ca7406" data-w="82"></div></div></div>
@@ -232,11 +232,11 @@ export const scenes = [
   { id:"revenue", no:"09", kick:"The money", html:`
       <h2 class="h r" style="--d:.1s">Three revenue <em>engines</em></h2>
       <div class="splitbar r" style="--d:.24s">
-        <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">recruiting · the giant</div></div>
+        <div class="sb-seg" style="flex:62; --c:#639a00"><div class="sbv">62%</div><div class="sbn">Talent Solutions</div><div class="sbd">the recruiting suite</div></div>
         <div class="sb-seg" style="flex:24; --c:#ca7406"><div class="sbv">24%</div><div class="sbn">Marketing</div><div class="sbd">ad auction</div></div>
         <div class="sb-seg" style="flex:14; --c:#7ab83b"><div class="sbv">14%</div><div class="sbn">Premium</div><div class="sbd">+ Learning</div></div>
       </div>
-      <div class="takeaway r" style="--d:.5s">Pamper the members · <b>bill the money side.</b></div>
+      <div class="takeaway r" style="--d:.5s">Pricing · subsidise members, <b>charge the money side.</b></div>
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
         <span class="cite">Microsoft Corporation (2025)</span>
@@ -264,11 +264,11 @@ export const scenes = [
   /* ============ ACT 3, THE CRACK & VERDICT ============ */
 
   { id:"q-unbeatable", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">Is LinkedIn really <em>unbeatable</em>?</div>` },
+    html:`<div class="bigq r">Is LinkedIn really <em>winner-take-all</em>?</div>` },
 
   /* 10, WINNER TAKE ALL? */
   { id:"crack", no:"10", kick:"The crack", html:`
-      <h2 class="h r" style="--d:.1s">Unbeatable? <em>Not quite.</em></h2>
+      <h2 class="h r" style="--d:.1s">Winner-take-all? <em>Not quite.</em></h2>
       <div class="wta">
         <div class="wtac y r" style="--d:.3s"><div class="wtaq">Strong indirect network effects?</div><div class="wtaicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="wtav tips">YES</div><div class="wtad">each side pulls in the others</div></div>
         <div class="wtac n r" style="--d:.44s"><div class="wtaq">High multi-homing costs?</div><div class="wtaicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="wtav resists">NO</div><div class="wtad">rivals run side by side, cheaply</div></div>
@@ -372,7 +372,7 @@ export const scenes = [
   /* CLOSE — thank-you + the full APA reference list (shown, never spoken) */
   { id:"the-end", no:"✦", q:true, kick:"The end",
     html:`<div class="bigq endq">Thank you for <em>watching</em>.</div>
-      <div class="qsub">Powerful, but not unbeatable.</div>
+      <div class="qsub">Powerful, but not winner-take-all.</div>
       <div class="sources r" style="--d:.3s">
         <div class="sources-h">Sources</div>
         <div class="sources-list">

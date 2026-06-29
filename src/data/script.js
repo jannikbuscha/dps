@@ -55,7 +55,7 @@ export const script = {
   'q-free': "Why is it almost free to grow?",
 
   'matchmaker': [
-    { sel:'.pane@0', say:"Two reasons it's almost unstoppable. First, LinkedIn is a frictionless matchmaker: it crushes the cost of searching the job market, quietly linking a recruiter in Berlin to a perfect candidate in Munich who isn't even looking." },
+    { sel:'.pane@0', say:"Two reasons it's almost unstoppable. First, LinkedIn is a frictionless matchmaker, an intermediary that crushes the cost of searching the job market, quietly linking a recruiter in Berlin to a perfect candidate in Munich who isn't even looking." },
     { sel:'.pane@1', say:"Second, it's asset-light: basically software plus data, so the ten-millionth member costs almost nothing, yet can be sold to recruiters again and again. No warehouses, no factories, the textbook contrast between a platform and a pipeline. And that matching isn't just theory, it's about to happen to Lena." },
   ],
 
@@ -88,7 +88,7 @@ export const script = {
   'q-money': "Where does the money actually come from?",
 
   'revenue':
-    "Follow the money, and three engines roar into view. The biggest by far is Talent Solutions, the recruiting tools, around two-thirds of revenue. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator, Learning. Same multi-sided trick underneath: pamper the members, bill the money side. And that money side is, right now, about to land in Lena's inbox.",
+    "Follow the money, and three engines roar into view. By far the biggest, around two-thirds of revenue, is Talent Solutions, LinkedIn's paid recruiting suite: the Recruiter seats, job slots and hiring tools that companies buy to find and contact candidates. Next, Marketing Solutions, selling ads through an auction. And third, what individuals pay for directly: Premium, Sales Navigator and Learning. And underneath them all sits the pricing strategy, cross-subsidisation: members glide in almost free, while the money side, recruiters and advertisers, foots the bill. That money side is, right now, about to land in Lena's inbox.",
 
   'lena-pays': [
     { sel:'.story-copy', say:"Here's how it reaches her. A message appears in Lena's inbox. It looks like any other note, but it isn't. Marco couldn't just message her, they aren't connected." },
@@ -97,7 +97,7 @@ export const script = {
 
   /* ================= ACT 3, THE CRACK & VERDICT ================= */
 
-  'q-unbeatable': "Is LinkedIn really unbeatable?",
+  'q-unbeatable': "Is LinkedIn really winner-take-all?",
 
   'crack': [
     { sel:'.wtac@0',   say:"Eisenmann says a two-sided market only tips to one winner when three conditions hold at once. First, strong indirect network effects: the more members join, the more recruiters and advertisers they attract, and the bigger the user base, the more those providers want in. LinkedIn has this in spades." },
@@ -135,9 +135,9 @@ export const script = {
 
   'lena-job': [
     { sel:'.story-copy', say:"And, good news, it works out. Six weeks later, Lena signs: Lead Product Designer, a real step up, a genuinely happy ending. But replay how it happened. She never applied." },
-    { sel:'.mock@0',     say:"An algorithm decided she was worth surfacing, a paying recruiter decided she was worth reaching, and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. And that is the verdict in a single career: formidable network effects and asset-light scale make LinkedIn powerful, yet cheap switching, low openness, and its grip on the labour market keep it contestable and contested. Powerful, but not unbeatable, because its real moat is the network and the data it owns, not the doors it opens." },
+    { sel:'.mock@0',     say:"An algorithm decided she was worth surfacing, a paying recruiter decided she was worth reaching, and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. And that is the verdict in a single career: formidable network effects and asset-light scale make LinkedIn powerful, yet cheap switching, low openness, and its grip on the labour market keep it contestable and contested. Powerful, but not winner-take-all, because its real moat is the network and the data it owns, not the doors it opens." },
   ],
 
-  'the-end': "LinkedIn. Powerful, but not unbeatable. Thanks for watching.",
+  'the-end': "LinkedIn. Powerful, but not winner-take-all. Thanks for watching.",
 
 };
