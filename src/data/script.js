@@ -113,7 +113,7 @@ export const script = {
   'control': [
     { sel:'.dial@0',     say:"Its real moat isn't openness, it's control. Tiwana frames governance as two questions: who decides, and how open is the platform? On both, LinkedIn leans hard toward control, starting with a feed algorithm that's opaque and tightly held." },
     { sel:'.dial@1',     say:"Terms and moderation are strict." },
-    { sel:'.dial@2',     say:"Identities are verified, real names only." },
+    { sel:'.dial@2',     say:"There are no restrictions on who can join, but identities are verified, real names only." },
     { sel:'.dial@3',     say:"And it fights scraping hard." },
     { sel:'.casenote@0', say:"Take the landmark hiQ Labs case: a startup harvested public profiles to resell as analytics, LinkedIn blocked it and, after years in court, prevailed on breach of contract. The data stays LinkedIn's, firmly at the closed, controlled end." },
   ],
