@@ -36,7 +36,7 @@ export const scenes = [
   { id:"meet-lena", no:"00", kick:"Meet Lena",
     html:`
       <div class="lena-hero">
-        <img class="lenaface r" src="${B}images/lena.jpg" alt="Lena Vogel">
+        <img class="lenaface r" src="${B}images/lena.webp" alt="Lena Vogel">
         <div class="lenaname r" style="--d:.12s">Lena Vogel</div>
         <div class="lenarole r" style="--d:.18s">Product Designer · Munich</div>
         <div class="lenawhy r" style="--d:.26s">Wants to <b>connect with people</b> in her field.</div>
