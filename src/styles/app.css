@@ -53,6 +53,11 @@ body{
   letter-spacing:-.02em; color:var(--accent); max-width:86cqw; text-wrap:balance; }   /* green */
 .bigq .blue{ color:var(--accent); } .bigq em{ font-style:italic; color:var(--gold); }   /* orange accent */
 .qsub{ margin-top:3cqmin; font-size:2.6cqmin; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+/* end-card source list — the full, deduped citations (shown, never spoken) */
+.sources{ width:90cqw; margin:5cqmin auto 0; }
+.sources-h{ font-family:var(--mono); font-size:1.7cqmin; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-text); font-weight:700; margin-bottom:1.8cqmin; }
+.sources-list{ display:flex; flex-wrap:wrap; justify-content:center; gap:1cqmin 2.2cqmin; }
+.sources-list span{ font-family:var(--mono); font-size:1.55cqmin; color:var(--muted); white-space:nowrap; }
 
 /* STAGE */
 .stage{ position:absolute; inset:0; z-index:3; }

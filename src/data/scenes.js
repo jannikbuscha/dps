@@ -396,8 +396,34 @@ export const scenes = [
       </div>`
   },
 
-  /* CLOSE, no references scene; the full source list is provided separately */
+  /* CLOSE — thank-you + the full, deduped source list (not spoken) */
   { id:"the-end", no:"✦", q:true, kick:"The end",
     html:`<div class="bigq">Thank you for <em>watching</em>.</div>
-      <div class="qsub">Powerful, but not unbeatable.</div>` }
+      <div class="qsub">Powerful, but not unbeatable.</div>
+      <div class="sources r" style="--d:.3s">
+        <div class="sources-h">Sources</div>
+        <div class="sources-list">
+          <span>Armstrong (2006)</span>
+          <span>Boudreau (2010)</span>
+          <span>Caillaud &amp; Jullien (2003)</span>
+          <span>Eaton et al. (2015)</span>
+          <span>Eisenmann, Parker &amp; Van Alstyne (2006)</span>
+          <span>Eisenmann et al. (2011)</span>
+          <span>Gawer &amp; Cusumano (2014)</span>
+          <span>Ghazawneh &amp; Henfridsson (2013)</span>
+          <span>Hagiu &amp; Wright (2015)</span>
+          <span>Hoffman &amp; Yeh, "Blitzscaling" (2018)</span>
+          <span>Jacobides, Cennamo &amp; Gawer (2018)</span>
+          <span>Katz &amp; Shapiro (1985)</span>
+          <span>Osterwalder &amp; Pigneur (2010)</span>
+          <span>Parker, Van Alstyne &amp; Choudary, "Platform Revolution" (2016)</span>
+          <span>Rochet &amp; Tirole (2003)</span>
+          <span>Tiwana, Konsynski &amp; Bush (2010)</span>
+          <span>Van Alstyne, Parker &amp; Choudary (2016, HBR)</span>
+          <span>DataReportal (2026)</span>
+          <span>Microsoft 10-K (FY2025) &amp; 8-K (2016)</span>
+          <span>Microsoft Learn, API docs</span>
+          <span>TechCrunch (2016)</span>
+        </div>
+      </div>` }
 ];
