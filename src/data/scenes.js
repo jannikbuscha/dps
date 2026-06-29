@@ -58,7 +58,7 @@ export const scenes = [
       </div>
       <div class="src">
         <span class="cite">DataReportal (2026)</span>
-        <span class="cite">Microsoft 10-K, FY2025</span>
+        <span class="cite">Microsoft Corporation (2025)</span>
       </div>` },
 
   { id:"q-many-sides", no:"Q", q:true, kick:"Question",
@@ -99,7 +99,7 @@ export const scenes = [
       </div>
       <div class="src">
         <span class="cite">Katz &amp; Shapiro (1985)</span>
-        <span class="cite g">Eisenmann, Parker &amp; Van Alstyne (2006)</span>
+        <span class="cite g">Eisenmann et al. (2006)</span>
       </div>`
   },
 
@@ -123,7 +123,7 @@ export const scenes = [
         </div>
       </div>
       <div class="src">
-        <span class="cite">Van Alstyne, Parker &amp; Choudary (2016, HBR)</span>
+        <span class="cite">Van Alstyne et al. (2016)</span>
         <span class="cite g">Hagiu &amp; Wright (2015)</span>
       </div>`
   },
@@ -183,7 +183,7 @@ export const scenes = [
         </div>
       </div>
       <div class="src">
-        <span class="cite g">Parker, Van Alstyne &amp; Choudary, "Platform Revolution" (2016)</span>
+        <span class="cite g">Parker et al. (2016)</span>
       </div>`
   },
 
@@ -205,7 +205,7 @@ export const scenes = [
         <div class="node money nr" style="--d:.95s; left:16%; top:34%"><div class="dot">$</div><div class="nl">LinkedIn's cut</div></div>
       </div>
       <div class="src">
-        <span class="cite">Jacobides, Cennamo &amp; Gawer (2018)</span>
+        <span class="cite">Jacobides et al. (2018)</span>
         <span class="cite g">Gawer &amp; Cusumano (2014)</span>
       </div>`
   },
@@ -227,8 +227,8 @@ export const scenes = [
       </div>
       <div class="src">
         <span class="cite g">Caillaud &amp; Jullien (2003)</span>
-        <span class="cite">Microsoft 8-K (June 2016)</span>
-        <span class="cite">Hoffman &amp; Yeh, "Blitzscaling" (2018)</span>
+        <span class="cite">Microsoft Corporation (2016)</span>
+        <span class="cite">Hoffman &amp; Yeh (2018)</span>
       </div>`
   },
 
@@ -246,7 +246,8 @@ export const scenes = [
       <div class="takeaway r" style="--d:.5s">Pamper the members · <b>bill the money side.</b></div>
       <div class="src">
         <span class="cite g">Osterwalder &amp; Pigneur (2010)</span>
-        <span class="cite">Microsoft / TechCrunch (2016) · FY25</span>
+        <span class="cite">Microsoft Corporation (2025)</span>
+        <span class="cite">TechCrunch (2016)</span>
       </div>`
   },
 
@@ -287,7 +288,7 @@ export const scenes = [
         <span class="rival">Xing · DACH</span>
       </div>
       <div class="src">
-        <span class="cite">Eisenmann, Parker &amp; Van Alstyne (2006)</span>
+        <span class="cite">Eisenmann et al. (2006)</span>
         <span class="cite r">Eisenmann et al. (2011)</span>
         <span class="cite g">Caillaud &amp; Jullien (2003)</span>
       </div>`
@@ -307,7 +308,7 @@ export const scenes = [
       </div>
       <div class="casenote r" style="--d:.72s"><i class="ico ico-ban" aria-hidden="true"></i> <b>hiQ Labs v. LinkedIn:</b> a startup sued to keep scraping public profiles, and lost. The data stays LinkedIn's.</div>
       <div class="src">
-        <span class="cite">Tiwana, Konsynski &amp; Bush (2010)</span>
+        <span class="cite">Tiwana et al. (2010)</span>
         <span class="cite g">Boudreau (2010)</span>
       </div>`
   },
@@ -327,7 +328,7 @@ export const scenes = [
       <div class="src">
         <span class="cite g">Ghazawneh &amp; Henfridsson (2013)</span>
         <span class="cite">Eaton et al. (2015)</span>
-        <span class="cite">Microsoft Learn, API docs</span>
+        <span class="cite">Microsoft (n.d.)</span>
       </div>`
   },
 
@@ -417,9 +418,9 @@ export const scenes = [
           <span><b>Hoffman, R., &amp; Yeh, C.</b> (2018). <em>Blitzscaling: The lightning-fast path to building massively valuable companies.</em> Currency.</span>
           <span><b>Jacobides, M. G., Cennamo, C., &amp; Gawer, A.</b> (2018). Towards a theory of ecosystems. <em>Strategic Management Journal, 39</em>(8), 2255–2276.</span>
           <span><b>Katz, M. L., &amp; Shapiro, C.</b> (1985). Network externalities, competition, and compatibility. <em>The American Economic Review, 75</em>(3), 424–440.</span>
+          <span><b>Microsoft.</b> (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
           <span><b>Microsoft Corporation.</b> (2016). <em>Current report (Form 8-K).</em> U.S. Securities and Exchange Commission.</span>
           <span><b>Microsoft Corporation.</b> (2025). <em>Annual report (Form 10-K).</em> U.S. Securities and Exchange Commission.</span>
-          <span><b>Microsoft.</b> (n.d.). <em>LinkedIn API documentation.</em> Microsoft Learn.</span>
           <span><b>Osterwalder, A., &amp; Pigneur, Y.</b> (2010). <em>Business model generation: A handbook for visionaries, game changers, and challengers.</em> Wiley.</span>
           <span><b>Parker, G. G., Van Alstyne, M. W., &amp; Choudary, S. P.</b> (2016). <em>Platform revolution: How networked markets are transforming the economy and how to make them work for you.</em> W. W. Norton.</span>
           <span><b>Rochet, J.-C., &amp; Tirole, J.</b> (2003). Platform competition in two-sided markets. <em>Journal of the European Economic Association, 1</em>(4), 990–1029.</span>
