@@ -177,7 +177,7 @@ export const scenes = [
             <span>Their attention &amp; data</span>
           </div>
         </div>
-        <div class="cocard r" style="--d:.24s">
+        <div class="cocard members r" style="--d:.24s">
           <div class="cohead">The platform</div>
           <div class="cosub">runs the core interaction</div>
           <div class="coitems">
@@ -188,7 +188,7 @@ export const scenes = [
           </div>
           <div class="conote">…and takes a cut</div>
         </div>
-        <div class="cocard r" style="--d:.6s">
+        <div class="cocard members r" style="--d:.6s">
           <div class="cohead">Complementors</div>
           <div class="cosub">paid · generate demand</div>
           <div class="coitems">
