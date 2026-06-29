@@ -356,7 +356,6 @@ export const scenes = [
       <div class="warnbox r" style="--d:.6s"><b>One private gatekeeper</b> decides who gets seen, bias, surveillance, invisibility off-platform.</div>
       <div class="src">
         <span class="cite">Gawer &amp; Cusumano (2014)</span>
-        <span class="cite r">platform power · labour-market gatekeeping</span>
       </div>`
   },
 
