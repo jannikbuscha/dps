@@ -70,8 +70,8 @@ export const script = {
 
   'value-unit': [
     { sel:'.cocard@1', say:"The value here is co-created by three parties. At the centre, the platform provides the infrastructure and support: the network, the tools and the matching algorithm. It runs the core interaction, pulling people in, equipping them, and matching the right person to the right opportunity, and it takes a cut of everything that flows through." },
-    { sel:'.cocard@0', say:"On it, the members supply the raw value units, and they make every one for free: their profiles, their connections, the posts they share, and the jobs they need filled." },
-    { sel:'.cocard@2', say:"And the complementors co-create through paid transactions: recruiters pay to reach talent, advertisers bid in the ad auction, and developers and creators build tools and content on top." },
+    { sel:'.cocard@0', say:"On it, the members generate the supply, the raw value units they make for free: their profiles, their connections, the posts they share, and the attention and data they leave behind." },
+    { sel:'.cocard@2', say:"And the complementors generate the demand, co-creating through paid transactions: recruiters pay to reach talent, advertisers bid in the ad auction, and developers and creators build tools and content on top." },
   ],
 
   'q-from-zero': "How do you start a network from zero?",
