@@ -57,49 +57,55 @@ export function mountPlayer() {
   document.getElementById('total').textContent = fmt(totalMs);
 
   let idx = 0, step = 0, playing = false, started = false;
-  let sceneStart = 0, curEst = 0, raf = null, advanceTimer = null, keepAlive = null;
+  let sceneStart = 0, curEst = 0, raf = null, advanceTimer = null;
   let voiceOn = true, capsOn = true;
 
-  // ---- speech ----
-  let synth = window.speechSynthesis || null;
-  let chosenVoice = null;
-  function pickVoice(){
-    if(!synth) return;
-    const vs = synth.getVoices();
-    if(!vs.length) return;
-    const pref = [
-      v=>/en(-|_)?(US|GB)/i.test(v.lang)&&/natural|google|microsoft|samantha|aria|jenny|libby/i.test(v.name),
-      v=>/^en/i.test(v.lang)&&/google/i.test(v.name),
-      v=>/^en/i.test(v.lang)&&v.localService===false,
-      v=>/^en/i.test(v.lang)
-    ];
-    for(const f of pref){ const m=vs.find(f); if(m){ chosenVoice=m; return; } }
-    chosenVoice = vs[0];
+  // ---- audio narration ----
+  // Each step is voiced by a pre-recorded track in public/audio/, named by the
+  // scene id: single-narration scenes use "<id>.mp3", stepped scenes use
+  // "<id>-<n>.mp3" (n = 1-based step). When a step's track ends, playback
+  // advances to the next step / scene. If a track is missing or fails to load,
+  // we fall back to the computed WPM estimate so the reel still plays through.
+  const AUDIO_BASE = (import.meta.env.BASE_URL || '/') + 'audio/';
+  const audio = new Audio();
+  audio.preload = 'auto';
+  let audioActive = false;            // is the <audio> element driving the current step?
+  function audioUrl(i, k){
+    const s = scenes[i];
+    return AUDIO_BASE + (s.steps ? s.id + '-' + (k+1) : s.id) + '.mp3';
   }
-  if(synth){ pickVoice(); synth.onvoiceschanged = pickVoice; cleanups.push(()=>{ if(synth) synth.onvoiceschanged = null; }); }
+  function stopAudio(){
+    try{ audio.pause(); }catch(e){}
+    audio.onended = audio.onerror = audio.ontimeupdate = audio.onloadedmetadata = null;
+    audioActive = false;
+  }
 
-  function clearTimers(){ if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null;} if(keepAlive){clearInterval(keepAlive);keepAlive=null;} }
+  function clearTimers(){ if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null;} }
 
   function speakCurrent(){
     const text = curText();
     const myIdx = idx, myStep = step;
-    renderCaption(text, text.length);
-    if(synth){ try{ synth.cancel(); }catch(e){} }
     clearTimers();
+    stopAudio();
     sceneStart = performance.now(); curEst = estimate(text);
+    renderCaption(text, 0);
 
-    if(voiceOn && synth && chosenVoice){
-      const u = new SpeechSynthesisUtterance(text);
-      u.voice = chosenVoice; u.rate = 1.0; u.pitch = 1.0; u.volume = 1.0; u.lang = chosenVoice.lang || 'en-US';
-      u.onboundary = (e)=>{ if(idx===myIdx && step===myStep && (e.name==='word' || typeof e.charIndex==='number')){ renderCaption(text, e.charIndex); } };
-      u.onend = ()=>{ if(playing && idx===myIdx && step===myStep) goNext(); };
-      u.onerror = ()=>{ scheduleStepTimer(myIdx,myStep); };
-      keepAlive = setInterval(()=>{ if(synth.speaking && !synth.paused){ try{ synth.pause(); synth.resume(); }catch(e){} } }, 9000);
-      try{ synth.speak(u); }
-      catch(e){ scheduleStepTimer(myIdx,myStep); }
-    } else {
-      scheduleStepTimer(myIdx,myStep);
-    }
+    // metadata gives the real duration → drives the elapsed clock for this step
+    audio.onloadedmetadata = ()=>{ if(idx===myIdx && step===myStep && audio.duration){ curEst = audio.duration*1000; } };
+    // progress the caption highlight in step with playback position
+    audio.ontimeupdate = ()=>{
+      if(idx!==myIdx || step!==myStep || !audio.duration) return;
+      renderCaption(text, Math.round(text.length * Math.min(1, audio.currentTime/audio.duration)));
+    };
+    audio.onended = ()=>{ if(playing && idx===myIdx && step===myStep) goNext(); };
+    // missing / unplayable track → show the full caption and fall back to the
+    // computed estimate so the step still advances
+    audio.onerror = ()=>{ if(idx===myIdx && step===myStep){ audioActive=false; renderCaption(text, text.length); scheduleStepTimer(myIdx, myStep); } };
+    audio.muted = !voiceOn;
+    audio.src = audioUrl(myIdx, myStep);
+    audioActive = true;
+    const p = audio.play();
+    if(p && p.catch){ p.catch(()=>{ if(idx===myIdx && step===myStep){ audioActive=false; renderCaption(text, text.length); scheduleStepTimer(myIdx, myStep); } }); }
   }
   function scheduleStepTimer(i,k){
     clearTimeout(advanceTimer);
@@ -153,7 +159,7 @@ export function mountPlayer() {
   function gotoStep(k){
     step = Math.max(0, Math.min(stepCount()-1, k));
     applySpot(); updateNow();
-    if(synth){ try{ synth.cancel(); }catch(e){} }
+    stopAudio();
     clearTimers();
     sceneStart = performance.now(); curEst = estimate(curText());
     if(playing) speakCurrent();
@@ -274,7 +280,9 @@ export function mountPlayer() {
   function loop(){
     if(playing){
       const n = stepCount();
-      const local = Math.min(1, (performance.now()-sceneStart)/(curEst||scenes[idx].est));
+      const local = (audioActive && audio.duration)
+        ? Math.min(1, audio.currentTime/audio.duration)
+        : Math.min(1, (performance.now()-sceneStart)/(curEst||scenes[idx].est));
       const frac = Math.min(1, (step+local)/n);
       const elapsed = weights.slice(0,idx).reduce((a,w)=>a+w,0)*totalMs + frac*weights[idx]*totalMs;
       document.getElementById('elapsed').textContent = fmt(elapsed);
@@ -285,12 +293,15 @@ export function mountPlayer() {
   function play(){
     if(!started){ startVideo(); return; }
     playing = true; setPP(true);
-    if(synth && synth.paused && voiceOn){ try{ synth.resume(); }catch(e){} }
-    else { speakCurrent(); }
+    // resume an in-progress track where it left off; otherwise (re)start the step
+    if(audioActive && audio.src && audio.paused && !audio.ended){
+      audio.muted = !voiceOn;
+      const p = audio.play(); if(p && p.catch) p.catch(()=>{});
+    } else { speakCurrent(); }
   }
   function pause(){
     playing = false; setPP(false);
-    if(synth && voiceOn){ try{ synth.pause(); }catch(e){} }
+    if(audioActive){ try{ audio.pause(); }catch(e){} }
     clearTimeout(advanceTimer);
   }
   function togglePlay(){ playing ? pause() : play(); }
@@ -304,7 +315,7 @@ export function mountPlayer() {
     if(idx < scenes.length-1){ jump(idx+1); }
     else {
       playing=false; setPP(false); clearTimers();
-      if(synth){ try{ synth.cancel(); }catch(e){} }
+      stopAudio();
     }
   }
   function goPrev(){
@@ -313,7 +324,7 @@ export function mountPlayer() {
   }
   function jump(i, toLast){
     i = Math.max(0, Math.min(scenes.length-1, i));
-    if(synth){ try{ synth.cancel(); }catch(e){} }
+    stopAudio();
     clearTimers();
     showScene(i);
     if(!started){ started=true; }
@@ -330,7 +341,7 @@ export function mountPlayer() {
     if(!raf) loop();
   }
   function restart(){
-    if(synth){ try{ synth.cancel(); }catch(e){} }
+    stopAudio();
     clearTimers(); started=false; playing=false; setPP(false);
     document.getElementById('elapsed').textContent='0:00';
     showScene(0);
@@ -346,8 +357,8 @@ export function mountPlayer() {
   function toggleVoice(){
     voiceOn = !voiceOn; setSwitch(voiceTog, voiceOn);
     if(voiceIco) voiceIco.className = voiceOn ? 'ico ico-voice' : 'ico ico-voiceoff';
-    if(synth){ try{ synth.cancel(); }catch(e){} }
-    if(started && playing){ speakCurrent(); }
+    // mute/unmute live; the track keeps playing (and still drives advancement)
+    audio.muted = !voiceOn;
   }
   function toggleCaps(){
     capsOn = !capsOn; setSwitch(capTog, capsOn);
@@ -373,7 +384,7 @@ export function mountPlayer() {
     else if(e.code==='ArrowLeft'){ e.preventDefault(); if(started) goPrev(); }
   };
   document.addEventListener('keydown', onKeydown); cleanups.push(()=>document.removeEventListener('keydown', onKeydown));
-  const onBeforeUnload = ()=>{ if(synth){ try{ synth.cancel(); }catch(e){} } };
+  const onBeforeUnload = ()=>{ try{ audio.pause(); }catch(e){} };
   window.addEventListener('beforeunload', onBeforeUnload); cleanups.push(()=>window.removeEventListener('beforeunload', onBeforeUnload));
 
   // init: show the first scene (the intro), paused. Pressing Play (or →)
@@ -384,7 +395,7 @@ export function mountPlayer() {
   return function destroy() {
     if (raf) cancelAnimationFrame(raf);
     clearTimers();
-    if (synth) { try { synth.cancel(); } catch (e) {} }
+    stopAudio();
     cleanups.forEach(fn => { try { fn(); } catch (e) {} });
     stage.innerHTML = '';
     mounted = false;
