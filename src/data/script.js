@@ -154,18 +154,7 @@ export const script = {
 
   'lena-job': [
     { sel:'.story-copy', say:"And, good news, it works out. Six weeks later, Lena signs: Lead Product Designer, a real step up, a genuinely happy ending. But replay how it happened. She never applied." },
-    { sel:'.mock@0',     say:"An algorithm decided she was worth surfacing, a paying recruiter decided she was worth reaching, and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. Convenience for her, quiet power for the platform. So, time for the final verdict." },
-  ],
-
-  'q-strong-or-unbeatable': "So, strong, or unbeatable?",
-
-  'verdict': [
-    { sel:'.fwc@0',     say:"Framework by framework: LinkedIn is a textbook multi-sided platform, powered by formidable network effects, direct, cross-side and data. Strong." },
-    { sel:'.fwc@1',     say:"With beautiful asset-light scale. Strong." },
-    { sel:'.fwc@2',     say:"But it's no flawless monopoly: cheap switching and a market sliced by function keep it contestable, rivals like Xing survive in their regions." },
-    { sel:'.fwc@3',     say:"Its greatest strength, tight governance and trust, is also its ceiling: openness is low, the APIs narrow." },
-    { sel:'.fwc@4',     say:"And its grip on the labour market earns the scrutiny it gets, a real ethical concern." },
-    { sel:'.closing@0', say:"So the answer to our opening question? Powerful, but not unbeatable. The real lesson: owning the network and the data, not opening the doors, is the most durable moat of all." },
+    { sel:'.mock@0',     say:"An algorithm decided she was worth surfacing, a paying recruiter decided she was worth reaching, and a private platform sat in the middle of every step. Lena won, and so did LinkedIn, which quietly owned the whole match. And that is the verdict in a single career: formidable network effects and asset-light scale make LinkedIn powerful, yet cheap switching, low openness, and its grip on the labour market keep it contestable and contested. Powerful, but not unbeatable, because its real moat is the network and the data it owns, not the doors it opens." },
   ],
 
   'the-end': "LinkedIn. Powerful, but not unbeatable. Thanks for watching.",

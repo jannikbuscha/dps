@@ -376,27 +376,6 @@ export const scenes = [
         </div>
       </div>` },
 
-  { id:"q-strong-or-unbeatable", no:"Q", q:true, kick:"Question",
-    html:`<div class="bigq r">So, <span class="blue">strong</span>, or <em>unbeatable</em>?</div>` },
-
-  /* 14, VERDICT */
-  { id:"verdict", no:"14", kick:"The verdict", html:`
-      <h2 class="h r" style="--d:.1s">Against the <em>frameworks</em></h2>
-      <div class="fwk">
-        <div class="fwc good r" style="--d:.26s"><div class="fwk-k">Network effects</div><div class="fwkicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="fwk-v good">STRONG</div></div>
-        <div class="fwc good r" style="--d:.36s"><div class="fwk-k">Asset-light scale</div><div class="fwkicon"><i class="ico ico-check" aria-hidden="true"></i></div><div class="fwk-v good">STRONG</div></div>
-        <div class="fwc bad r" style="--d:.46s"><div class="fwk-k">Unbeatable monopoly</div><div class="fwkicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="fwk-v bad">CONTESTABLE</div></div>
-        <div class="fwc bad r" style="--d:.56s"><div class="fwk-k">Openness</div><div class="fwkicon"><i class="ico ico-x" aria-hidden="true"></i></div><div class="fwk-v bad">LOW</div></div>
-        <div class="fwc warn r" style="--d:.66s"><div class="fwk-k">Labour-market ethics</div><div class="fwkicon"><i class="ico ico-warn" aria-hidden="true"></i></div><div class="fwk-v warn">CONCERN</div></div>
-      </div>
-      <div class="closing r" style="--d:.82s"><b>Powerful, but not unbeatable.</b> The moat is the network and the data, not openness.</div>
-      <div class="src">
-        <span class="cite">Eisenmann et al. (2006)</span>
-        <span class="cite g">Parker et al. (2016)</span>
-        <span class="cite r">Boudreau (2010)</span>
-      </div>`
-  },
-
   /* CLOSE — thank-you + the full APA reference list (shown, never spoken) */
   { id:"the-end", no:"✦", q:true, kick:"The end",
     html:`<div class="bigq endq">Thank you for <em>watching</em>.</div>
