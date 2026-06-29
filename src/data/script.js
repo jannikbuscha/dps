@@ -35,10 +35,10 @@ export const script = {
   'multi-sided': [
     { sel:'.lead@0',    say:"At its core, LinkedIn is a multi-sided platform: it doesn't serve a single customer but several distinct groups at once, and each side only becomes valuable because the others are there." },
     { sel:'.hubcore@0', say:"At the centre sits the owner. It plays referee and architect, setting the rules, deciding how the sides connect, and keeping the network trustworthy. It never owns the deal itself, it just makes the right people findable." },
-    { sel:'.node@0',    say:"On one side, members, people like Lena, who join for free." },
-    { sel:'.node@1',    say:"On another, recruiters, like Marco, who come to find talent." },
-    { sel:'.node@2',    say:"Advertisers come to put their brand in front of you." },
-    { sel:'.node@3',    say:"Then the complementors build on top: developers, hiring tools, ad agencies, course creators and data partners. And the owner takes a cut of nearly everything that flows through." },
+    { sel:'.node@0',    say:"On the one hand, members: working professionals like Lena, as well as students, job seekers, self-employed individuals and executives, who join for free." },
+    { sel:'.node@1',    say:"On the other hand, the complementors. First, recruiters, like Marco, who come to find talent." },
+    { sel:'.node@2',    say:"Then advertisers, who pay to put their brand in front of you." },
+    { sel:'.node@3',    say:"And developers and partners, who build on top. The owner takes a cut of nearly everything that flows through." },
   ],
 
   /* ===================== ACT 2, THE MACHINE ===================== */
